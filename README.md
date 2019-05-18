@@ -14,6 +14,6 @@ Site de delivery de comida chinesa desenvolvido para a disciplina de Desenvolvim
 
 ### Especificações Extras
 
-1. O site possui um rodapé com o telefone da empresa, data de fundação e o nome da desenvolvedora que criou o site.
-2. Faz uso de um dos widgets do ```JQuery```.
-3. Desenvolvido em HTML, CSS e JavaScript.
+- O site possui um rodapé com o telefone da empresa, data de fundação e o nome da desenvolvedora que criou o site.
+- Faz uso de um dos widgets do ```JQuery```.
+- Desenvolvido em ```HTML```, ```CSS``` e ```JavaScript```.
