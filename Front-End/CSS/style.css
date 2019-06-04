@@ -566,6 +566,13 @@ p {
     width: 160px;
 }
 
+.menu-search input:focus,
+.menu-search input:hover {
+    border: 1px solid #d32b28;
+    box-shadow: none !important;
+    outline: none;
+}
+
 .menu-search i {
     position: static;
     top: 0;
