@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>MANTIS | CULINÁRIA CHINESA</title>
+
+<link rel="icon" href="/imagens/icon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="/imagens/icon.png" type="image/x-icon" />
+
+<!-- Estilo do site -->
+<link rel="stylesheet" type="text/css" media="screen"
+	href="/css/style.css">
+
+<!-- Fonte do site -->
+<link href="https://fonts.googleapis.com/css?family=Varela+Round"
+	rel="stylesheet">
+
+<!-- Icons para a barra de navegação -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+	integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+	crossorigin="anonymous">
+
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
+</head>
+
+<body>
+
+	<!-- Barra de navegação -->
+
+	<div class="navbar">
+		<nav class="navbar-header">
+			<a href="cardapio.html"><i class="fas fa-utensils"></i> Cardápio</a>
+			<a href="cadastrar-pratos.html"><i class="fas fa-clipboard-list"></i></i>
+				Cadastrar Pratos</a> <a href="javascript:void(0)"><img
+				src="/imagens/logo.png" alt class="logo-mobile"></a> <a
+				href="javascript:void(0)"><i class="fa fa-fw fa-user"></i> Olá,
+				gerente!</a> <a href=" " class="dropdown"><i
+				class="fas fa-sign-out-alt"></i></i> Sair</a>
+		</nav>
+	</div>
+
+	<div class="horario">
+		<span class="horario-funcionamento"> <span class="relogio-icon">
+				<i class="fas fa-user-cog"></i>
+		</span> <span class="horarios">
+				<h3>Gerente do restaurante</h3>
+				<p>Área responsável por cadastrar e remover pratos</p>
+		</span>
+		</span>
+	</div>
+
+	<div class="container">
+		<div class="menu">
+			<div class="menu-nav">
+				<ul id="menu-nav">
+					<li><a href="#entradas" id="link1" class="menu-links active">Entradas</a>
+					</li>
+					<li><a href="#frango" id="link2" class="menu-links">Frango</a>
+					</li>
+					<li><a href="#carne" id="link3" class="menu-links">Carne</a></li>
+					<li><a href="#peixes" id="link4" class="menu-links">Peixes
+							e Camarões</a></li>
+					<li><a href="#macarroes" id="link5" class="menu-links">Macarrões
+							e Arroz</a></li>
+					<li><a href="#sopa" id="link6" class="menu-links">Sopas</a></li>
+					<li><a href="#sobremesas" id="link7" class="menu-links">Sobremesas</a>
+					</li>
+					<li class="menu-search"><input type="text"
+						placeholder="Pesquisar... " id="pesquisaProdutos"> <!--<i class="fas fa-search"></i>-->
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<span class="cardapio-titulo"> Cardápio: Culinária Chinesa </span>
+	</div>
+
+	<div class="row" id="row1">
+		<div class="gallery">
+			<a target="_blank" href="../Imagens/salada.jpg"> <img
+				src="../Imagens/salada.jpg" alt="Salada Mista">
+			</a>
+			<div class="title">Salada Mista (2 pessoas)</div>
+			<div class="desc">Cenoura, repolho e pimentão desfiados,
+				azeitona, ovos de codorna e rodelas de tomate.</div>
+			<div class="preco" style="color: #d32b28; font-weight: bold;">
+				R$ 13,50
+				<button type="submit">Adicionar</button>
+			</div>
+		</div>
+
+		<div class="gallery">
+			<a target="_blank" href="../Imagens/batata_frita.jpeg"> <img
+				src="../Imagens/batata_frita.jpeg" alt="Batata Frita">
+			</a>
+			<div class="title">
+				Batata Frita<br>(2 pessoas)
+			</div>
+			<div class="desc">Batata palito.</div>
+			<br>
+			<br>
+			<br>
+			<div class="preco">
+				R$ 17,00
+				<button type="submit">Adicionar</button>
+			</div>
+		</div>
+
+		<div class="gallery">
+			<a target="_blank" href="../Imagens/egg_roll.jpg"> <img
+				src="../Imagens/egg_roll.jpg" alt="Rolinho de Queijo">
+			</a>
+			<div class="title">Rolinho de Queijo</div>
+			<div class="desc">Massa fina e crocante, recheada com queijo
+				prato.</div>
+			<br>
+			<div class="preco">
+				R$ 3,50
+				<button type="submit">Adicionar</button>
+			</div>
+		</div>
+
+		<div class="gallery">
+			<a target="_blank" href="../Imagens/egg_roll.jpg"> <img
+				src="../Imagens/egg_roll.jpg" alt="Rolinho Primavera">
+			</a>
+			<div class="title">Rolinho Primaveira</div>
+			<div class="desc">Massa fina e crocante, recheada com carne
+				moída, repolho e cenoura desfiados.</div>
+			<div class="preco" style="color: #d32b28; font-weight: bold;">
+				R$ 3,50
+				<button type="submit">Adicionar</button>
+			</div>
+		</div>
+	</div>
+
+	<!-- Botão para ver mais pratos tipo entradas -->
+	<div class="row">
+		<br>
+		<div style="text-align: center">
+			<input type="submit" id="botaoMais1" value="Mais">
+		</div>
+	</div>
+
+	<!-- Rodapé -->
+
+	<footer class="rodape">
+		<ul>
+			<li><i class="rodape-item-1 fab fa-whatsapp"></i> (88)
+				9.9287-1532 <i class="rodape-item-2 fas fa-calendar-day"></i>
+				Fundado em: Abril de 2008. <i
+				class="rodape-item-3 fas fa-map-marker-alt"></i> Universidade
+				Federal do Ceará.</li>
+			<li><i class="rodape-item-1 fas fa-file-code"></i> Powered by:
+				Bárbara Stéph. Neves.</li>
+			<li class="rodape-content"><i class="rodape-content"></i>2019 ©
+				Todos os direitos reservados.</li>
+		</ul>
+	</footer>
+
+	<!-- Script para a ativação dos links do menu do cardápio -->
+	<script>
+		var menu = document.getElementById("menu-nav");
+		var links = menu.getElementsByClassName("menu-links");
+
+		for (var i = 0; i < links.length; i++) {
+			links[i].addEventListener("click", function() {
+				var current = document.getElementsByClassName("active");
+				current[0].className = current[0].className.replace(" active",
+						"");
+				this.className += " active";
+			});
+		}
+	</script>
+
+	<!-- Script para os botões da página -->
+	<script>
+		//Iniciando
+		$(document).ready(function() {
+			$('#row2').hide();
+			$('#row3').hide();
+			$('#row4').hide();
+			$('#row5').hide();
+			$('#row6').hide();
+			$('#row7').hide();
+			$('#row8').hide();
+			$('#row9').hide();
+			$('#row10').hide();
+			$('#botaoMais2').hide();
+			$('#botaoMais3').hide();
+		});
+
+		//Botões mais pratos tipo Entradas
+		$('#botaoMais1').click(function() {
+			$('#row2').show("slow");
+			$('#botaoMais1').hide();
+			$('#botaoMais2').show();
+		});
+
+		$('#botaoMais2').click(function() {
+			$('#row3').show("slow");
+			$('#botaoMais2').hide();
+		});
+
+		//Botões mais pratos com Camarão e Peixe
+		$('#botaoMais3').click(function() {
+			$('#row7').show("slow");
+			$('#botaoMais3').hide();
+		});
+
+		//Pratos tipo Entradas
+		$('#link1').click(function() {
+			$('#row1').show("slow");
+			$('#botaoMais1').show("slow");
+			$('#row2').hide();
+			$('#row3').hide();
+			$('#row4').hide();
+			$('#row5').hide();
+			$('#row6').hide();
+			$('#row7').hide();
+			$('#row8').hide();
+			$('#row9').hide();
+			$('#row10').hide();
+			$('#botaoMais2').hide();
+			$('#botaoMais3').hide();
+		});
+
+		//Pratos com Frago
+		$('#link2').click(function() {
+			$('#row1').hide();
+			$('#botaoMais1').hide();
+			$('#row2').hide();
+			$('#row3').hide();
+			$('#row4').show("slow");
+			$('#row5').hide();
+			$('#row6').hide();
+			$('#row7').hide();
+			$('#row8').hide();
+			$('#row9').hide();
+			$('#row10').hide();
+			$('#botaoMais2').hide();
+			$('#botaoMais3').hide();
+		});
+
+		//Pratos com Carne
+		$('#link3').click(function() {
+			$('#row1').hide();
+			$('#botaoMais1').hide();
+			$('#row2').hide();
+			$('#row3').hide();
+			$('#row4').hide();
+			$('#row5').show("slow");
+			$('#row6').hide();
+			$('#row7').hide();
+			$('#row8').hide();
+			$('#row9').hide();
+			$('#row10').hide();
+			$('#botaoMais2').hide();
+			$('#botaoMais3').hide();
+		});
+
+		//Pratos com Peixes e Camarões
+		$('#link4').click(function() {
+			$('#row1').hide();
+			$('#botaoMais1').hide();
+			$('#row2').hide();
+			$('#row3').hide();
+			$('#row4').hide();
+			$('#row5').hide();
+			$('#row6').show("slow");
+			$('#botaoMais3').show("slow");
+			$('#row7').hide();
+			$('#row8').hide();
+			$('#row9').hide();
+			$('#row10').hide();
+			$('#botaoMais2').hide();
+		});
+
+		//Pratos com Macarrões e Arroz
+		$('#link5').click(function() {
+			$('#row1').hide();
+			$('#botaoMais1').hide();
+			$('#row2').hide();
+			$('#row3').hide();
+			$('#row4').hide();
+			$('#row6').hide();
+			$('#row7').hide();
+			$('#row8').show("slow");
+			$('#row9').hide();
+			$('#row10').hide();
+			$('#botaoMais2').hide();
+			$('#botaoMais3').hide();
+		});
+
+		//Sopas
+		$('#link6').click(function() {
+			$('#row1').hide();
+			$('#botaoMais1').hide();
+			$('#row2').hide();
+			$('#row3').hide();
+			$('#row4').hide();
+			$('#row6').hide();
+			$('#row7').hide();
+			$('#row8').hide();
+			$('#row9').show("slow");
+			$('#row10').hide();
+			$('#botaoMais2').hide();
+			$('#botaoMais3').hide();
+		});
+
+		//Sobremesas
+		$('#link7').click(function() {
+			$('#row1').hide();
+			$('#botaoMais1').hide();
+			$('#row2').hide();
+			$('#row3').hide();
+			$('#row4').hide();
+			$('#row6').hide();
+			$('#row7').hide();
+			$('#row8').hide();
+			$('#row9').hide();
+			$('#row10').show("slow");
+			$('#botaoMais2').hide();
+			$('#botaoMais3').hide();
+		});
+	</script>
+
+</body>
+
+</html>

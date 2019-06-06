@@ -221,6 +221,18 @@ p {
     display: block;
 }
 
+select {
+  width: 100%;
+  padding: 12px 12px;
+  border: 1px solid #e6e5e5;
+  border-radius: 4px;
+  background-color: #f1f1f1;
+}
+
+select:focus {
+	box-shadow: none !important;
+    outline: none;
+}
 
 /* Barra de Navegação */
 
@@ -320,7 +332,7 @@ p {
 }
 
 .cardapio-titulo {
-    margin-left: 60px;
+    margin-left: 35px;
     font-size: 24px;
     border-bottom: 2px solid #ce3a3e;
     padding-bottom: 3px;
@@ -481,7 +493,7 @@ p {
 
 .container {
     margin: 0 auto;
-    width: 800px;
+    width: 60%;
     margin-bottom: 15px;
 }
 
@@ -522,14 +534,14 @@ p {
 }
 
 .menu {
-    margin-left: -70px;
+    margin-left: -65px;
     height: auto;
 }
 
 .menu-nav {
-    width: 20%;
     float: left;
     display: block;
+    margin-top: -15px;
 }
 
 .menu-links {
@@ -538,13 +550,12 @@ p {
     border: 1px solid #e6e5e5;
     background: white;
     border-radius: 4px;
-    margin-bottom: 35px;
+    margin-bottom: 15px;
     color: black;
     text-decoration: none;
     font-size: 13px;
     text-align: left;
     width: 160px;
-    margin-top: -18px;
 }
 
 .active {
@@ -556,7 +567,7 @@ p {
 .menu-search {
     display: block;
     list-style: none;
-    margin-top: -18px;
+    margin-bottom: 15px;
 }
 
 .menu-search input {

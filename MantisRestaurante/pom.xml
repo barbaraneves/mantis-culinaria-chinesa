@@ -8,10 +8,10 @@
 		<version>2.1.5.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>mantis.com.br</groupId>
-	<artifactId>MantisCulinariaChinesa</artifactId>
+	<groupId>mantisrestaurante.com.br</groupId>
+	<artifactId>MantisRestaurente</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>MantisCulinariaChinesa</name>
+	<name>MantisRestaurente</name>
 	<description>Site de delivery de comida chinesa desenvolvido para a disciplina de Desenvolvimento de Software para Web em 2019.1.</description>
 
 	<properties>
