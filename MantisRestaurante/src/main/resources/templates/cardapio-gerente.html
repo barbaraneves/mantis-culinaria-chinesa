@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 
 <head>
 <meta charset="UTF-8">
@@ -13,6 +13,7 @@
 <!-- Estilo do site -->
 <link rel="stylesheet" type="text/css" media="screen"
 	href="/css/style.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
 <!-- Fonte do site -->
 <link href="https://fonts.googleapis.com/css?family=Varela+Round"
@@ -38,13 +39,14 @@
 
 	<div class="navbar">
 		<nav class="navbar-header">
-			<a href="cardapio.html"><i class="fas fa-utensils"></i> Cardápio</a>
-			<a href="cadastrar-pratos.html"><i class="fas fa-clipboard-list"></i></i>
-				Cadastrar Pratos</a> <a href="javascript:void(0)"><img
-				src="/imagens/logo.png" alt class="logo-mobile"></a> <a
-				href="javascript:void(0)"><i class="fa fa-fw fa-user"></i> Olá,
-				gerente!</a> <a href=" " class="dropdown"><i
-				class="fas fa-sign-out-alt"></i></i> Sair</a>
+			<a href="http://localhost:8080/area-gerente/cardapio"><i
+				class="fas fa-utensils"></i> Cardápio</a> <a
+				href="http://localhost:8080/area-gerente/cadastrar-pratos"><i
+				class="fas fa-clipboard-list"></i></i> Cadastrar Pratos</a> <a
+				href="javascript:void(0)"><img src="/imagens/logo.png" alt
+				class="logo-mobile"></a> <a href="javascript:void(0)"><i
+				class="fa fa-fw fa-user"></i> Olá, gerente!</a> <a href=" "
+				class="dropdown"><i class="fas fa-sign-out-alt"></i></i> Sair</a>
 		</nav>
 	</div>
 
@@ -53,7 +55,7 @@
 				<i class="fas fa-user-cog"></i>
 		</span> <span class="horarios">
 				<h3>Gerente do restaurante</h3>
-				<p>Área responsável por cadastrar e remover pratos</p>
+				<p>Responsável por cadastrar e remover pratos</p>
 		</span>
 		</span>
 	</div>
@@ -84,72 +86,27 @@
 		<span class="cardapio-titulo"> Cardápio: Culinária Chinesa </span>
 	</div>
 
-	<div class="row" id="row1">
-		<div class="gallery">
-			<a target="_blank" href="../Imagens/salada.jpg"> <img
-				src="../Imagens/salada.jpg" alt="Salada Mista">
-			</a>
-			<div class="title">Salada Mista (2 pessoas)</div>
-			<div class="desc">Cenoura, repolho e pimentão desfiados,
-				azeitona, ovos de codorna e rodelas de tomate.</div>
-			<div class="preco" style="color: #d32b28; font-weight: bold;">
-				R$ 13,50
-				<button type="submit">Adicionar</button>
-			</div>
-		</div>
-
-		<div class="gallery">
-			<a target="_blank" href="../Imagens/batata_frita.jpeg"> <img
-				src="../Imagens/batata_frita.jpeg" alt="Batata Frita">
-			</a>
-			<div class="title">
-				Batata Frita<br>(2 pessoas)
-			</div>
-			<div class="desc">Batata palito.</div>
-			<br>
-			<br>
-			<br>
-			<div class="preco">
-				R$ 17,00
-				<button type="submit">Adicionar</button>
-			</div>
-		</div>
-
-		<div class="gallery">
-			<a target="_blank" href="../Imagens/egg_roll.jpg"> <img
-				src="../Imagens/egg_roll.jpg" alt="Rolinho de Queijo">
-			</a>
-			<div class="title">Rolinho de Queijo</div>
-			<div class="desc">Massa fina e crocante, recheada com queijo
-				prato.</div>
-			<br>
-			<div class="preco">
-				R$ 3,50
-				<button type="submit">Adicionar</button>
-			</div>
-		</div>
-
-		<div class="gallery">
-			<a target="_blank" href="../Imagens/egg_roll.jpg"> <img
-				src="../Imagens/egg_roll.jpg" alt="Rolinho Primavera">
-			</a>
-			<div class="title">Rolinho Primaveira</div>
-			<div class="desc">Massa fina e crocante, recheada com carne
-				moída, repolho e cenoura desfiados.</div>
-			<div class="preco" style="color: #d32b28; font-weight: bold;">
-				R$ 3,50
-				<button type="submit">Adicionar</button>
-			</div>
-		</div>
-	</div>
-
-	<!-- Botão para ver mais pratos tipo entradas -->
 	<div class="row">
-		<br>
-		<div style="text-align: center">
-			<input type="submit" id="botaoMais1" value="Mais">
+		<div class="gallery" th:each="prato : ${cardapio}">
+			<a target="_blank" href="/imagens/salada.jpg"> <img
+				src="/imagens/salada.jpg" alt="Salada Mista">
+			</a>
+			<div class="icon">
+				<a th:href="@{/area-gerente/excluir-prato/{id}(id = ${prato.id})}">
+					<button type="submit"><i class="fas fa-trash-alt"></i></button>
+				</a>
+			</div>
+			<div class="title" th:text="${prato.nome}"></div>
+			<div class="desc" th:text="${prato.descricao}"></div>
+			<div class="editar">
+				R$ <span th:text="${prato.preco}"></span>
+				<a th:href="@{/area-gerente/editar-prato/{id}(id = ${prato.id})}">
+					<button type="submit"><i class="fas fa-edit"></i>   Editar</button>
+				</a>
+			</div>
 		</div>
 	</div>
+
 
 	<!-- Rodapé -->
 
@@ -184,39 +141,6 @@
 
 	<!-- Script para os botões da página -->
 	<script>
-		//Iniciando
-		$(document).ready(function() {
-			$('#row2').hide();
-			$('#row3').hide();
-			$('#row4').hide();
-			$('#row5').hide();
-			$('#row6').hide();
-			$('#row7').hide();
-			$('#row8').hide();
-			$('#row9').hide();
-			$('#row10').hide();
-			$('#botaoMais2').hide();
-			$('#botaoMais3').hide();
-		});
-
-		//Botões mais pratos tipo Entradas
-		$('#botaoMais1').click(function() {
-			$('#row2').show("slow");
-			$('#botaoMais1').hide();
-			$('#botaoMais2').show();
-		});
-
-		$('#botaoMais2').click(function() {
-			$('#row3').show("slow");
-			$('#botaoMais2').hide();
-		});
-
-		//Botões mais pratos com Camarão e Peixe
-		$('#botaoMais3').click(function() {
-			$('#row7').show("slow");
-			$('#botaoMais3').hide();
-		});
-
 		//Pratos tipo Entradas
 		$('#link1').click(function() {
 			$('#row1').show("slow");
