@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>MANTIS | CULINÁRIA CHINESA</title>
+
+<link rel="icon" href="/imagens/icon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="/imagens/icon.png" type="image/x-icon" />
+
+<!-- Estilo do site -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" media="screen"
+	href="/css/style.css">
+
+<!-- Fonte do site -->
+<link href="https://fonts.googleapis.com/css?family=Varela+Round"
+	rel="stylesheet">
+
+<!-- Icons para a barra de navegação -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+	integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+	crossorigin="anonymous">
+
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+	<!-- Barra de navegação -->
+
+	<div class="navebar">
+		<nav class="navebar-header">
+			<a href="/cardapio"><i class="fas fa-utensils"></i> Cardápio</a> <a
+				href="/sobre"><i class="fas fa-store"></i> Sobre</a> <a
+				href="/contato"><i class="fa fa-envelope"></i> Contato</a> <a
+				href="/home"><img src="/imagens/logo.png" alt
+				class="logo-mobile"></a> <a href="javascript:void(0)"
+				class="dropdown"><i class="far fa-clock"></i> <span>Aberto
+					até às 23h</span>
+				<div class="dropdown-content">
+					<p class="corPrimaria">Todos os dias das 11 às 15h e 18 às 23h</p>
+				</div> <i class="fas fa-angle-down"></i> </a> <a href="/entrar"><i
+				class="fa fa-fw fa-user"></i> Meus Pedidos</a> <a href="/pedido"
+				class="carrinho"><i class="fas fa-shopping-cart"></i></a>
+		</nav>
+	</div>
+
+	<div class="login">
+		<form action="/entrar/meus-dados/usuario-cadastrado" method="POST"
+			class="login-form needs-validation" novalidate>
+
+			<h4 class="login-titulo">MEUS DADOS</h4>
+			<br>
+			<div class="form-box">
+				<div class="form-box-label">Nome</div>
+				<input type="text" name="nome" id="nome"
+					class="form-input form-control" required>
+				<div class="valid-feedback"></div>
+				<div class="invalid-feedback">Mensagem é obrigatória</div>
+			</div>
+
+			<div class="form-box">
+				<div class="form-box-label">CPF</div>
+				<input type="number" name="cpf" id="cpf"
+					class="form-input form-control" value maxlength="14" required>
+				<div class="valid-feedback"></div>
+				<div class="invalid-feedback">Mensagem é obrigatória</div>
+			</div>
+
+			<div class="form-box">
+				<div class="form-box-label">Aniversário</div>
+				<input type="date" name="aniver" id="aniver"
+					class="form-input form-control" required>
+				<div class="valid-feedback"></div>
+				<div class="invalid-feedback">Mensagem é obrigatória</div>
+			</div>
+
+			<hr>
+
+			<div class="form-box">
+				<div class="form-box-label">Estado</div>
+				<select name="estado" id="estado" required>
+					<option value="AC">AC - Acre</option>
+					<option value="AL">AL - Alagoas</option>
+					<option value="AP">AP - Amapá</option>
+					<option value="AM">AM - Amazonas</option>
+					<option value="BA">BA - Bahia</option>
+					<option value="CE">CE - Ceará</option>
+					<option value="DF">DF - Distrito Federal</option>
+					<option value="ES">ES - Espírito Santo</option>
+					<option value="GO">GO - Goiás</option>
+					<option value="MA">MA - Maranhão</option>
+					<option value="MT">MT - Mato Grosso</option>
+					<option value="MS">MS - Mato Grosso do Sul</option>
+					<option value="MG">MG - Minas Gerais</option>
+					<option value="PA">PA - Pará</option>
+					<option value="PB">PB - Paraíba</option>
+					<option value="PR">PR - Paraná</option>
+					<option value="PE">PE - Pernambuco</option>
+					<option value="PI">PI - Piauí</option>
+					<option value="RJ">RJ - Rio de Janeiro</option>
+					<option value="RN">RN - Rio Grande do Norte</option>
+					<option value="RS">RS - Rio Grande do Sul</option>
+					<option value="RO">RO - Rondônia</option>
+					<option value="RR">RR - Roraima</option>
+					<option value="SC">SC - Santa Catarina</option>
+					<option value="SP">SP - São Paulo</option>
+					<option value="SE">SE - Sergipe</option>
+					<option value="TO">TO - Tocantis</option>
+				</select>
+			</div>
+
+			<div class="form-box-login-2">
+				<div class="form-box-label-login">Cidade</div>
+				<input type="text" id="cidade" name="cidade"
+					class="form-input-login-2 form-control" required>
+				<div class="valid-feedback"></div>
+				<div class="invalid-feedback">Mensagem é obrigatória</div>
+			</div>
+
+			<div class="form-box-login">
+				<div class="form-box-label-login">CEP</div>
+				<input type="number" id="cep" name="cep"
+					class="form-input-login form-control" value maxlength="9" required>
+				<div class="valid-feedback"></div>
+				<div class="invalid-feedback">Mensagem é obrigatória</div>
+			</div>
+
+			<div class="form-box">
+				<div class="form-box-label">Endereço</div>
+				<input type="text" id="endereco" name=endereco
+					class="form-input form-control" required>
+				<div class="valid-feedback"></div>
+				<div class="invalid-feedback">Mensagem é obrigatória</div>
+			</div>
+
+			<div class="form-box-login-3">
+				<div class="form-box-label-login">Número</div>
+				<input type="number" id="numero" name="numero"
+					class="form-input-login-3 form-control" required>
+				<div class="valid-feedback"></div>
+				<div class="invalid-feedback">Mensagem é obrigatória</div>
+			</div>
+
+			<div class="form-box-login-4">
+				<div class="form-box-label-login">Bairro</div>
+				<input type="text" id="bairro" name="bairro"
+					class="form-input-login-4 form-control" required>
+				<div class="valid-feedback"></div>
+				<div class="invalid-feedback">Mensagem é obrigatória</div>
+			</div>
+
+			<div class="form-box">
+				<div class="form-box-label">Apto, bloco, etc.</div>
+				<input type="text" id="complemento" name="complemento"
+					class="form-input form-control" required>
+				<div class="valid-feedback"></div>
+				<div class="invalid-feedback">Mensagem é obrigatória</div>
+			</div>
+
+			<div class="form-box">
+				<div class="form-box-label">Ponto de referência</div>
+				<input type="text" id="referencia" name="referencia"
+					class="form-input form-control" required>
+				<div class="valid-feedback"></div>
+				<div class="invalid-feedback">Mensagem é obrigatória</div>
+			</div>
+
+			<hr>
+
+			<div class="form-box">
+				<div class="form-box-label">E-mail</div>
+				<input type="email" id="email" name="email"
+					class="form-input form-control" required>
+				<div class="valid-feedback"></div>
+				<div class="invalid-feedback">Mensagem é obrigatória</div>
+			</div>
+
+			<div class="form-box">
+				<div class="form-box-label">Senha</div>
+				<input type="password" id="senha" name="senha"
+					class="form-input form-control" required>
+				<div class="valid-feedback"></div>
+				<div class="invalid-feedback">Mensagem é obrigatória</div>
+			</div>
+
+			<div class="form-box">
+				<div class="form-box-label">Repetir senha</div>
+				<input type="password" id="senha" class="form-input form-control"
+					required>
+				<div class="valid-feedback"></div>
+				<div class="invalid-feedback">Mensagem é obrigatória</div>
+			</div>
+			<hr>
+			<p class="politica">
+				Ao criar uma conta, você concorda com nossa <a href="#">Política
+					de Privacidade</a>.
+			</p>
+
+			<div class="form-box">
+				<input type="submit" value="Cadastrar">
+			</div>
+
+			<div class="form-box">
+				<div class="signin">
+					<p>
+						Já possui uma conta? <br> <a href="/entrar">Faça seu
+							login</a>.
+					</p>
+				</div>
+			</div>
+		</form>
+	</div>
+
+	<!-- Rodapé -->
+
+	<footer class="rodape">
+		<ul>
+			<li><i class="rodape-item-1 fab fa-whatsapp"></i> (88)
+				9.9287-1532 <i class="rodape-item-2 fas fa-calendar-day"></i>
+				Fundado em: Abril de 2008. <i
+				class="rodape-item-3 fas fa-map-marker-alt"></i> Universidade
+				Federal do Ceará.</li>
+			<li><i class="rodape-item-1 fas fa-file-code"></i> Powered by:
+				Bárbara Stéph. Neves.</li>
+			<li class="rodape-content"><i class="rodape-content"></i>2019 ©
+				Todos os direitos reservados.</li>
+		</ul>
+	</footer>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("#cpf").mask('000.000.000-00', {
+				reverse : false
+			});
+
+			$("#cep").mask('00000-000', {
+				reverse : false
+			});
+		});
+	</script>
+
+	<script>
+		(function() {
+			'use strict';
+			window.addEventListener('load',
+					function() {
+						var forms = document
+								.getElementsByClassName('needs-validation');
+
+						var validation = Array.prototype.filter.call(forms,
+								function(form) {
+									form.addEventListener('submit', function(
+											event) {
+										if (form.checkValidity() === false) {
+											event.preventDefault();
+											event.stopPropagation();
+										}
+										form.classList.add('was-validated');
+									}, false);
+								});
+					}, false);
+		})();
+	</script>
+
+</body>
+
+</html>

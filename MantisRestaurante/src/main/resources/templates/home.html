@@ -8,153 +8,173 @@
 -->
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>MANTIS | CULINÁRIA CHINESA</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>MANTIS | CULINÁRIA CHINESA</title>
 
-    <link rel="icon" href="/imagens/icon.png" type="image/x-icon" />
-    <link rel="shortcut icon" href="/imagens/icon.png" type="image/x-icon" />
+<link rel="icon" href="/imagens/icon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="/imagens/icon.png" type="image/x-icon" />
 
-    <!-- Estilo -->
-    <link rel="stylesheet" type="text/css" media="screen" href="/css/style.css">
+<!-- Estilo -->
+<link rel="stylesheet" type="text/css" media="screen"
+	href="/css/style.css">
 
-    <!-- Fontes -->
-    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+<!-- Fontes -->
+<link href="https://fonts.googleapis.com/css?family=Varela+Round"
+	rel="stylesheet">
 
-    <!-- Icons para a barra de navegação -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<!-- Icons para a barra de navegação -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+	integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+	crossorigin="anonymous">
 
-    <!-- Scripts -->
-    <script src="https://www.w3schools.com/lib/w3.js"></script>
+<!-- Scripts -->
+<script src="https://www.w3schools.com/lib/w3.js"></script>
 </head>
 
 <body>
 
-    <!-- Barra de navegação -->
+	<!-- Barra de navegação -->
 
-    <div class="navbar">
-        <nav class="navbar-header">
-            <a href="http://localhost:8080/cardapio"><i class="fas fa-utensils"></i>  Cardápio</a>
-            <a href="http://localhost:8080/sobre"><i class="fas fa-store"></i> Sobre</a>
-            <a href="http://localhost:8080/contato"><i class="fa fa-envelope"></i> Contato</a>
-            <a href="http://localhost:8080/home"><img src="/imagens/logo.png" alt class="logo-mobile"></a>
-            <a href="javascript:void(0)" class="dropdown"><i class="far fa-clock"></i>
-                <span>Aberto até às 23h</span> 
-                <div class="dropdown-content">
-                    <p class="corPrimaria">Todos os dias das 11 às 15h e 18 às 23h</p>
-                </div>
-                <i class="fas fa-angle-down"></i>
-            </a>
-            <a href="http://localhost:8080/entrar"><i class="fa fa-fw fa-user"></i> Meus Pedidos</a>
-        </nav>
-    </div>
+	<div class="navebar">
+		<nav class="navebar-header">
+			<a href="/cardapio"><i class="fas fa-utensils"></i> Cardápio</a> <a
+				href="/sobre"><i class="fas fa-store"></i> Sobre</a> <a
+				href="/contato"><i class="fa fa-envelope"></i> Contato</a> <a
+				href="/home"><img src="/imagens/logo.png" alt
+				class="logo-mobile"></a> <a href="javascript:void(0)"
+				class="dropdown"><i class="far fa-clock"></i> <span>Aberto
+					até às 23h</span>
+				<div class="dropdown-content">
+					<p class="corPrimaria">Todos os dias das 11 às 15h e 18 às 23h</p>
+				</div> <i class="fas fa-angle-down"></i> </a> <a href="/entrar"><i
+				class="fa fa-fw fa-user"></i> Meus Pedidos</a> <a href="/pedido"
+				class="carrinho"><i class="fas fa-shopping-cart"></i></a>
+		</nav>
+	</div>
 
-    <!-- Pratos do dia -->
-    
-    <div class="main ">
-        <div class="home ">
-            <div class="col ">
-                <h1>A melhor comida chinesa do Sertão Central</h1>
-                <br>
-                <a href="cardapio.html " class="btn ">Confira nosso cardápio</a>
-            </div>
+	<!-- Pratos do dia -->
 
-            <div class="float-image ">
-                <figure>
-                    <img src="/imagens/macarrao_chop_suey.png " alt="Chop Suey ">
-                </figure>
-            </div>
-        </div>
-    </div>
+	<div class="main ">
+		<div class="home ">
+			<div class="col ">
+				<h1>A melhor comida chinesa do Sertão Central</h1>
+				<br> <a href="/cardapio" class="btn ">Confira nosso
+					cardápio</a>
+			</div>
 
-    <div class="main-ofertas ">
-        <h2>Destaques</h2>
+			<div class="float-image">
+				<figure>
+					<img src="/imagens/macarrao_chop_suey.png " alt="Chop Suey ">
+				</figure>
+			</div>
+		</div>
+	</div>
 
-        <div class="row " style="margin-left: 290px ">
-            <div class="ofertas-2 ">
-                <div class="container ">
-                    <img width="350 " height="218 " src="/imagens/rolinho_primavera.jpg " alt="Rolinho Primavera ">
-                    <a href="cardapio.html "><div class="overlay ">Rolinho Primavera<br><span style="color: #d32b28 ">R$ 3,50</span></div></a>
-                </div>
-            </div>
-            
-            <div class="ofertas-2 ">
-                <div class="container ">
-                    <img width="350 " height="218 " src="/imagens/salada_mista.jpg " alt="Salada Mista ">
-                    <a href="cardapio.html "><div class="overlay ">Salada Mista<br><span style="color: #d32b28 ">R$ 13,50</span></div></a>
-                </div>
-            </div>
-        </div>
-        
-        
-        <div class="row " style="width: 100%; margin-left: 80px; ">
-            <div class="ofertas-3 ">
-                <div class="container ">
-                    <img width="350 " height="218 " src="/imagens/camarao.jpg " alt="Camarão ">
-                    <a href="cardapio.html "><div class="overlay ">Camarão<br><span style="color: #d32b28 ">R$ 20,00</span></div></a>
-                </div>
-            </div>
+	<div class="main-ofertas ">
+		<h2>Destaques</h2>
 
-            <div class="ofertas-3 ">
-                <div class="container ">
-                    <img width="350 " height="218 " src="/imagens/frango_ao_molho_curry.jpg " alt="Frango Xadrez ">
-                    <a href="cardapio.html "><div class="overlay ">Frango Xadrez<br>
-                        <span style="color: #d32b28 ">R$ 20,00</span></div></a>
-                </div>
-                
-            </div>
+		<div class="row " style="margin-left: 290px">
+			<div class="ofertas-2 ">
+				<div class="container ">
+					<img width="350 " height="218 "
+						src="/imagens/rolinho_primavera.jpg " alt="Rolinho Primavera ">
+					<a href="/cardapio"><div class="overlay ">
+							Rolinho Primavera<br> <span style="color: #d32b28">R$
+								3,50</span>
+						</div></a>
+				</div>
+			</div>
 
-            <div class="ofertas-3 ">
-                <div class="container ">
-                    <img width="350 " height="218 " src="/imagens/macarrao_bifum.jpg " alt="Macarrão Bifum ">
-                    <a href="cardapio.html "><div class="overlay ">Bifum<br><span style="color: #d32b28 ">R$ 20,00</span></div></a>
-                </div>
-                
-            </div>
-    </div>
-    </div>
+			<div class="ofertas-2 ">
+				<div class="container ">
+					<img width="350 " height="218 " src="/imagens/salada_mista.jpg "
+						alt="Salada Mista "> <a href="/cardapio"><div
+							class="overlay ">
+							Salada Mista<br> <span style="color: #d32b28">R$
+								13,50</span>
+						</div></a>
+				</div>
+			</div>
+		</div>
 
-    <div class="slide ">
-        <div class="mySlides ">
-            <!--<div class="numbertext ">1 / 3</div>-->
-            <img src="/imagens/large_bifum.jpg " style="width:100% ">
-        </div>
 
-        <div class="mySlides ">
-            <!--<div class="numbertext ">2 / 3</div>-->
-            <img src="/imagens/large_camarao.jpg " style="width:100% ">
-        </div>
+		<div class="row " style="width: 100%; margin-left: 80px;">
+			<div class="ofertas-3 ">
+				<div class="container ">
+					<img width="350 " height="218 " src="/imagens/camarao.jpg "
+						alt="Camarão "> <a href="/cardapio"><div
+							class="overlay ">
+							Camarão<br> <span style="color: #d32b28">R$ 20,00</span>
+						</div></a>
+				</div>
+			</div>
 
-        <div class="mySlides ">
-            <!--<div class="numbertext ">3 / 3</div>-->
-            <img src="/imagens/large_frango_frito.jpg " style="width:100% ">
-        </div>
-    
-    <!-- Rodapé -->
+			<div class="ofertas-3 ">
+				<div class="container ">
+					<img width="350 " height="218 "
+						src="/imagens/frango_ao_molho_curry.jpg " alt="Frango Xadrez ">
+					<a href="/cardapio"><div class="overlay ">
+							Frango Xadrez<br> <span style="color: #d32b28">R$
+								20,00</span>
+						</div></a>
+				</div>
 
-    <footer class="rodape ">
-        <ul>
-            <li>
-                <i class="rodape-item-1 fab fa-whatsapp "></i> (88) 9.9287-1532
-                <i class="rodape-item-2 fas fa-calendar-day "></i> Fundado em: Abril de 2008.
-                <i class="rodape-item-3 fas fa-map-marker-alt "></i> Universidade Federal do Ceará.
+			</div>
 
-            </li>
-            <li>
-                <i class="rodape-item-1 fas fa-file-code "></i> Powered by: Bárbara Stéph. Neves.
-            </li>
-            <li class="rodape-content ">
-                <i class="rodape-content "></i>2019 © Todos os direitos reservados.
-            </li>
-        </ul>
-    </footer>
-    
-    <!-- Script para o slideshow -->
-    <script>
-        w3.slideshow(".mySlides ", 2000);
-    </script>
+			<div class="ofertas-3 ">
+				<div class="container ">
+					<img width="350 " height="218 " src="/imagens/macarrao_bifum.jpg "
+						alt="Macarrão Bifum "> <a href="/cardapio"><div
+							class="overlay ">
+							Bifum<br> <span style="color: #d32b28">R$ 20,00</span>
+						</div></a>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<div class="slide ">
+		<div class="mySlides ">
+			<!--<div class="numbertext ">1 / 3</div>-->
+			<img src="/imagens/large_bifum.jpg " style="width: 100%">
+		</div>
+
+		<div class="mySlides ">
+			<!--<div class="numbertext ">2 / 3</div>-->
+			<img src="/imagens/large_camarao.jpg " style="width: 100%">
+		</div>
+
+		<div class="mySlides ">
+			<!--<div class="numbertext ">3 / 3</div>-->
+			<img src="/imagens/large_frango_frito.jpg " style="width: 100%">
+		</div>
+
+		<!-- Rodapé -->
+
+		<footer class="rodape ">
+			<ul>
+				<li><i class="rodape-item-1 fab fa-whatsapp "></i> (88)
+					9.9287-1532 <i class="rodape-item-2 fas fa-calendar-day "></i>
+					Fundado em: Abril de 2008. <i
+					class="rodape-item-3 fas fa-map-marker-alt "></i> Universidade
+					Federal do Ceará.</li>
+				<li><i class="rodape-item-1 fas fa-file-code "></i> Powered by:
+					Bárbara Stéph. Neves.</li>
+				<li class="rodape-content "><i class="rodape-content "></i>2019
+					© Todos os direitos reservados.</li>
+			</ul>
+		</footer>
+
+		<!-- Script para o slideshow -->
+		<script>
+			w3.slideshow(".mySlides ", 2000);
+		</script>
 </body>
 
 </html>

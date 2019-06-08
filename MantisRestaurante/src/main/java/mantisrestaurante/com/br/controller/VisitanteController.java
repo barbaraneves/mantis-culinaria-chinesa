@@ -13,6 +13,11 @@ import mantisrestaurante.com.br.service.VisitanteService;
 @Controller
 public class VisitanteController {
 
+	/*
+	 * O Controller do visitante mostra as páginas que serão visitadas tanto pelo
+	 * usuário visitante como pelo usuário cliente. 
+	 */
+
 	@Autowired
 	private VisitanteService visitanteService;
 
@@ -28,26 +33,34 @@ public class VisitanteController {
 	}
 
 	@RequestMapping("/sobre")
-	public String paginaSobre() {
+	public ModelAndView paginaSobre() {
 
-		return "sobre";
+		ModelAndView mv = new ModelAndView("sobre");
+
+		return mv;
 	}
 
 	@RequestMapping("/contato")
-	public String paginaContato() {
+	public ModelAndView paginaContato() {
 
-		return "contato";
+		ModelAndView mv = new ModelAndView("contato");
+
+		return mv;
 	}
 
 	@RequestMapping("/home")
-	public String paginaHome() {
+	public ModelAndView paginaHome() {
 
-		return "home";
+		ModelAndView mv = new ModelAndView("home");
+
+		return mv;
 	}
 
 	@RequestMapping("/entrar")
-	public String paginaLogin() {
+	public ModelAndView paginaLogin() {
 
-		return "entrar";
+		ModelAndView mv = new ModelAndView("entrar");
+
+		return mv;
 	}
 }

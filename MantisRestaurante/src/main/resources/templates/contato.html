@@ -1,159 +1,165 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
-<!--
-    Trabalho 1 de Desenvolvimento de Software para Web
-    Formulário de Contato
-    Bárbara Neves, 388713
--->
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>MANTIS | CULINÁRIA CHINESA</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>MANTIS | CULINÁRIA CHINESA</title>
 
-    <link rel="icon" href="/imagens/icon.png" type="image/x-icon" />
-    <link rel="shortcut icon" href="/imagens/icon.png" type="image/x-icon" />
+<link rel="icon" href="/imagens/icon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="/imagens/icon.png" type="image/x-icon" />
 
-    <!-- Estilo -->
-    <link rel="stylesheet" type="text/css" media="screen" href="/css/style.css">
+<!-- Estilo -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" media="screen"
+	href="/css/style.css">
 
-    <!-- Fontes -->
-    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+<!-- Fontes -->
+<link href="https://fonts.googleapis.com/css?family=Varela+Round"
+	rel="stylesheet">
 
-    <!-- Icons para a barra de navegação -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<!-- Icons para a barra de navegação -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+	integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+	crossorigin="anonymous">
 
-    <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 
 <body>
 
-    <!-- Barra de navegação -->
+	<!-- Barra de navegação -->
 
-    <div class="navbar">
-        <nav class="navbar-header">
-            <a href="http://localhost:8080/cardapio"><i class="fas fa-utensils"></i>  Cardápio</a>
-            <a href="http://localhost:8080/sobre"><i class="fas fa-store"></i> Sobre</a>
-            <a href="http://localhost:8080/contato"><i class="fa fa-envelope"></i> Contato</a>
-            <a href="http://localhost:8080/home"><img src="/imagens/logo.png" alt class="logo-mobile"></a>
-            <a href="javascript:void(0)" class="dropdown"><i class="far fa-clock"></i>
-                <span>Aberto até às 23h</span> 
-                <div class="dropdown-content">
-                    <p class="corPrimaria">Todos os dias das 11 às 15h e 18 às 23h</p>
-                </div>
-                <i class="fas fa-angle-down"></i>
-            </a>
-            <a href="http://localhost:8080/entrar"><i class="fa fa-fw fa-user"></i> Meus Pedidos</a>
-        </nav>
-    </div>
+	<div class="navebar">
+		<nav class="navebar-header">
+			<a href="/cardapio"><i class="fas fa-utensils"></i> Cardápio</a> <a
+				href="/sobre"><i class="fas fa-store"></i> Sobre</a> <a
+				href="/contato"><i class="fa fa-envelope"></i> Contato</a> <a
+				href="/home"><img src="/imagens/logo.png" alt
+				class="logo-mobile"></a> <a href="javascript:void(0)"
+				class="dropdown"><i class="far fa-clock"></i> <span>Aberto
+					até às 23h</span>
+				<div class="dropdown-content">
+					<p class="corPrimaria">Todos os dias das 11 às 15h e 18 às 23h</p>
+				</div> <i class="fas fa-angle-down"></i> </a> <a href="/entrar"><i
+				class="fa fa-fw fa-user"></i> Meus Pedidos</a> <a href="/pedido"
+				class="carrinho"><i class="fas fa-shopping-cart"></i></a>
+		</nav>
+	</div>
 
-    <div class="contato">
-        <form name="contatoForm" action="" class="contato-form" method="POST">
-            <h4 class="contato-titulo">
-                <i style="margin-right: 08px;" class="fas fa-at"></i> Fale conosco
-            </h4><br>
+	<div class="contato">
+		<form action="" method="POST" class="contato-form needs-validation"
+			novalidate>
+			<h4 class="contato-titulo">
+				<i style="margin-right: 08px;" class="fas fa-at"></i> Fale conosco
+			</h4>
+			<br>
 
-            <div class="form-box">
-                <span class="form-group">
-                    <div for="nome" class="form-box-label">Nome</div>
-                    <input type="text" id="nome" name="nome" class="form-input">
-                </span>
-            </div>
+			<div class="form-box">
+				<span class="form-group">
+					<div for="nome" class="form-box-label">Nome</div> <input
+					type="text" id="nome" name="nome" class="form-input form-control"
+					required>
+					<div class="valid-feedback"></div>
+					<div class="invalid-feedback">Nome é obrigatório</div>
+				</span>
+			</div>
 
-            <div class="form-box">
-                <span class="form-group">
-                    <div for="email" class="form-box-label">E-mail</div>
-                    <input type="email" id="email" name="email" class="form-input">
-                </span>
-            </div>
+			<div class="form-box">
+				<span class="form-group">
+					<div for="email" class="form-box-label">E-mail</div> <input
+					type="email" id="email" name="email"
+					class="form-input form-control"
+					pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+					required="required">
+					<div class="valid-feedback"></div>
+					<div class="invalid-feedback">E-mail é obrigatório</div>
+				</span>
+			</div>
 
-            <div class="form-box">
-                <span class="form-group">
-                    <div for="telefone" class="form-box-label">Telefone</div>
-                    <input type="text" id="telefone" name="telefone" class="form-input">
-                </span>
-            </div>
+			<div class="form-box">
+				<span class="form-group">
+					<div for="telefone" class="form-box-label">Telefone</div> <input
+					type="text" id="telefone" name="telefone" pattern="(?=.*\d).{16,}"
+					class="form-input form-control" required>
+					<div class="valid-feedback"></div>
+					<div class="invalid-feedback">Telefone é obrigatório</div>
+				</span>
+			</div>
 
-            <div class="form-box">
-                <span class="form-group">
-                    <div for="msg" class="form-box-label">Mensagem</div>
-                    <textarea id="msg" name="msg" class="form-text valid"></textarea>
-                </span>
-            </div>
+			<div class="form-box">
+				<span class="form-group">
+					<div for="msg" class="form-box-label">Mensagem</div> <textarea
+						id="msg" name="msg" class="form-text valid form-control" required></textarea>
+					<div class="valid-feedback"></div>
+					<div class="invalid-feedback">Mensagem é obrigatória</div>
+				</span>
+			</div>
 
-            <div class="form-box">
-                <span class="form-group">
-                    <div for="num" class="form-box-label">Insira um número de 1 a 10:</div>
-                    <div class="tooltip">
-                        <input type="number" style="width: 80px;" id="num" name="num" class="form-input">
-                        <span class="tooltiptext"> Apenas um número, viu? :) </span>
-            </div>
-    </div>
+			<div class="form-box">
+				<input type="submit" value="Enviar mensagem">
+			</div>
+		</form>
+	</div>
 
-    <div class="form-box">
-        <input type="submit" value="Enviar mensagem" onclick="validateFunction()">
-    </div>
-    </form>
-    </div>
+	<!-- Rodapé -->
 
-    <!-- Rodapé -->
+	<footer class="rodape">
+		<ul>
+			<li><i class="rodape-item-1 fab fa-whatsapp"></i> (88)
+				9.9287-1532 <i class="rodape-item-2 fas fa-calendar-day"></i>
+				Fundado em: Abril de 2008. <i
+				class="rodape-item-3 fas fa-map-marker-alt"></i> Universidade
+				Federal do Ceará.</li>
+			<li><i class="rodape-item-1 fas fa-file-code"></i> Powered by:
+				Bárbara Stéph. Neves.</li>
+			<li class="rodape-content"><i class="rodape-content"></i>2019 ©
+				Todos os direitos reservados.</li>
+		</ul>
+	</footer>
 
-    <footer class="rodape">
-        <ul>
-            <li>
-                <i class="rodape-item-1 fab fa-whatsapp"></i> (88) 9.9287-1532
-                <i class="rodape-item-2 fas fa-calendar-day"></i> Fundado em: Abril de 2008.
-                <i class="rodape-item-3 fas fa-map-marker-alt"></i> Universidade Federal do Ceará.
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("#telefone").mask('(00) 0.0000-0000', {
+				reverse : false
+			});
+		});
+	</script>
 
-            </li>
-            <li>
-                <i class="rodape-item-1 fas fa-file-code"></i> Powered by: Bárbara Stéph. Neves.
-            </li>
-            <li class="rodape-content">
-                <i class="rodape-content"></i>2019 © Todos os direitos reservados.
-            </li>
-        </ul>
-    </footer>
+	<script>
+		(function() {
+			'use strict';
+			window.addEventListener('load',
+					function() {
+						var forms = document
+								.getElementsByClassName('needs-validation');
 
-    <!-- Formatação do campo telefone do formulário -->
-
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $("#telefone").mask('(00) 0.0000-0000', {
-                reverse: false
-            });
-        });
-    </script>
-
-    <!-- Função de validação do formulário de contato -->
-
-    <script>
-        function validateFunction() {
-            var x, text;
-
-            var nome = document.forms["contatoForm"]["nome"].value;
-            var email = document.forms["contatoForm"]["email"].value;
-            var tel = document.forms["contatoForm"]["telefone"].value;
-            var msg = document.forms["contatoForm"]["msg"].value;
-
-            x = document.getElementById("num").value;
-
-            if (nome == "" || email == "" || tel == "" || msg == "") {
-                alert("Opa!\nAcho que você esqueceu de preencher alguma coisa");
-            } else {
-                if (isNaN(x) || x < 1 || x > 10) {
-                    alert("Não conseguimos enviar sua mensagem :(\nTente novamente!");
-                } else {
-                    alert("Tudo certo :)");
-                }
-            }
-        }
-    </script>
+						var validation = Array.prototype.filter.call(forms,
+								function(form) {
+									form.addEventListener('submit', function(
+											event) {
+										if (form.checkValidity() === false) {
+											event.preventDefault();
+											event.stopPropagation();
+										}
+										form.classList.add('was-validated');
+									}, false);
+								});
+					}, false);
+		})();
+	</script>
 </body>
 
 </html>

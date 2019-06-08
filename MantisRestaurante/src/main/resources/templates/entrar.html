@@ -35,22 +35,25 @@
 
     <!-- Barra de navegação -->
 
-    <div class="navbar">
-        <nav class="navbar-header">
-            <a href="http://localhost:8080/cardapio"><i class="fas fa-utensils"></i>  Cardápio</a>
-            <a href="http://localhost:8080/sobre"><i class="fas fa-store"></i> Sobre</a>
-            <a href="http://localhost:8080/contato"><i class="fa fa-envelope"></i> Contato</a>
-            <a href="http://localhost:8080/home"><img src="/imagens/logo.png" alt class="logo-mobile"></a>
-            <a href="javascript:void(0)" class="dropdown"><i class="far fa-clock"></i>
-                <span>Aberto até às 23h</span> 
-                <div class="dropdown-content">
-                    <p class="corPrimaria">Todos os dias das 11 às 15h e 18 às 23h</p>
-                </div>
-                <i class="fas fa-angle-down"></i>
-            </a>
-            <a href="http://localhost:8080/entrar"><i class="fa fa-fw fa-user"></i> Meus Pedidos</a>
-        </nav>
-    </div>
+	<div class="navebar">
+		<nav class="navebar-header">
+			<a href="/cardapio"><i
+				class="fas fa-utensils"></i> Cardápio</a> <a
+				href="/sobre"><i class="fas fa-store"></i>
+				Sobre</a> <a href="/contato"><i
+				class="fa fa-envelope"></i> Contato</a> <a
+				href="/home"><img src="/imagens/logo.png"
+				alt class="logo-mobile"></a> <a href="javascript:void(0)"
+				class="dropdown"><i class="far fa-clock"></i> <span>Aberto
+					até às 23h</span>
+				<div class="dropdown-content">
+					<p class="corPrimaria">Todos os dias das 11 às 15h e 18 às 23h</p>
+				</div> <i class="fas fa-angle-down"></i> </a> <a
+				href="/entrar"><i class="fa fa-fw fa-user"></i>
+				Meus Pedidos</a>
+				<a href="/pedido" class="carrinho"><i class="fas fa-shopping-cart"></i></a>		
+		</nav>
+	</div>
 
     <!-- Login -->
     <div class="login">
@@ -58,12 +61,12 @@
             <h4 class="login-titulo">IDENTIFICAÇÃO</h4><br>
             <div class="form-box">
                 <div class="form-box-label">E-mail</div>
-                <input type="email" name="email" id="input-email" class="form-input">
+                <input type="email" name="email" id="email" class="form-input">
             </div>
 
             <div class="form-box">
-                <div class="form-box-label">CPF</div>
-                <input type="text" name="cli_cpf" id="input-cpf" class="form-input" value maxlength="14">
+                <div class="form-box-label">Senha</div>
+                <input type="password" name="senha" id="senha" class="form-input">
             </div>
 
             <div class="form-box">
@@ -90,17 +93,6 @@
             </li>
         </ul>
     </footer>
-
-    <!-- Formatação do campo CPF do formulário -->
-
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $("#input-cpf").mask('000.000.000-00', {
-                reverse: false
-            });
-        });
-    </script>
-
 </body>
 
 </html>

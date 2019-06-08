@@ -14,17 +14,17 @@ public class GerenteService {
 	@Autowired
 	private GerenteRepository gerenteRepository;
 	
-	//Cadastrando um prato no banco
+	//Salvando um prato no BD
 	public void cadastrar(Prato prato) {
 		gerenteRepository.save(prato);
 	}
 
-	//Retorna todos os pratos presentes no banco
+	//Retorna todos os pratos presentes no BD
 	public List<Prato> mostrarCardapio() {
 		return gerenteRepository.findAll();
 	}
 
-	//Exclui um prato do banco
+	//Exclui um prato do BD
 	public void excluirPrato(Long id) {
 		
 		gerenteRepository.deleteById(id);

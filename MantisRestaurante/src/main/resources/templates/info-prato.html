@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -29,18 +29,20 @@
 
     <!-- Barra de navegação -->
 
-    <div class="navbar">
-        <nav class="navbar-header">
-            <a href="http://localhost:8080/area-gerente/cardapio"><i class="fas fa-utensils"></i>  Cardápio</a>
-            <a href="http://localhost:8080/area-gerente/cadastrar-pratos"><i class="fas fa-clipboard-list"></i></i> Cadastrar Pratos</a>
-            <a href="javascript:void(0)"><img src="/imagens/logo.png" alt class="logo-mobile"></a>
-            <a href="javascript:void(0)"><i class="fa fa-fw fa-user"></i> Olá, gerente!</a>
-            <a href=" " class="dropdown"><i class="fas fa-sign-out-alt"></i></i> Sair</a>
-        </nav>
-    </div>
+    <div class="navebar">
+		<nav class="navebar-header">
+			<a href="/area-gerente/cardapio"><i
+				class="fas fa-utensils"></i> Cardápio</a> <a
+				href="/area-gerente/cadastrar-pratos"><i
+				class="fas fa-clipboard-list"></i></i> Cadastrar Pratos</a> <a><img src="/imagens/logo.png" alt
+				class="logo-mobile"></a> <a href="#"><i
+				class="fa fa-fw fa-user"></i> Olá, gerente!</a> <a href="#"
+				class="dropdown"><i class="fas fa-sign-out-alt"></i></i> Sair</a>
+		</nav>
+	</div>
 
     <div class="login">
-        <form action="/area-gerente/info-prato/confirmacao" method="POST" class="login-form" th:object="${prato}">
+        <form action="/area-gerente/cadastrar-pratos/confirmacao" method="POST" class="login-form" th:object="${prato}">
         	<input type="hidden" th:field="*{id}">
             
             <h4 class="login-titulo">INFORMAÇÕES SOBRE O PRATO</h4><br>
@@ -49,12 +51,12 @@
                 <input type="text" th:field="*{nome}" id="nome" class="form-input">
             </div>
 
-            <div class="form-box">
+            <div class="form-box-login-3">
                 <div class="form-box-label">Preço</div>
-                <input type="text" th:field="*{preco}" id="preco" class="form-input" value maxlength="5">
+                <input type="text" th:field="*{preco}" id="preco" class="form-input-login-3" value maxlength="5">
             </div>
             
-            <div class="form-box">
+            <div class="form-box-login-4">
                 <div class="form-box-label">Tipo</div>
                 <select id="tipo" th:field="*{tipo}">
                 	<option value="Entradas">Entrada</option>

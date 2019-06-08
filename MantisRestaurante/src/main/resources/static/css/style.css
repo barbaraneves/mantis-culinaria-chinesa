@@ -1,3 +1,10 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+
 #start {
 	-webkit-box-pack: center;
 	-ms-flex-pack: center;
@@ -25,12 +32,6 @@ html {
 article, aside, details, figcaption, figure, footer, header, hgroup,
 	main, menu, nav, section, summary {
 	display: block;
-}
-
-* {
-	padding: 0;
-	margin: 0;
-	box-sizing: border-box;
 }
 
 h1 {
@@ -243,7 +244,7 @@ p {
 
 select {
 	width: 100%;
-	padding: 12px 12px;
+	padding: 9px 9px;
 	border: 1px solid #e6e5e5;
 	border-radius: 4px;
 	background-color: #f1f1f1;
@@ -255,7 +256,7 @@ select:focus {
 }
 
 /* Barra de Navegação */
-.navbar {
+.navebar {
 	width: 100%;
 	background-color: #d32b28;
 	height: 142px;
@@ -265,14 +266,14 @@ select:focus {
 	top: 0;
 }
 
-.navbar-header {
+.navebar-header {
 	margin-top: 47px;
 	text-align: center;
 	white-space: nowrap;
 	overflow: hidden;
 }
 
-.navbar-header a {
+.navebar-header a {
 	display: inline-block;
 	vertical-align: middle;
 	font-size: 15.24px;
@@ -285,14 +286,14 @@ select:focus {
 	overflow: hidden;
 }
 
-.navbar-header img {
+.navebar-header img {
 	display: inline-block;
 	vertical-align: middle;
 	margin: 0 26px;
 }
 
-.navbar-header a:hover, .navbar-header a:active, .navbar-header a:focus,
-	.navbar-header a:focus:active {
+.navebar-header a:hover, .navebar-header a:active, .navebar-header a:focus,
+	.navebar-header a:focus:active {
 	text-decoration: none;
 	color: #fcb525;
 }
@@ -325,7 +326,7 @@ select:focus {
 	margin-bottom: -40px;
 }
 
-.navbar-header a.dropdown {
+.navebar-header a.dropdown {
 	display: inline-block;
 }
 
@@ -386,6 +387,20 @@ select:focus {
 	display: table;
 }
 
+hr {
+	border: 1px solid #f1f1f1;
+	color: #ce3a3e;
+	margin-bottom: 30px;
+}
+
+.signin {
+	background-color: #f1f1f1;
+  	text-align: center;
+  	margin-top: 20px;
+  	margin-bottom: -20px;
+  	padding: 20px;
+}
+
 .contato-form, .login-form {
 	padding: 32px 25px;
 	border: 1px solid #e6e5e5;
@@ -395,6 +410,18 @@ select:focus {
 	float: none;
 	display: table;
 	margin: 0 auto;
+}
+
+.politica {
+	margin-bottom: 30px;
+}
+
+.login-form p a, .politica a {
+	color: #ce3a3e;  
+}
+
+.login-form p a:hover, .politica a:hover {
+	color: #b12321;  
 }
 
 .form-box {
@@ -408,6 +435,57 @@ select:focus {
 	width: 100%;
 }
 
+.form-box-login, .form-box-login-2, .form-box-login-3, .form-box-login-4 {
+	margin-bottom: 15px;
+}
+
+.form-box-login, .form-box-login-3 {
+	float: left;
+	width: 40%;
+}
+
+.form-box-login-2, .form-box-login-4 {
+	float: left;
+	width: 60%;
+}
+
+.form-input-login, .form-input-login-4 {
+	float: left;
+	width: 100%;
+}
+
+.form-input-login-2 {
+	float: left;
+	width: 95%;
+}
+
+.form-input-login-3 {
+	float: left;
+	width: 92%;
+}
+
+.form-input-login, .form-input-login-2, .form-input-login-3, .form-input-login-4 {
+	background-color: #fff;
+	font-family: inherit;
+	border: 1px solid #e3e3e3;
+	padding: 8px 12px;
+	height: 40px;
+	border-radius: 4px;
+	font-size: 14px;
+	line-height: 1.42857;
+	transition: all .15s linear;
+}
+
+.form-input-login:focus, .form-input-login-2:focus, .form-input-login-3:focus, .form-input-login-4:focus {
+	box-shadow: none !important;
+	outline: none;
+}
+
+.form-box-label-login {
+	color: #797878;
+	margin-bottom: 5px;
+}
+
 .form-group {
 	display: block;
 	position: static;
@@ -419,7 +497,7 @@ select:focus {
 	margin-bottom: 5px;
 }
 
-.form-input {
+.form-input, .form-input-login{
 	border: 1px solid #e6e5e5;
 	color: black;
 }
@@ -445,41 +523,6 @@ select:focus {
 .form-text:focus, .form-input:focus {
 	box-shadow: none !important;
 	outline: none;
-}
-
-.tooltip {
-	display: inline-block;
-}
-
-.tooltiptext {
-	visibility: hidden;
-	width: 250px;
-	background-color: #f3f3f3;
-	color: #ce3a3e;
-	text-align: center;
-	border-radius: 6px;
-	padding: 5px 0;
-	position: absolute;
-	bottom: -13%;
-	margin-left: 10px;
-	opacity: 0;
-	transition: opacity 0.3s;
-	box-shadow: -2px 2px 4px 0px rgba(0, 0, 0, 0.2);
-}
-
-.tooltiptext::after {
-	content: "";
-	top: 50%;
-	right: 96.2%;
-	margin-left: -5px;
-	border-width: 5px;
-	border-style: solid;
-	border-color: #f3f3f3 transparent transparent transparent;
-}
-
-.tooltip:hover .tooltiptext {
-	visibility: visible;
-	opacity: 1;
 }
 
 .horario {
