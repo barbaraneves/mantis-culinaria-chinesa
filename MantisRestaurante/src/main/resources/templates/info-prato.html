@@ -2,104 +2,153 @@
 <html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>MANTIS | CULINÁRIA CHINESA</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>MANTIS | CULINÁRIA CHINESA</title>
 
-    <link rel="icon" href="/imagens/icon.png" type="image/x-icon" />
-    <link rel="shortcut icon" href="/imagens/icon.png" type="image/x-icon" />
+<link rel="icon" href="/imagens/icon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="/imagens/icon.png" type="image/x-icon" />
 
-    <!-- Estilo do site -->
-    <link rel="stylesheet" type="text/css" media="screen" href="/css/style.css">
+<!-- Estilo do site -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="/css/bootstrap.min.css">
 
-    <!-- Fonte do site -->
-    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
 
-    <!-- Icons para a barra de navegação -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<!-- Fonte do site -->
+<link href="https://fonts.googleapis.com/css?family=Varela+Round"
+	rel="stylesheet">
 
-    <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
+<!-- Icons para a barra de navegação -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+	integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+	crossorigin="anonymous">
+
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 
 <body>
 
-    <!-- Barra de navegação -->
+	<!-- Barra de navegação -->
 
-    <div class="navebar">
+	<div class="navebar">
 		<nav class="navebar-header">
-			<a href="/area-gerente/cardapio"><i
-				class="fas fa-utensils"></i> Cardápio</a> <a
-				href="/area-gerente/cadastrar-pratos"><i
-				class="fas fa-clipboard-list"></i></i> Cadastrar Pratos</a> <a><img src="/imagens/logo.png" alt
-				class="logo-mobile"></a> <a href="#"><i
-				class="fa fa-fw fa-user"></i> Olá, gerente!</a> <a href="#"
-				class="dropdown"><i class="fas fa-sign-out-alt"></i></i> Sair</a>
+			<a href="/area-gerente/cardapio"><i class="fas fa-utensils"></i>
+				Cardápio</a> <a href="/area-gerente/cadastrar-pratos"><i
+				class="fas fa-clipboard-list"></i></i> Cadastrar Pratos</a> <a><img
+				src="/imagens/logo.png" alt class="logo-mobile"></a> <a href="#"><i
+				class="fa fa-fw fa-user"></i> Olá, gerente!</a> <a href="#"><i class="fas fa-sign-out-alt"></i></i> Sair</a>
 		</nav>
 	</div>
 
-    <div class="login">
-        <form action="/area-gerente/cadastrar-pratos/confirmacao" method="POST" class="login-form" th:object="${prato}">
-        	<input type="hidden" th:field="*{id}">
-            
-            <h4 class="login-titulo">INFORMAÇÕES SOBRE O PRATO</h4><br>
-            <div class="form-box">
-                <div class="form-box-label">Nome</div>
-                <input type="text" th:field="*{nome}" id="nome" class="form-input">
-            </div>
+	<div class="login">
+		<form action="/area-gerente/cadastrar-pratos/confirmacao"
+			method="POST" class="login-form needs-validation" novalidate th:object="${prato}">
+			<input type="hidden" th:field="*{id}">
 
-            <div class="form-box-login-3">
-                <div class="form-box-label">Preço</div>
-                <input type="text" th:field="*{preco}" id="preco" class="form-input-login-3" value maxlength="5">
-            </div>
-            
-            <div class="form-box-login-4">
-                <div class="form-box-label">Tipo</div>
-                <select id="tipo" th:field="*{tipo}">
-                	<option value="Entradas">Entrada</option>
-                	<option value="Frango">Frango</option>
-                	<option value="Carne">Carne</option>
-                	<option value="Peixes e Camarões">Peixes e Camarões</option>
-                	<option value="Macarrões e Arroz">Macarrões e Arroz</option>
-                	<option value="Sopas">Sopa</option>
-                	<option value="Sobremesas">Sobremesa</option>
-                </select>
-            </div>
-            
-            <div class="form-box">
-                <span class="form-group">
-                    <div for="msg" class="form-box-label">Descrição</div>
-                    <textarea id="descricao" th:field="*{descricao}" class="form-text valid"></textarea>
-                </span>
-            </div>
+			<h4 class="login-titulo">INFORMAÇÕES SOBRE O PRATO</h4>
+			<br>
+			<div class="form-box">
+				<div class="form-box-label">Nome</div>
+				<input type="text" th:field="*{nome}" id="nome" class="form-input form-control" required>
+				<div class="valid-feedback"></div>
+				<div class="invalid-feedback">Nome do prato é obrigatório</div>
+			</div>
 
-            <div class="form-box">
-                <input type="submit" value="Salvar">
-            </div>
-        </form>
-    </div>
+			<div class="form-box-login-3">
+				<div class="form-box-label">Preço</div>
+				<input type="text" th:field="*{preco}" id="preco" pattern="(?=.*\d).{5,}"
+					class="form-input-login-3 form-control" required>
+				<div class="valid-feedback">Preço válido!</div>
+				<div class="invalid-feedback">Preço do prato é obrigatório</div>
+			</div>
 
-    <!-- Rodapé -->
+			<div class="form-box-login-4">
+				<div class="form-box-label">Tipo</div>
+				<select id="tipo" th:field="*{tipo}" required>
+					<option value="Entradas">Entrada</option>
+					<option value="Frango">Frango</option>
+					<option value="Carne">Carne</option>
+					<option value="Peixes e Camarões">Peixes e Camarões</option>
+					<option value="Macarrões e Arroz">Macarrões e Arroz</option>
+					<option value="Sopas">Sopa</option>
+					<option value="Sobremesas">Sobremesa</option>
+				</select>
+			</div>
 
-    <footer class="rodape">
-        <ul>
-            <li>
-                <i class="rodape-item-1 fab fa-whatsapp"></i> (88) 9.9287-1532
-                <i class="rodape-item-2 fas fa-calendar-day"></i> Fundado em: Abril de 2008.
-                <i class="rodape-item-3 fas fa-map-marker-alt"></i> Universidade Federal do Ceará.
+			<div class="form-box">
+				<span class="form-group">
+					<div for="msg" class="form-box-label">Descrição</div> <textarea
+						id="descricao" th:field="*{descricao}" class="form-text valid form-control" required></textarea>
+						<div class="valid-feedback"></div>
+				<div class="invalid-feedback">Descrição do prato é obrigatório</div>
+				</span>
+			</div>
 
-            </li>
-            <li>
-                <i class="rodape-item-1 fas fa-file-code"></i> Powered by: Bárbara Stéph. Neves.
-            </li>
-            <li class="rodape-content">
-                <i class="rodape-content"></i>2019 © Todos os direitos reservados.
-            </li>
-        </ul>
-    </footer>
+			<div class="form-box">
+				<input type="submit" value="Salvar">
+			</div>
+		</form>
+	</div>
+
+	<!-- Rodapé -->
+
+	<footer class="rodape">
+		<ul>
+			<li><i class="rodape-item-1 fab fa-whatsapp"></i> (88)
+				9.9287-1532 <i class="rodape-item-2 fas fa-calendar-day"></i>
+				Fundado em: Abril de 2008. <i
+				class="rodape-item-3 fas fa-map-marker-alt"></i> Universidade
+				Federal do Ceará.</li>
+			<li><i class="rodape-item-1 fas fa-file-code"></i> Powered by:
+				Bárbara Stéph. Neves.</li>
+			<li class="rodape-content"><i class="rodape-content"></i>2019 ©
+				Todos os direitos reservados.</li>
+		</ul>
+	</footer>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("#preco").mask('00,00', {
+				reverse : false
+			});
+		});
+	</script>
+
+	<script>
+		(function() {
+			'use strict';
+			window.addEventListener('load',
+					function() {
+						var forms = document
+								.getElementsByClassName('needs-validation');
+
+						var validation = Array.prototype.filter.call(forms,
+								function(form) {
+									form.addEventListener('submit', function(
+											event) {
+										if (form.checkValidity() === false) {
+											event.preventDefault();
+											event.stopPropagation();
+										}
+										form.classList.add('was-validated');
+									}, false);
+								});
+					}, false);
+		})();
+	</script>
 
 </body>
 

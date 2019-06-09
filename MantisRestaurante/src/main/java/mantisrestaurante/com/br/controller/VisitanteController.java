@@ -63,4 +63,12 @@ public class VisitanteController {
 
 		return mv;
 	}
+	
+	@RequestMapping("/carrinho")
+	public ModelAndView paginaCarrinho() {
+
+		ModelAndView mv = new ModelAndView("info-pedido");
+
+		return mv;
+	}
 }

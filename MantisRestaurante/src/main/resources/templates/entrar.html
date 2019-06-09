@@ -8,91 +8,134 @@
 -->
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>MANTIS | CULINÁRIA CHINESA</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>MANTIS | CULINÁRIA CHINESA</title>
 
-    <link rel="icon" href="/imagens/icon.png" type="image/x-icon" />
-    <link rel="shortcut icon" href="/imagens/icon.png" type="image/x-icon" />
+<link rel="icon" href="/imagens/icon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="/imagens/icon.png" type="image/x-icon" />
 
-    <!-- Estilo do site -->
-    <link rel="stylesheet" type="text/css" media="screen" href="/css/style.css">
+<!-- Estilo do site -->
+<link rel="stylesheet" type="text/css" media="screen"
+	href="/css/style.css">
+<link rel="stylesheet" href="/css/bootstrap.min.css">
 
-    <!-- Fonte do site -->
-    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+<!-- Fonte do site -->
+<link href="https://fonts.googleapis.com/css?family=Varela+Round"
+	rel="stylesheet">
 
-    <!-- Icons para a barra de navegação -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<!-- Icons para a barra de navegação -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+	integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+	crossorigin="anonymous">
 
-    <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 
 <body>
 
-    <!-- Barra de navegação -->
+	<!-- Barra de navegação -->
 
 	<div class="navebar">
 		<nav class="navebar-header">
-			<a href="/cardapio"><i
-				class="fas fa-utensils"></i> Cardápio</a> <a
-				href="/sobre"><i class="fas fa-store"></i>
-				Sobre</a> <a href="/contato"><i
-				class="fa fa-envelope"></i> Contato</a> <a
-				href="/home"><img src="/imagens/logo.png"
-				alt class="logo-mobile"></a> <a href="javascript:void(0)"
-				class="dropdown"><i class="far fa-clock"></i> <span>Aberto
-					até às 23h</span>
-				<div class="dropdown-content">
-					<p class="corPrimaria">Todos os dias das 11 às 15h e 18 às 23h</p>
-				</div> <i class="fas fa-angle-down"></i> </a> <a
-				href="/entrar"><i class="fa fa-fw fa-user"></i>
-				Meus Pedidos</a>
-				<a href="/pedido" class="carrinho"><i class="fas fa-shopping-cart"></i></a>		
+			<a href="/cardapio"><i class="fas fa-utensils"></i> Cardápio</a> <a
+				href="/sobre"><i class="fas fa-store"></i> Sobre</a> <a
+				href="/contato"><i class="fa fa-envelope"></i> Contato</a> <a
+				href="/home"><img src="/imagens/logo.png" alt
+				class="logo-mobile"></a> <a href="#"><i class="far fa-clock"></i>
+				<span>Aberto até às 23h</span></a> 
+				<a href="/entrar" data-toggle="dropdown">
+					<i class="fa fa-fw fa-user"></i> 
+					Meus Pedidos
+					<div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
+						<button class="dropdown-item" style="font-size: 12px; text-transform: none;">Meus dados</button>
+						<div class="dropdown-divider"></div>
+						<button class="dropdown-item" style="font-size: 12px; text-transform: none;">Meus pedidos</button>
+					</div></a>
+			<a href="/carrinho" class="carrinho">
+				<i class="fas fa-shopping-cart"></i>
+			</a>
 		</nav>
 	</div>
 
-    <!-- Login -->
-    <div class="login">
-        <form method="POST" class="login-form">
-            <h4 class="login-titulo">IDENTIFICAÇÃO</h4><br>
-            <div class="form-box">
-                <div class="form-box-label">E-mail</div>
-                <input type="email" name="email" id="email" class="form-input">
-            </div>
+	<!-- Login -->
+	<div class="login">
+		<form method="POST" class="login-form needs-validation" novalidate>
+			<h4 class="login-titulo">IDENTIFICAÇÃO</h4>
+			<br>
+			<div class="form-box">
+				<div class="form-box-label">E-mail</div>
+				<input type="email" name="email" id="email"
+					pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+					class="form-input form-control" required>
+				<div class="valid-feedback">E-mail válido!</div>
+				<div class="invalid-feedback">E-mail incorreto</div>
+			</div>
 
-            <div class="form-box">
-                <div class="form-box-label">Senha</div>
-                <input type="password" name="senha" id="senha" class="form-input">
-            </div>
+			<div class="form-box">
+				<div class="form-box-label">Senha</div>
+				<input type="password" name="senha" id="senha"
+					pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+					class="form-input form-control" required>
+				<div class="valid-feedback">Senha válida!</div>
+				<div class="invalid-feedback">Senha incorreta</div>
+			</div>
 
-            <div class="form-box">
-                <input type="submit" value="Continuar">
-            </div>
-        </form>
-    </div>
+			<div class="form-box">
+				<input type="submit" value="Continuar">
+			</div>
+		</form>
+	</div>
 
-    <!-- Rodapé -->
+	<!-- Rodapé -->
 
-    <footer class="rodape">
-        <ul>
-            <li>
-                <i class="rodape-item-1 fab fa-whatsapp"></i> (88) 9.9287-1532
-                <i class="rodape-item-2 fas fa-calendar-day"></i> Fundado em: Abril de 2008.
-                <i class="rodape-item-3 fas fa-map-marker-alt"></i> Universidade Federal do Ceará.
+	<footer class="rodape">
+		<ul>
+			<li><i class="rodape-item-1 fab fa-whatsapp"></i> (88)
+				9.9287-1532 <i class="rodape-item-2 fas fa-calendar-day"></i>
+				Fundado em: Abril de 2008. <i
+				class="rodape-item-3 fas fa-map-marker-alt"></i> Universidade
+				Federal do Ceará.</li>
+			<li><i class="rodape-item-1 fas fa-file-code"></i> Powered by:
+				Bárbara Stéph. Neves.</li>
+			<li class="rodape-content"><i class="rodape-content"></i>2019 ©
+				Todos os direitos reservados.</li>
+		</ul>
+	</footer>
 
-            </li>
-            <li>
-                <i class="rodape-item-1 fas fa-file-code"></i> Powered by: Bárbara Stéph. Neves.
-            </li>
-            <li class="rodape-content">
-                <i class="rodape-content"></i>2019 © Todos os direitos reservados.
-            </li>
-        </ul>
-    </footer>
+	<script>
+		(function() {
+			'use strict';
+			window.addEventListener('load',
+					function() {
+						var forms = document
+								.getElementsByClassName('needs-validation');
+
+						var validation = Array.prototype.filter.call(forms,
+								function(form) {
+									form.addEventListener('submit', function(
+											event) {
+										if (form.checkValidity() === false) {
+											event.preventDefault();
+											event.stopPropagation();
+										}
+										form.classList.add('was-validated');
+									}, false);
+								});
+					}, false);
+		})();
+	</script>
 </body>
 
 </html>

@@ -12,7 +12,7 @@
 
 <!-- Estilo -->
 <link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	href="/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" media="screen"
 	href="/css/style.css">
 
@@ -48,13 +48,9 @@
 				href="/sobre"><i class="fas fa-store"></i> Sobre</a> <a
 				href="/contato"><i class="fa fa-envelope"></i> Contato</a> <a
 				href="/home"><img src="/imagens/logo.png" alt
-				class="logo-mobile"></a> <a href="javascript:void(0)"
-				class="dropdown"><i class="far fa-clock"></i> <span>Aberto
-					até às 23h</span>
-				<div class="dropdown-content">
-					<p class="corPrimaria">Todos os dias das 11 às 15h e 18 às 23h</p>
-				</div> <i class="fas fa-angle-down"></i> </a> <a href="/entrar"><i
-				class="fa fa-fw fa-user"></i> Meus Pedidos</a> <a href="/pedido"
+				class="logo-mobile"></a> <a href="#"><i class="far fa-clock"></i> <span>Aberto
+					até às 23h</span></a> <a href="/entrar"><i
+				class="fa fa-fw fa-user"></i> Meus Pedidos</a> <a href="/carrinho"
 				class="carrinho"><i class="fas fa-shopping-cart"></i></a>
 		</nav>
 	</div>
@@ -84,7 +80,7 @@
 					class="form-input form-control"
 					pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
 					required="required">
-					<div class="valid-feedback"></div>
+					<div class="valid-feedback">E-mail válido!</div>
 					<div class="invalid-feedback">E-mail é obrigatório</div>
 				</span>
 			</div>
@@ -94,7 +90,7 @@
 					<div for="telefone" class="form-box-label">Telefone</div> <input
 					type="text" id="telefone" name="telefone" pattern="(?=.*\d).{16,}"
 					class="form-input form-control" required>
-					<div class="valid-feedback"></div>
+					<div class="valid-feedback">Telefone válido!</div>
 					<div class="invalid-feedback">Telefone é obrigatório</div>
 				</span>
 			</div>

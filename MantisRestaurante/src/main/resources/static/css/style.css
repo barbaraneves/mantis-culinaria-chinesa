@@ -16,6 +16,16 @@
 	overflow: hidden;
 }
 
+#message {
+  display: none;
+  margin-top: 15px;
+}
+
+#message p {
+  font-size: 12px;
+  margin-top: -15px;
+}
+
 html, body {
 	font-family: 'Varela Round', sans-serif !important;
 	font-size: 15px;
@@ -326,39 +336,8 @@ select:focus {
 	margin-bottom: -40px;
 }
 
-.navebar-header a.dropdown {
+.navebar-header a.drop-down {
 	display: inline-block;
-}
-
-.dropdown {
-	overflow: hidden;
-}
-
-.dropdown-content {
-	display: none;
-	position: absolute;
-	background: white;
-	min-width: 160px;
-	box-shadow: -2px 2px 4px 0px rgba(0, 0, 0, 0.2);
-	border: 1px solid #e6e5e5;
-	border-radius: 0 0 4px 4px;
-	padding: 12px 16px;
-	z-index: 1234;
-	width: 365px;
-	transition: color linear .4s;
-	pointer-events: none;
-	top: 95px;
-	left: 760px;
-}
-
-.dropdown:hover .dropdown-content {
-	display: block;
-	color: black;
-}
-
-.corPrimaria {
-	color: #282828;
-	font-weight: normal !important;
 }
 
 .contato, .login {
@@ -390,7 +369,6 @@ select:focus {
 hr {
 	border: 1px solid #f1f1f1;
 	color: #ce3a3e;
-	margin-bottom: 30px;
 }
 
 .signin {
@@ -909,6 +887,24 @@ hr {
 .ofertas-2 img, .ofertas-3 img {
 	border: 2.5px solid #fbe9da;
 	display: block;
+}
+
+.valid {
+  color: #28a745;
+}
+
+.valid:before {
+  left: -35px;
+  content: "✔";
+}
+
+.invalid {
+  color: #dc3545;
+}
+
+.invalid:before {
+  left: -35px;
+  content: "✖";
 }
 
 /* Rodapé */

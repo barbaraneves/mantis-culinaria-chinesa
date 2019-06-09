@@ -13,9 +13,9 @@
 <!-- Estilo do site -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" media="screen"
-	href="/css/style.css">
-
+<link rel="stylesheet"
+	href="/css/bootstrap.min.css">
+	
 <!-- Fonte do site -->
 <link href="https://fonts.googleapis.com/css?family=Varela+Round"
 	rel="stylesheet">
@@ -48,13 +48,9 @@
 				href="/sobre"><i class="fas fa-store"></i> Sobre</a> <a
 				href="/contato"><i class="fa fa-envelope"></i> Contato</a> <a
 				href="/home"><img src="/imagens/logo.png" alt
-				class="logo-mobile"></a> <a href="javascript:void(0)"
-				class="dropdown"><i class="far fa-clock"></i> <span>Aberto
-					até às 23h</span>
-				<div class="dropdown-content">
-					<p class="corPrimaria">Todos os dias das 11 às 15h e 18 às 23h</p>
-				</div> <i class="fas fa-angle-down"></i> </a> <a href="/entrar"><i
-				class="fa fa-fw fa-user"></i> Meus Pedidos</a> <a href="/pedido"
+				class="logo-mobile"></a> <a href="#"><i class="far fa-clock"></i> <span>Aberto
+					até às 23h</span></a> <a href="/entrar"><i
+				class="fa fa-fw fa-user"></i> Meus Pedidos</a> <a href="/carrinho"
 				class="carrinho"><i class="fas fa-shopping-cart"></i></a>
 		</nav>
 	</div>
@@ -70,15 +66,15 @@
 				<input type="text" name="nome" id="nome"
 					class="form-input form-control" required>
 				<div class="valid-feedback"></div>
-				<div class="invalid-feedback">Mensagem é obrigatória</div>
+				<div class="invalid-feedback">Nome é obrigatório</div>
 			</div>
 
 			<div class="form-box">
 				<div class="form-box-label">CPF</div>
-				<input type="number" name="cpf" id="cpf"
-					class="form-input form-control" value maxlength="14" required>
-				<div class="valid-feedback"></div>
-				<div class="invalid-feedback">Mensagem é obrigatória</div>
+				<input type="text" name="cpf" id="cpf"
+					class="form-input form-control" pattern="(?=.*\d).{14,}" required>
+				<div class="valid-feedback">CPF válido!</div>
+				<div class="invalid-feedback">CPF é obrigatório</div>
 			</div>
 
 			<div class="form-box">
@@ -86,10 +82,12 @@
 				<input type="date" name="aniver" id="aniver"
 					class="form-input form-control" required>
 				<div class="valid-feedback"></div>
-				<div class="invalid-feedback">Mensagem é obrigatória</div>
+				<div class="invalid-feedback">Data de nascimento é obrigatório</div>
 			</div>
 
-			<hr>
+			<div class="form-box">
+				<hr>
+			</div>
 
 			<div class="form-box">
 				<div class="form-box-label">Estado</div>
@@ -129,15 +127,15 @@
 				<input type="text" id="cidade" name="cidade"
 					class="form-input-login-2 form-control" required>
 				<div class="valid-feedback"></div>
-				<div class="invalid-feedback">Mensagem é obrigatória</div>
+				<div class="invalid-feedback">Cidade é obrigatório</div>
 			</div>
 
 			<div class="form-box-login">
 				<div class="form-box-label-login">CEP</div>
-				<input type="number" id="cep" name="cep"
-					class="form-input-login form-control" value maxlength="9" required>
-				<div class="valid-feedback"></div>
-				<div class="invalid-feedback">Mensagem é obrigatória</div>
+				<input type="text" id="cep" name="cep"
+					class="form-input-login form-control" pattern="(?=.*\d).{9,}" required>
+				<div class="valid-feedback">CEP válido!</div>
+				<div class="invalid-feedback">CEP é obrigatório</div>
 			</div>
 
 			<div class="form-box">
@@ -145,7 +143,7 @@
 				<input type="text" id="endereco" name=endereco
 					class="form-input form-control" required>
 				<div class="valid-feedback"></div>
-				<div class="invalid-feedback">Mensagem é obrigatória</div>
+				<div class="invalid-feedback">Endereço é obrigatório</div>
 			</div>
 
 			<div class="form-box-login-3">
@@ -153,7 +151,7 @@
 				<input type="number" id="numero" name="numero"
 					class="form-input-login-3 form-control" required>
 				<div class="valid-feedback"></div>
-				<div class="invalid-feedback">Mensagem é obrigatória</div>
+				<div class="invalid-feedback">Número da sua casa é obrigatório</div>
 			</div>
 
 			<div class="form-box-login-4">
@@ -161,7 +159,7 @@
 				<input type="text" id="bairro" name="bairro"
 					class="form-input-login-4 form-control" required>
 				<div class="valid-feedback"></div>
-				<div class="invalid-feedback">Mensagem é obrigatória</div>
+				<div class="invalid-feedback">Bairro é obrigatório</div>
 			</div>
 
 			<div class="form-box">
@@ -169,43 +167,54 @@
 				<input type="text" id="complemento" name="complemento"
 					class="form-input form-control" required>
 				<div class="valid-feedback"></div>
-				<div class="invalid-feedback">Mensagem é obrigatória</div>
+				<div class="invalid-feedback">Complemento é obrigatório</div>
 			</div>
 
 			<div class="form-box">
 				<div class="form-box-label">Ponto de referência</div>
 				<input type="text" id="referencia" name="referencia"
-					class="form-input form-control" required>
-				<div class="valid-feedback"></div>
-				<div class="invalid-feedback">Mensagem é obrigatória</div>
+					class="form-input">
 			</div>
 
-			<hr>
+			<div class="form-box">
+				<hr>
+			</div>
 
 			<div class="form-box">
 				<div class="form-box-label">E-mail</div>
 				<input type="email" id="email" name="email"
-					class="form-input form-control" required>
-				<div class="valid-feedback"></div>
-				<div class="invalid-feedback">Mensagem é obrigatória</div>
+					class="form-input form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+				<div class="valid-feedback">E-mail válido!</div>
+				<div class="invalid-feedback">E-mail é obrigatório</div>
 			</div>
 
 			<div class="form-box">
 				<div class="form-box-label">Senha</div>
 				<input type="password" id="senha" name="senha"
+					pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
 					class="form-input form-control" required>
-				<div class="valid-feedback"></div>
-				<div class="invalid-feedback">Mensagem é obrigatória</div>
+				<div class="valid-feedback">Senha válida!</div>
+				<div class="invalid-feedback">Senha é obrigatória</div>
+				<div id="message">
+					<p id="letter" class="invalid">
+						Letra minúscula
+					</p>
+					<p id="capital" class="invalid">
+						Letra maiúscula
+					</p>
+					<p id="number" class="invalid">
+						Número
+					</p>
+					<p id="length" class="invalid">
+						Mínimo de 8 caracteres
+					</p>
+				</div>
 			</div>
 
 			<div class="form-box">
-				<div class="form-box-label">Repetir senha</div>
-				<input type="password" id="senha" class="form-input form-control"
-					required>
-				<div class="valid-feedback"></div>
-				<div class="invalid-feedback">Mensagem é obrigatória</div>
+				<hr>
 			</div>
-			<hr>
+				
 			<p class="politica">
 				Ao criar uma conta, você concorda com nossa <a href="#">Política
 					de Privacidade</a>.
@@ -277,6 +286,57 @@
 		})();
 	</script>
 
-</body>
+	<script>
+		var myInput = document.getElementById("senha");
+		var letter = document.getElementById("letter");
+		var capital = document.getElementById("capital");
+		var number = document.getElementById("number");
+		var length = document.getElementById("length");
 
+		myInput.onfocus = function() {
+			document.getElementById("message").style.display = "block";
+		}
+		
+		myInput.onblur = function() {
+			document.getElementById("message").style.display = "none";
+		}
+
+		myInput.onkeyup = function() {
+			var lowerCaseLetters = /[a-z]/g;
+			if (myInput.value.match(lowerCaseLetters)) {
+				letter.classList.remove("invalid");
+				letter.classList.add("valid");
+			} else {
+				letter.classList.remove("valid");
+				letter.classList.add("invalid");
+			}
+
+			var upperCaseLetters = /[A-Z]/g;
+			if (myInput.value.match(upperCaseLetters)) {
+				capital.classList.remove("invalid");
+				capital.classList.add("valid");
+			} else {
+				capital.classList.remove("valid");
+				capital.classList.add("invalid");
+			}
+
+			var numbers = /[0-9]/g;
+			if (myInput.value.match(numbers)) {
+				number.classList.remove("invalid");
+				number.classList.add("valid");
+			} else {
+				number.classList.remove("valid");
+				number.classList.add("invalid");
+			}
+
+			if (myInput.value.length >= 8) {
+				length.classList.remove("invalid");
+				length.classList.add("valid");
+			} else {
+				length.classList.remove("valid");
+				length.classList.add("invalid");
+			}
+		}
+	</script>
+</body>
 </html>
