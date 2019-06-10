@@ -23,7 +23,7 @@ public class ClienteController {
 	@RequestMapping("/entrar/meus-dados")
 	public ModelAndView paginaCadastroCliente() {
 
-		ModelAndView mv = new ModelAndView("cadastrar");
+		ModelAndView mv = new ModelAndView("meus-dados");
 		
 		return mv;
 	}
@@ -39,4 +39,6 @@ public class ClienteController {
 		
 		return mv; 
 	}
+	
+	//Edita os dados do cliente
 }

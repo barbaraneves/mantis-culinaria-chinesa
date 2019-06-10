@@ -1,5 +1,7 @@
 package mantisrestaurante.com.br.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,5 +18,4 @@ public class ClienteService {
 	public void cadastrar(Cliente cliente) {
 		clienteRepository.save(cliente);
 	}
-
 }
