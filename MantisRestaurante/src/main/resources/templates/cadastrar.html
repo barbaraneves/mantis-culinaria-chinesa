@@ -10,17 +10,13 @@
 <link rel="icon" href="/imagens/icon.png" type="image/x-icon" />
 <link rel="shortcut icon" href="/imagens/icon.png" type="image/x-icon" />
 
-<!-- Estilo do site -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-<link rel="stylesheet"
-	href="/css/bootstrap.min.css">
-	
-<!-- Fonte do site -->
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
 <link href="https://fonts.googleapis.com/css?family=Varela+Round"
 	rel="stylesheet">
 
-<!-- Icons para a barra de navegação -->
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet"
@@ -28,7 +24,6 @@
 	integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
 	crossorigin="anonymous">
 
-<!-- Scripts -->
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
@@ -40,19 +35,34 @@
 
 <body>
 
-	<!-- Barra de navegação -->
-
 	<div class="navebar">
-		<nav class="navebar-header">
+		<div class="navebar-header">
 			<a href="/cardapio"><i class="fas fa-utensils"></i> Cardápio</a> <a
 				href="/sobre"><i class="fas fa-store"></i> Sobre</a> <a
 				href="/contato"><i class="fa fa-envelope"></i> Contato</a> <a
 				href="/home"><img src="/imagens/logo.png" alt
-				class="logo-mobile"></a> <a href="#"><i class="far fa-clock"></i> <span>Aberto
-					até às 23h</span></a> <a href="/entrar"><i
-				class="fa fa-fw fa-user"></i> Meus Pedidos</a> <a href="/carrinho"
-				class="carrinho"><i class="fas fa-shopping-cart"></i></a>
-		</nav>
+				class="logo-mobile"></a> <a href="#"><i class="far fa-clock"></i>
+				<span>Aberto até às 23h</span></a> <a class="nav-link dropdown"
+				data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+				aria-expanded="false"><i class="fa fa-fw fa-user"></i> Perfil</a>
+			<div class="dropdown-menu" style="width: 15%; position: relative;">
+				<a class="dropdown-item"
+					style="text-transform: none; font-size: 14px; margin: 0; color: #333; cursor: pointer;"
+					href="/meus-pedidos"><i class="fas fa-receipt"></i> Meus
+					pedidos</a>
+				<div class="dropdown-divider"></div>
+				<a class="dropdown-item"
+					style="text-transform: none; font-size: 14px; margin: 0; color: #333; cursor: pointer;"
+					href="/meus-dados"><i class="fas fa-cog"></i> Editar meus dados</a>
+				<div class="dropdown-divider"></div>
+				<a class="dropdown-item"
+					style="text-transform: none; font-size: 14px; margin: 0; color: #333; cursor: pointer;"
+					href="#"><i class="fas fa-sign-out-alt"></i> Sair</a>
+			</div>
+			<a href="/carrinho" class="carrinho"> <i
+				class="fas fa-shopping-cart"></i>
+			</a>
+		</div>
 	</div>
 
 	<div class="login">
@@ -82,7 +92,7 @@
 				<input type="date" name="aniver" id="aniver"
 					class="form-input form-control" required>
 				<div class="valid-feedback"></div>
-				<div class="invalid-feedback">Data de nascimento é obrigatório</div>
+				<div class=<!-- Barra de navegação -->"invalid-feedback">Data de nascimento é obrigatório</div>
 			</div>
 
 			<div class="form-box">
@@ -133,7 +143,8 @@
 			<div class="form-box-login">
 				<div class="form-box-label-login">CEP</div>
 				<input type="text" id="cep" name="cep"
-					class="form-input-login form-control" pattern="(?=.*\d).{9,}" required>
+					class="form-input-login form-control" pattern="(?=.*\d).{9,}"
+					required>
 				<div class="valid-feedback">CEP válido!</div>
 				<div class="invalid-feedback">CEP é obrigatório</div>
 			</div>
@@ -183,7 +194,8 @@
 			<div class="form-box">
 				<div class="form-box-label">E-mail</div>
 				<input type="email" id="email" name="email"
-					class="form-input form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+					class="form-input form-control"
+					pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
 				<div class="valid-feedback">E-mail válido!</div>
 				<div class="invalid-feedback">E-mail é obrigatório</div>
 			</div>
@@ -196,25 +208,17 @@
 				<div class="valid-feedback">Senha válida!</div>
 				<div class="invalid-feedback">Senha é obrigatória</div>
 				<div id="message">
-					<p id="letter" class="invalid">
-						Letra minúscula
-					</p>
-					<p id="capital" class="invalid">
-						Letra maiúscula
-					</p>
-					<p id="number" class="invalid">
-						Número
-					</p>
-					<p id="length" class="invalid">
-						Mínimo de 8 caracteres
-					</p>
+					<p id="letter" class="invalid">Letra minúscula</p>
+					<p id="capital" class="invalid">Letra maiúscula</p>
+					<p id="number" class="invalid">Número</p>
+					<p id="length" class="invalid">Mínimo de 8 caracteres</p>
 				</div>
 			</div>
 
 			<div class="form-box">
 				<hr>
 			</div>
-				
+
 			<p class="politica">
 				Ao criar uma conta, você concorda com nossa <a href="#">Política
 					de Privacidade</a>.
@@ -234,8 +238,6 @@
 			</div>
 		</form>
 	</div>
-
-	<!-- Rodapé -->
 
 	<footer class="rodape">
 		<ul>
@@ -296,7 +298,7 @@
 		myInput.onfocus = function() {
 			document.getElementById("message").style.display = "block";
 		}
-		
+
 		myInput.onblur = function() {
 			document.getElementById("message").style.display = "none";
 		}

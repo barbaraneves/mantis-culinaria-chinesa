@@ -152,7 +152,7 @@ ul li {
 	list-style: none;
 }
 
-div.gallery {
+div.galeria {
 	margin: 5px;
 	border: 1px solid #ccc;
 	float: left;
@@ -164,9 +164,9 @@ div.gallery {
 	overflow: hidden;
 }
 
-div.gallery img {
+div.galeria img {
 	width: 126%;
-	height: 150%;
+	height: 51%;
 	border-radius: 4px;
 	margin-left: -16px;
 	margin-top: -16px;
@@ -181,7 +181,7 @@ div.desc {
 	margin-bottom: 22px;
 }
 
-div.title {
+div.titulo {
 	padding: 15px;
 	text-align: center;
 	color: #d32b28;
@@ -220,17 +220,17 @@ div.editar a button[type=submit]:hover {
 	background-color: #b12321;
 }
 
-div.icon {
+div.avatar {
 	margin-left: -92px;
 	margin-top: -15px;
 }
 
-div.icon a button[type=submit] {
+div.avatar a button[type=submit] {
 	background-color: transparent;
 	color: white;
 }
 
-div.icon a button[type=submit]:hover {
+div.avatar a button[type=submit]:hover {
 	background-color: #b12321;
 	border-color: #b12321;
 }
@@ -270,16 +270,14 @@ select:focus {
 	width: 100%;
 	background-color: #d32b28;
 	height: 142px;
-	overflow: hidden;
 	position: -webkit-sticky;
 	position: sticky;
 	top: 0;
+	padding-top: 47px;
 }
 
 .navebar-header {
-	margin-top: 47px;
 	text-align: center;
-	white-space: nowrap;
 	overflow: hidden;
 }
 
@@ -307,7 +305,7 @@ select:focus {
 	text-decoration: none;
 	color: #fcb525;
 }
- 
+
 .carrinho i {
 	font-size: 25px;
 	color: #fcb525;
@@ -336,8 +334,9 @@ select:focus {
 	margin-bottom: -40px;
 }
 
-.navebar-header a.drop-down {
-	display: inline-block;
+.dropdown-menu .dropdown-item .link-menu {
+	font-size: 12px; 
+	text-transform: none;
 }
 
 .contato, .login {
@@ -349,7 +348,7 @@ select:focus {
 }
 
 .cardapio-titulo {
-	margin-left: 35px;
+	margin-left: 15px;
 	font-size: 24px;
 	border-bottom: 2px solid #ce3a3e;
 	padding-bottom: 3px;
@@ -547,37 +546,6 @@ hr {
 	margin-bottom: 15px;
 }
 
-.row {
-	margin-left: 437px;
-	width: 800px;
-	margin-bottom: 10px;
-	overflow: hidden;
-}
-
-.row input[type=submit] {
-	background-color: #d32b28;
-	color: white;
-	cursor: pointer;
-	transition: all .15s linear;
-}
-
-.row input[type=submit]:hover {
-	background-color: #b12321;
-}
-
-.row::after {
-	content: "";
-	clear: both;
-	display: table;
-}
-
-.row4, .row5, .row6 {
-	margin-top: -66px;
-}
-
-.row8, .row9, .row10 {
-	margin-top: -98px;
-}
 
 .menu {
 	margin-left: -65px;
@@ -590,7 +558,7 @@ hr {
 	margin-top: -15px;
 }
 
-.menu-links {
+.menu-nav .menu-links {
 	display: block;
 	padding: 9px 13px;
 	border: 1px solid #e6e5e5;
@@ -604,7 +572,7 @@ hr {
 	width: 160px;
 }
 
-.active {
+.menu-nav .active {
 	background: #d32b28;
 	color: white;
 	border: 1px solid #d32b28;
@@ -811,7 +779,7 @@ hr {
 	color: black;
 }
 
-.row:after {
+.rows:after {
 	content: "";
 	display: table;
 	clear: both;
