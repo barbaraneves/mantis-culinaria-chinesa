@@ -166,19 +166,19 @@ div.galeria {
 
 div.galeria img {
 	width: 126%;
-	height: 51%;
+	height: 49%;
 	border-radius: 4px;
 	margin-left: -16px;
 	margin-top: -16px;
-	display: block;
 }
 
 div.desc {
 	font-size: 13px;
 	color: #403b36;
 	line-height: 1.4;
-	margin-left: -16px;
-	margin-bottom: 22px;
+	margin-left: -18px;
+	margin-bottom: 30px;
+	height: 80px;
 }
 
 div.titulo {
@@ -188,26 +188,27 @@ div.titulo {
 	font-size: 16px;
 	font-weight: bold;
 	line-height: 1.4;
+	height: 65px;
 }
 
 div.preco {
-	display: block;
-	text-align: left;
-	color: black;
-	font-size: 14px;
-	margin-top: 10px;
-	margin-left: -16px;
-	margin-bottom: -32px;
+    text-align: left;
+    color: black;
+    font-size: 13px;
+    margin-top: 10px;
+    margin-left: -16px;
+    margin-bottom: -32px;
+    height: 45px;
 }
 
 div.editar {
-	display: block;
 	text-align: left;
 	color: black;
 	font-size: 13px;
 	margin-top: 10px;
 	margin-left: -16px;
 	margin-bottom: -32px;
+	height: 45px;
 }
 
 div.editar a button[type=submit] {
@@ -779,7 +780,43 @@ hr {
 	color: black;
 }
 
-.rows:after {
+.rows {
+    margin-left: 437px;
+    width: 800px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.rows input[type=submit] {
+    background-color: #d32b28;
+    color: white;
+    cursor: pointer;
+    transition: all .15s linear;
+}
+
+.rows input[type=submit]:hover {
+    background-color: #b12321;
+}
+
+.rows::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.rows4,
+.rows5,
+.rows6 {
+    margin-top: -66px;
+}
+
+.rows8,
+.rows9,
+.rows10 {
+    margin-top: -98px;
+}
+
+.rowss:after {
 	content: "";
 	display: table;
 	clear: both;
