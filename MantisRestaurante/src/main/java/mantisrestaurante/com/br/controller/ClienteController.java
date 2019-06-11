@@ -2,12 +2,14 @@ package mantisrestaurante.com.br.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import mantisrestaurante.com.br.model.Cliente;
 import mantisrestaurante.com.br.service.ClienteService;
 
+@RequestMapping("/meus-dados")
 @Controller
 public class ClienteController {
 
@@ -16,11 +18,11 @@ public class ClienteController {
 	 * cliente, já que ele possui funções diferentes na aplicação, como se
 	 * cadastrar, fazer pedido, confirmar pedido e fazer log out.
 	 */
-
+	
 	@Autowired
 	private ClienteService clienteService;
 	
-	@RequestMapping("/entrar/meus-dados")
+	@RequestMapping("/cadastro")
 	public ModelAndView paginaCadastroCliente() {
 
 		ModelAndView mv = new ModelAndView("meus-dados");
@@ -28,17 +30,26 @@ public class ClienteController {
 		return mv;
 	}
 	
-	@RequestMapping("/entrar/meus-dados/usuario-cadastrado")
+	@RequestMapping("/usuario-cadastrado")
 	public ModelAndView cadastroCliente(Cliente cliente) {
 		
 		clienteService.cadastrar(cliente);
 		
 		//Redirecionar para uma página de sucesso
 		//Colocar um modal ou ir para o carrinho
-		ModelAndView mv = new ModelAndView("redirect:/entrar/meus-dados");
+		ModelAndView mv = new ModelAndView("redirect:/cadastro");
 		
 		return mv; 
 	}
 	
-	//Edita os dados do cliente
+	@RequestMapping("/editar/{id}")
+	public ModelAndView editarDadosCliente(@PathVariable Long id) {
+		
+		Cliente cliente = clienteService.buscarPorId(id);
+		
+		ModelAndView mv = new ModelAndView("editar-meus-dados");
+		mv.addObject("cliente", cliente);
+		
+		return mv;
+	}
 }
