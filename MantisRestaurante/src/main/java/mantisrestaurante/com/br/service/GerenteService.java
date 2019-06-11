@@ -26,7 +26,6 @@ public class GerenteService {
 
 	//Exclui um prato do BD
 	public void excluirPrato(Long id) {
-		
 		gerenteRepository.deleteById(id);
 	}
 

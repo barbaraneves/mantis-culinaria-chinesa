@@ -37,7 +37,7 @@ public class ClienteController {
 		
 		//Redirecionar para uma página de sucesso
 		//Colocar um modal ou ir para o carrinho
-		ModelAndView mv = new ModelAndView("redirect:/cadastro");
+		ModelAndView mv = new ModelAndView("redirect:/meus-dados/cadastro");
 		
 		return mv; 
 	}

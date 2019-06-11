@@ -67,7 +67,9 @@
 
 	<div class="login">
 		<form action="/meus-dados/usuario-cadastrado" method="POST"
-			class="login-form" th:object="${cliente}">
+			class="login-form needs-validation" novalidate th:object="${cliente}">
+			
+			<input type="hidden" th:field="*{id}">
 
 			<h4 class="login-titulo">EDITAR MEUS DADOS</h4>
 			<br>
@@ -96,7 +98,7 @@
 			<div class="form-box">
 				<div class="form-box-label">E-mail</div>
 				<input type="email" id="email"
-					class="form-input form-control"
+					class="form-input"
 					pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" th:field="*{email}">
 			</div>
 
@@ -104,7 +106,9 @@
 				<div class="form-box-label">Senha</div>
 				<input type="password" id="senha"
 					pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-					class="form-input" th:field="*{senha}">
+					class="form-input form-control" required th:field="*{senha}">
+				<div class="valid-feedback">Senha válida!</div>
+				<div class="invalid-feedback">Você não digitou sua senha!</div>
 				<div id="message">
 					<p id="letter" class="invalid">Letra minúscula</p>
 					<p id="capital" class="invalid">Letra maiúscula</p>
@@ -143,6 +147,29 @@
 				reverse : false
 			});
 		});
+	</script>
+	
+	<script>
+		(function() {
+			'use strict';
+			window.addEventListener('load',
+					function() {
+						var forms = document
+								.getElementsByClassName('needs-validation');
+
+						var validation = Array.prototype.filter.call(forms,
+								function(form) {
+									form.addEventListener('submit', function(
+											event) {
+										if (form.checkValidity() === false) {
+											event.preventDefault();
+											event.stopPropagation();
+										}
+										form.classList.add('was-validated');
+									}, false);
+								});
+					}, false);
+		})();
 	</script>
 
 	<script>
