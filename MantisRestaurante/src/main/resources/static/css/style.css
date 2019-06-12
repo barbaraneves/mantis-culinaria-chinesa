@@ -912,6 +912,56 @@ hr {
   content: "✖";
 }
 
+.section-pagina {
+	margin-bottom: 20px;
+	min-height: 360px;
+}
+
+.section-pagina-header {
+	margin-top: 60px;
+	margin-bottom: 40px;
+}
+
+.section-container {
+	padding-right: 15px;
+	padding-left: 15px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.pd-title--center {
+	text-align: center;
+}
+
+.pd-title--h3 {
+	font-size: 28px;
+}
+
+.pd-title {
+	color: #ed3237;
+}
+
+.pd-title .pd-title--center .pd-title--h3 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.section-pagina-content {
+	
+}
+
+.pd-c-cart {
+	margin-bottom: 40px;
+}
+
+.pd-c-cart-empty--show {
+	display: block;
+}
+
+.pd-c-cart-empty {
+	text-align: center;
+}
+
 /* Rodapé */
 .rodape {
 	font-family: "Varela Round", sans-serif;

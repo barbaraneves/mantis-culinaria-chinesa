@@ -47,7 +47,7 @@ public class ClienteController {
 		
 		Cliente cliente = clienteService.buscarPorId(id);
 		
-		ModelAndView mv = new ModelAndView("editar-meus-dados");
+		ModelAndView mv = new ModelAndView("editar-dados");
 		mv.addObject("cliente", cliente);
 		
 		return mv;
