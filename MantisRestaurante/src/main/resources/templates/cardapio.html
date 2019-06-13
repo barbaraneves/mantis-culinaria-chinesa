@@ -111,8 +111,17 @@
 			<div class="titulo" th:text="${prato.nome}"></div>
 			<div class="desc" th:text="${prato.descricao}"></div>
 			<div class="editar">
-				R$ <span th:text="${prato.preco}"></span>
-				<button type="submit">Adicionar</button>
+					<span class="pd-formQtd">
+						<span title="Diminuir quantidade" class="pd-formQtd-icon">
+							<i class="fas fa-plus pd-formQtd-icon--plus"></i>
+						</span>
+						<input type="text" readonly="readonly" class="pd-formQtd-input">
+						<span title="Aumentar quantidade" class="pd-formQtd-icon">
+							<i class="fas fa-minus pd-formQtd-icon--minus"></i>
+						</span>
+					</span>
+				<button type="submit" style="margin-left: 65px; margin-top: -55px;">R$ <span th:text="${prato.preco}"></span> <i style="font-size: 20px;"
+				class="fas fa-shopping-cart"></i></button>
 			</div>
 		</div>
 	</div>

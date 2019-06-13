@@ -97,9 +97,10 @@
 			</div>
 			<div class="titulo" th:text="${prato.nome}"></div>
 			<div class="desc" th:text="${prato.descricao}"></div>
-			<div class="editar">
-				R$ <span th:text="${prato.preco}"></span> <a
-					th:href="@{/area-gerente/editar-prato/{id}(id = ${prato.id})}">
+			<div class="preco">
+				<div class="desc-preco">R$ <span th:text="${prato.preco}"></span></div>
+				 <a
+					th:href="@{/area-gerente/editar-prato/{id}(id = ${prato.id})}" style="text-decoration: none;">
 					<button type="submit">
 						<i class="fas fa-edit"></i> Editar
 					</button>
