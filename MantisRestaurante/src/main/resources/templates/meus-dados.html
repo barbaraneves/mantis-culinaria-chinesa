@@ -89,8 +89,8 @@
 
 			<div class="form-box">
 				<div class="form-box-label">Aniversário</div>
-				<input type="date" name="aniver" id="aniver"
-					class="form-input form-control" required>
+				<input type="text" name="aniver" id="aniver"
+					class="form-input form-control" required placeholder="dd/MM/aaaa">
 				<div class="valid-feedback"></div>
 				<div class="invalid-feedback">Data de nascimento é obrigatório</div>
 			</div>
@@ -260,6 +260,10 @@
 			});
 
 			$("#cep").mask('00000-000', {
+				reverse : false
+			});
+			
+			$("#aniver").mask('00/00/0000', {
 				reverse : false
 			});
 		});

@@ -1,9 +1,15 @@
 package mantisrestaurante.com.br.model;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class Cliente {
@@ -14,8 +20,11 @@ public class Cliente {
 	
 	private String nome;
 	private String cpf;
-	private String aniver;
 	
+	@DateTimeFormat(pattern = "dd/MM/yyyy")	
+	@Temporal(TemporalType.DATE)
+	private Date aniver;
+
 	private String estado;
 	private String cidade;
 	private String endereco;
@@ -52,11 +61,11 @@ public class Cliente {
 		this.cpf = cpf;
 	}
 	
-	public String getAniver() {
+	public Date getAniver() {
 		return aniver;
 	}
-	
-	public void setAniver(String aniver) {
+
+	public void setAniver(Date aniver) {
 		this.aniver = aniver;
 	}
 	
