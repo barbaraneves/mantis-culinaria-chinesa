@@ -48,7 +48,7 @@
 
 	<div class="login">
 		<form action="/area-gerente/cadastrar-pratos/confirmacao"
-			method="POST" class="login-form needs-validation" novalidate th:object="${prato}">
+			method="POST" class="login-form needs-validation" novalidate th:object="${prato}" enctype="multipart/form-data">
 			<input type="hidden" th:field="*{id}">
 
 			<h4 class="login-titulo">INFORMAÇÕES SOBRE O PRATO</h4>
@@ -88,6 +88,16 @@
 						<div class="valid-feedback"></div>
 						<div class="invalid-feedback">Descrição do prato é obrigatório</div>
 				</span>
+			</div>
+			
+			<div class="form-box" style="z-index: 2">
+				<div class="form-box-label">Imagem do prato</div>
+				<div class="custom-file form-control" style="">
+					<input type="file" name="imagem" class="form-input custom-file-input" required>
+					<div class="custom-file-label form-box-label">Escolher arquivo</div>
+					<div class="valid-feedback"></div>
+					<div class="invalid-feedback"style="margin-left: -10px; margin-top: -5px;">Imagem do prato é obrigatória</div>
+				</div>
 			</div>
 
 			<div class="form-box">
@@ -139,6 +149,13 @@
 								});
 					}, false);
 		})();
+	</script>
+	
+	<script>
+		$(".custom-file-input").on("change", function() {
+		  var fileName = $(this).val().split("\\").pop();
+		  $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+		});
 	</script>
 
 </body>

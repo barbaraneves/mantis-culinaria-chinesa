@@ -4,9 +4,11 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import mantisrestaurante.com.br.model.Prato;
 import mantisrestaurante.com.br.repository.GerenteRepository;
+import mantisrestaurante.com.br.util.MantisFileUtils;
 
 @Service
 public class GerenteService {
@@ -15,7 +17,11 @@ public class GerenteService {
 	private GerenteRepository gerenteRepository;
 	
 	//Salvando um prato no BD
-	public void cadastrar(Prato prato) {
+	public void cadastrar(Prato prato, MultipartFile imagem) {
+		
+		String caminho = "imagens/" + prato.getNome() + ".png";
+		MantisFileUtils.salvarImagem(caminho, imagem);
+		
 		gerenteRepository.save(prato);
 	}
 

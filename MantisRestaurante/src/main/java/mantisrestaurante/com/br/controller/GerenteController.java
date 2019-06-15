@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import mantisrestaurante.com.br.model.Prato;
@@ -37,9 +39,9 @@ public class GerenteController {
 	}
 	
 	@RequestMapping("/cadastrar-pratos/confirmacao")
-	public ModelAndView cadastrarPratos(Prato prato) {
+	public ModelAndView cadastrarPratos(Prato prato, @RequestParam(value="imagem") MultipartFile imagem) {
 		
-		gerenteService.cadastrar(prato);
+		gerenteService.cadastrar(prato, imagem);
 		
 		ModelAndView mv = new ModelAndView("redirect:/area-gerente/cardapio");
 		

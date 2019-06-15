@@ -105,8 +105,7 @@
 
 	<div class="row">
 		<div class="galeria" th:each="prato : ${cardapio}">
-			<a target="_blank" href="/imagens/salada.jpg"> <img
-				src="/imagens/salada.jpg" alt="Salada Mista">
+			<a target="_blank"> <img th:src="@{'/imagens/'+${prato.nome}+.png}">
 			</a>
 			<div class="titulo" th:text="${prato.nome}"></div>
 			<div class="desc" th:text="${prato.descricao}"></div>
