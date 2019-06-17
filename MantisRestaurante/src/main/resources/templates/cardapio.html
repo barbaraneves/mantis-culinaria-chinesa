@@ -105,22 +105,24 @@
 
 	<div class="row">
 		<div class="galeria" th:each="prato : ${cardapio}">
-			<a target="_blank"> <img th:src="@{'/imagens/'+${prato.nome}+.png}">
+			<a target="_blank"> <img
+				th:src="@{'/imagens/'+${prato.nome}+.png}">
 			</a>
 			<div class="titulo" th:text="${prato.nome}"></div>
 			<div class="desc" th:text="${prato.descricao}"></div>
 			<div class="editar">
-					<span class="pd-formQtd">
-						<span title="Diminuir quantidade" class="pd-formQtd-icon">
-							<i class="fas fa-plus pd-formQtd-icon--plus"></i>
-						</span>
-						<input type="text" readonly="readonly" class="pd-formQtd-input">
-						<span title="Aumentar quantidade" class="pd-formQtd-icon">
-							<i class="fas fa-minus pd-formQtd-icon--minus"></i>
-						</span>
-					</span>
-				<button type="submit" style="margin-left: 65px; margin-top: -55px;">R$ <span th:text="${prato.preco}"></span> <i style="font-size: 20px;"
-				class="fas fa-shopping-cart"></i></button>
+				<span class="pd-formQtd"> <span title="Aumentar quantidade"
+					class="pd-formQtd-icon" onclick="aumentarQtd()"> <i
+						class="fas fa-plus pd-formQtd-icon--plus"></i>
+				</span> <input type="number" class="pd-formQtd-input" id="numero" value="1">
+					<span title="Diminuir quantidade" class="pd-formQtd-icon" onclick="diminuirQtd()"> <i
+						class="fas fa-minus pd-formQtd-icon--minus"></i>
+				</span>
+				</span>
+				<button type="submit" style="margin-left: 65px; margin-top: -55px;">
+					R$ <span th:text="${prato.preco}" id="preco"></span> <i
+						style="font-size: 20px;" class="fas fa-shopping-cart"></i>
+				</button>
 			</div>
 		</div>
 	</div>
@@ -313,6 +315,24 @@
 			$('#botaoMais2').hide();
 			$('#botaoMais3').hide();
 		});
+	</script>
+
+	<script>
+		function aumentarQtd() {
+			var numero = document.getElementById("numero").value;
+			var novoNum = numero - (-1);
+			document.getElementById("numero").value = novoNum;
+		}
+	</script>
+	
+	<script>
+		function diminuirQtd() {
+			var numero = document.getElementById("numero").value;
+			if (numero > 1) {
+				var novoNum = numero - 1;
+				document.getElementById("numero").value = novoNum;
+			}
+		}
 	</script>
 </body>
 

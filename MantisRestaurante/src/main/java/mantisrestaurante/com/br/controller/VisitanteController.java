@@ -71,4 +71,12 @@ public class VisitanteController {
 
 		return mv;
 	}
+	
+	@RequestMapping("/meus-pedidos")
+	public ModelAndView paginaPedidos() {
+
+		ModelAndView mv = new ModelAndView("meus-pedidos");
+
+		return mv;
+	}
 }
