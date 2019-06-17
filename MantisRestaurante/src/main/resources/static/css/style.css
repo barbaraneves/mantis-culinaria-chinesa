@@ -1002,6 +1002,121 @@ hr {
 	color: #d32b28;
 }
 
+.pd-c-cart-container {
+    padding: 32px 25px;
+    border: 1px solid #e6e5e5;
+    border-radius: 4px;
+    background: white;
+    width: 80%;
+	margin-left: 140px;
+}
+
+.pd-c-cart-list {
+    border-top: none;
+}
+
+.pd-c-cart-list table {
+    width: 100%;
+}
+
+.pd-c-cart-list td img {
+    max-width: 65px;
+    margin-right: 10px;
+    border-radius: 4px;
+}
+
+.pd-c-cart-list-item-desc-text {
+    vertical-align: middle;
+    display: inline-block;
+    white-space: normal;
+    font-size: initial;
+}
+
+.pd-c-cart-list-item-title {
+    display: block;
+}
+
+.pd-c-cart-list-item-desc-text :not(.pd-c-cart-list-item-title) {
+    font-size: 14px;
+}
+
+.pd-c-cart-list-item-desc-text-obs {
+    margin: 8px 0;
+    white-space: nowrap;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-left {
+    text-align: left;
+}
+
+table {
+	background-color: transparent;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+thead {
+    display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+tr.pd-c-cart-list-header {
+    text-transform: uppercase;
+}
+
+tr.pd-c-cart-list-header td:first-child {
+    left: -1px;
+}
+
+tr.pd-c-cart-list-header td {
+    font-size: 15px;
+}
+
+tr.pd-c-cart-list-header td {
+    font-size: 16px;
+    border-bottom: 2px solid #e6e5e5;
+    padding-top: 0;
+    padding-bottom: 8px;
+    background: white;
+    position: relative;
+    color: #a3a3a3;
+}
+
+.pd-c-cart-list tr + tr td {
+    border-top: 1px solid #e6e5e5;
+}
+
+.pd-c-cart-list-footer-continuarComprando a {
+    color: #5cb85c;
+    transition: all linear .15s;
+}
+
+.pd-c-cart-list-footer-continuarComprando a:hover {
+	color: #45a049;
+	text-decoration: none;
+}
+
+.pd-c-cart-list-item-valorUnit {
+    text-align: center;
+}
+
 .pd-formQtd {
 	width: 20%;
 	height: 100%;
