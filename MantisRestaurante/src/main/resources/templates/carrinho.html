@@ -31,6 +31,18 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+	var valorUnit = document.getElementById("valorUnit").value;
+	
+	window.onload = function(){
+		valorUnit = valorUnit.toFixed(2);
+		
+        novoValorUnit = valorUnit.toString(); 
+        novoValorUnit = novoValorUnit.replace("." , ","); 
+        
+        document.getElementById("valorUnit").innerHTML = novoValorUnit;
+	}
+</script>
 </head>
 
 <body>
@@ -79,17 +91,6 @@
 		<div class="section-pagina-content">
 			<div class="section-container">
 				<section class="pd-c-cart">
-					<!-- Para caso o carrinho esteja vazio -->
-					<!--  
-					<div class="pd-c-cart-empty pd-c-cart-empty--show">
-						<h1 class="pd-title pd-title--center pd-title--h3">Seu carrinho<br>está vazio!<br><i class="far fa-sad-tear"></i></h1>
-						<br>
-						<a href="/cardapio" class="pd-c-cart-empty-btn"><i class="fas fa-angle-double-left"></i> Voltar para o cardápio</a>
-					
-					</div>
-					-->
-
-					<!-- Para o caso o carrinho esteja com algum prato -->
 					<div>
 						<section class="pd-c-cart-container">
 							<div class="pd-c-cart-list">
@@ -104,66 +105,105 @@
 										</tr>
 									</thead>
 									<tbody>
-										<tr class="pd-c-cart-list-item">
+										<tr class="pd-c-cart-list-item"
+											th:each="i : ${#numbers.sequence(0, carrinho.size()-1)}">
 											<td class="pd-c-cart-list-item-desc"><img
 												src="https://s3-us-west-2.amazonaws.com/cdn.saigonrestaurante/upload/thumb/macarrao_frito_com_chop_suey_05062019112912.jpg">
 												<span class="pd-c-cart-list-item-desc-text"> <span
-													class="pd-c-cart-list-item-title">Macarrão Frito com
-														Chop Suey</span> 
-													<span></span>
+													class="pd-c-cart-list-item-title"
+													th:text="${carrinho.get(i).getNomePrato()}"></span> <span></span>
 													<div class="pd-c-cart-list-item-desc-text-obs">
 														<div class="pd-c-ModalObsItem">
-															<button type="button" title="Adicionar uma observação" class="pd-modal-obs-header-btn" data-toggle="modal" data-target="#exampleModalCenter"><i class="far fa-comment"></i></button>	
+															<button type="button" title="Adicionar uma observação"
+																class="pd-modal-obs-header-btn" data-toggle="modal"
+																data-target="#modalComentario">
+																<i class="far fa-comment"></i>
+															</button>
 															<!-- Modal -->
-															<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-															  <div class="modal-dialog modal-dialog-centered" role="document">
-															    <div class="modal-content">
-															      <div class="modal-header">
-															        <h5 class="modal-title" id="exampleModalCenterTitle"><i class="far fa-comment"></i> Adicionar observação</h5>
-															        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-															          <span aria-hidden="true">&times;</span>
-															        </button>
-															      </div>
-															      <div class="modal-body">
-															      	<input autofocus="autofocus" type="text" class="pd-modal-obs-field">
-															      	<span class="pd-modal-obs-confirm"><i class="fas fa-check-circle" style="font-size: 30px;"></i></span>
-															      </div>
-															      <div class="modal-footer"></div>
-															    </div>
-															  </div>
+															<div class="modal fade" id="modalComentario"
+																tabindex="-1" role="dialog"
+																aria-labelledby="modalComentarioTitulo"
+																aria-hidden="true">
+																<div class="modal-dialog modal-dialog-centered"
+																	role="document">
+																	<div class="modal-content">
+																		<div class="modal-header">
+																			<h5 class="modal-title" id="modalComentarioTitulo">
+																				<i class="far fa-comment"></i> Adicionar observação
+																			</h5>
+																			<button type="button" class="close"
+																				data-dismiss="modal" aria-label="Close">
+																				<span aria-hidden="true">&times;</span>
+																			</button>
+																		</div>
+																		<div class="modal-body">
+																			<input autofocus="autofocus" type="text"
+																				class="pd-modal-obs-field"> <span
+																				class="pd-modal-obs-confirm"><i
+																				class="fas fa-check-circle" style="font-size: 30px;"></i></span>
+																		</div>
+																		<div class="modal-footer"></div>
+																	</div>
+																</div>
 															</div>
 														</div>
 													</div>
 											</span></td>
-											<td class="text-right pd-c-cart-item-valorUnit"><span>R$
-													10,00</span></td>
-											<td class="text-right">
-												<span>
-													<span class="form-spinner">
-														<span title="Diminuir quantidade" class="fs-btn fs-btn-minus" onclick="diminuirQtd()">-</span>
-														<input type="number" class="fs-btn fs-input" value="1" id="numero">	
-														<span title="Aumentar quantidade" class="fs-btn fs-btn-plus" onclick="aumentarQtd()">+</span>
-													</span>
+											<td class="text-right pd-c-cart-item-valorUnit"><span
+												th:text="${'R$ ' + carrinho.get(i).getPrecoUnit()}" id="valorUnit"></span></td>
+											<td class="text-right"><span> <span
+													class="form-spinner"> <a th:href="@{/carrinho/prato/diminuir-quantidade/{id}(id = ${carrinho.get(i).getId()})}"><span
+														title="Diminuir quantidade" class="fs-btn fs-btn-minus"
+														onclick="diminuirQtd()">-</span></a> 
+														<span class="fs-btn fs-input" th:text="${qtd}"></span>
+														<a th:href="@{/carrinho/prato/aumentar-quantidade/{id}(id = ${carrinho.get(i).getId()})}"><span
+														title="Aumentar quantidade" class="fs-btn fs-btn-plus"
+														onclick="aumentarQtd()">+</span></a>
 												</span>
-											</td>
-											<td class="text-right"><span>R$ 10,00</span></td>
-											<td class="pd-c-cart-list-item-delete">
-												<span title="Excluir" class="pd-c-cart-list-item-delete-btn"><i class="fas fa-times-circle" style="font-size: 20px;"></i></span>
-											</td>
+											</span></td>
+											<td class="text-right"><span
+												th:text="${'R$ ' + carrinho.get(i).getPrecoTotal()}" id="precoTotal"></span></td>
+											<td class="pd-c-cart-list-item-delete"><a
+												th:href="@{/carrinho/excluir-prato/{id}(id = ${carrinho.get(i).getId()})}"><span
+													title="Excluir" class="pd-c-cart-list-item-delete-btn"><i
+														class="fas fa-times-circle" style="font-size: 20px;"></i></span></a></td>
 										</tr>
 										<tr>
 											<td colspan="2"
 												class="text-left pd-c-cart-list-footer-continuarComprando">
 												<span class="pd-c-cart-list-footer-continuarComprando"></span>
-												<a th:href="@{/cardapio}"><i class="fas fa-arrow-left"></i> Continuar
-													comprando</a>
+												<a th:href="@{/cardapio}"><i class="fas fa-arrow-left"></i>
+													Continuar comprando</a>
 											</td>
 											<td colspan="2" class="text-right"><span>Subtotal</span>
-												<span>R$ 10,00</span></td>
+												<span th:text="${'R$ ' + subTotal}"></span></td>
 											<td></td>
 										</tr>
 									</tbody>
 								</table>
+							</div>
+							<button type="submit"
+								style="font-size: 16px; margin-top: 15px; margin-left: 450px;"
+								data-toggle="modal" data-target="#modalConfirmaPedido">Confirmar
+								pedido</button>
+							<!-- Modal -->
+							<div class="modal fade" id="modalConfirmaPedido" tabindex="-1"
+								role="dialog" aria-labelledby="modalConfirmaPedidoTitulo"
+								aria-hidden="true">
+								<div class="modal-dialog modal-dialog-centered" role="document">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h5 class="modal-title" id="modalConfirmaPedidoTitulo">
+												Você precisa está logado para fazer o pedido!</h5>
+											<button type="button" class="close" data-dismiss="modal"
+												aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											</button>
+										</div>
+										<div class="modal-body"></div>
+										<div class="modal-footer"></div>
+									</div>
+								</div>
 							</div>
 						</section>
 					</div>
@@ -185,21 +225,28 @@
 				Todos os direitos reservados.</li>
 		</ul>
 	</footer>
-	
+
 	<script>
 		function aumentarQtd() {
-			var numero = document.getElementById("numero").value;
-			var novoNum = numero - (-1);
-			document.getElementById("numero").value = novoNum;
+			
+			var qtd = document.getElementById("qtd").value;
+			var precoTotal = document.getElementById("precoTotal").value;
+			
+			var novaQtd = qtd - (-1);
+			var novoPreco = novaQtd * precoTotal;
+			
+			document.getElementById("qtd").value = novaQtd;
+			document.getElementById("precoTotal").value = novoPreco;
 		}
 	</script>
-	
+
 	<script>
 		function diminuirQtd() {
-			var numero = document.getElementById("numero").value;
-			if (numero > 0) {
-				var novoNum = numero - 1;
-				document.getElementById("numero").value = novoNum;
+			
+			var qtd = document.getElementById("qtd").value;
+			if (qtd > 0) {
+				var novaQtd = qtd - 1;
+				document.getElementById("qtd").value = novaQtd;
 			}
 		}
 	</script>

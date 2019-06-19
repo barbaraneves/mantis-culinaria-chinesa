@@ -17,7 +17,7 @@ public class GerenteService {
 	private GerenteRepository gerenteRepository;
 	
 	//Salvando um prato no BD
-	public void cadastrar(Prato prato, MultipartFile imagem) {
+	public void cadastrarPrato(Prato prato, MultipartFile imagem) {
 		
 		String caminho = "imagens/" + prato.getNome() + ".png";
 		MantisFileUtils.salvarImagem(caminho, imagem);
@@ -29,13 +29,13 @@ public class GerenteService {
 	public List<Prato> mostrarCardapio() {
 		return gerenteRepository.findAll();
 	}
-
+	
 	//Exclui um prato do BD
 	public void excluirPrato(Long id) {
 		gerenteRepository.deleteById(id);
 	}
 
-	public Prato buscarPorId(Long id) {
+	public Prato buscarPratoPorId(Long id) {
 		return gerenteRepository.getOne(id);
 	}
 

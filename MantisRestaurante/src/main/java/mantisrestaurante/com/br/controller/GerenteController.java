@@ -41,7 +41,7 @@ public class GerenteController {
 	@RequestMapping("/cadastrar-pratos/confirmacao")
 	public ModelAndView cadastrarPratos(Prato prato, @RequestParam(value="imagem") MultipartFile imagem) {
 		
-		gerenteService.cadastrar(prato, imagem);
+		gerenteService.cadastrarPrato(prato, imagem);
 		
 		ModelAndView mv = new ModelAndView("redirect:/area-gerente/cardapio");
 		
@@ -72,7 +72,7 @@ public class GerenteController {
 	@RequestMapping("/editar-prato/{id}")
 	public ModelAndView editarPrato(@PathVariable Long id) {
 		
-		Prato prato = gerenteService.buscarPorId(id);
+		Prato prato = gerenteService.buscarPratoPorId(id);
 		
 		ModelAndView mv = new ModelAndView("info-prato");
 		mv.addObject("prato", prato);
