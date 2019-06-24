@@ -13,7 +13,7 @@ public class Prato {
 	private Long id;
 	
 	private String nome;
-	private Double preco;
+	private double preco;
 	private String tipo;
 	private String descricao;
 	
@@ -34,11 +34,11 @@ public class Prato {
 		this.nome = nome;
 	}
 	
-	public Double getPreco() {
+	public double getPreco() {
 		return preco;
 	}
 	
-	public void setPreco(Double preco) {
+	public void setPreco(double preco) {
 		this.preco = preco;
 	}
 

@@ -95,11 +95,13 @@ public class ClienteController {
 	}
 
 	@RequestMapping("/carrinho/adicionar-prato/{id}")
-	public ModelAndView adicionarPratoCarrinho(@PathVariable Long id, @RequestParam(defaultValue = "1") int qtd) {
-
+	public ModelAndView adicionarPratoCarrinho(@PathVariable Long id, @RequestParam(defaultValue="1") int quantidade) {
+		
+		System.out.println("qtd: " + quantidade);
+		
 		Prato prato = gerenteService.buscarPratoPorId(id);
 
-		Pedido pedido = new Pedido(prato.getId(), prato.getNome(), prato.getPreco(), qtd * prato.getPreco(), qtd);
+		Pedido pedido = new Pedido(prato.getId(), prato.getNome(), prato.getPreco(), quantidade * prato.getPreco(), quantidade);
 
 		carrinho.add(pedido);
 
