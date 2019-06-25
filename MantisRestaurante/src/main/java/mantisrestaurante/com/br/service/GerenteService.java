@@ -30,6 +30,11 @@ public class GerenteService {
 		return gerenteRepository.findAll();
 	}
 	
+	//Mostrar os pratos a partir dos tipos
+	public List<Prato> tipo(String tipo) {
+		return gerenteRepository.findByTipo(tipo);
+	}
+	
 	//Exclui um prato do BD
 	public void excluirPrato(Long id) {
 		gerenteRepository.deleteById(id);

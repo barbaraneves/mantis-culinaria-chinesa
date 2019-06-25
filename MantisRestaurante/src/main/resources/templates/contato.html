@@ -36,10 +36,10 @@
 <body>
 	<div class="navebar">
 		<div class="navebar-header">
-			<a href="/cardapio"><i class="fas fa-utensils"></i> Cardápio</a> <a
-				href="/sobre"><i class="fas fa-store"></i> Sobre</a> <a
-				href="/contato"><i class="fa fa-envelope"></i> Contato</a> <a
-				href="/home"><img src="/imagens/logo.png" alt
+			<a th:href="@{/cardapio}"><i class="fas fa-utensils"></i> Cardápio</a> <a
+				th:href="@{/sobre}"><i class="fas fa-store"></i> Sobre</a> <a
+				th:href="@{/contato}"><i class="fa fa-envelope"></i> Contato</a> <a
+				th:href="@{/home}"><img src="/imagens/logo.png" alt
 				class="logo-mobile"></a> <a href="#"><i class="far fa-clock"></i>
 				<span>Aberto até às 23h</span></a> <a class="nav-link dropdown"
 				data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
@@ -47,19 +47,20 @@
 			<div class="dropdown-menu" style="width: 15%; position: relative;">
 				<a class="dropdown-item"
 					style="text-transform: none; font-size: 14px; margin: 0; color: #333; cursor: pointer;"
-					href="/meus-pedidos"><i class="fas fa-receipt"></i> Meus
+					th:href="@{/meus-pedidos}"><i class="fas fa-receipt"></i> Meus
 					pedidos</a>
 				<div class="dropdown-divider"></div>
 				<a class="dropdown-item"
 					style="text-transform: none; font-size: 14px; margin: 0; color: #333; cursor: pointer;"
-					href="/meus-dados"><i class="fas fa-cog"></i> Editar meus dados</a>
+					th:href="@{/meus-dados/editar/{id}}"><i class="fas fa-cog"></i> Editar meus dados</a>
 				<div class="dropdown-divider"></div>
 				<a class="dropdown-item"
 					style="text-transform: none; font-size: 14px; margin: 0; color: #333; cursor: pointer;"
-					href="#"><i class="fas fa-sign-out-alt"></i> Sair</a>
+					th:href="@{/#}"><i class="fas fa-sign-out-alt"></i> Sair</a>
 			</div>
-			<a href="/carrinho" class="carrinho"> <i
+			<a th:href="@{/carrinho}" class="carrinho"> <i
 				class="fas fa-shopping-cart"></i>
+				<span class="pd-header-nav-miniCart-count" th:text="${qtdItens}"></span>
 			</a>
 		</div>
 	</div>

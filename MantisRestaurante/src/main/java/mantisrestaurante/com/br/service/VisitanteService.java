@@ -17,5 +17,12 @@ public class VisitanteService {
 	public List<Prato> mostrarCardapio() {
 		return visitanteRepository.findAll();
 	}
-
+	
+	public List<Prato> tipo(String tipo) {
+		return visitanteRepository.findByTipo(tipo);
+	}
+	
+	public Prato buscarPratoPorId(Long id) {
+		return visitanteRepository.getOne(id);
+	}
 }

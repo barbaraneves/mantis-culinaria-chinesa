@@ -194,10 +194,9 @@ div.titulo {
 div.preco {
 	color: black;
 	font-size: 13px;
-	margin-top: 10px;
 	margin-left: -25px;
-	margin-bottom: -32px;
-	height: 80px;
+	margin-bottom: -40px;
+	height: 40px;
 	width: 138%;
 }
 
@@ -205,7 +204,8 @@ div.desc-preco {
 	margin-left: 5px;
 	width: 40%;
 	text-align: center;
-	margin-bottom: 50px;
+	margin-top: 70px;
+	margin-bottom: 5px;
 }
 
 div.editar {
@@ -326,6 +326,23 @@ select:focus {
 .carrinho i:hover {
 	animation: treme 0.2s;
   	animation-iteration-count: 3;
+}
+
+.carrinho span.pd-header-nav-miniCart-count {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    color: #fff;
+    border-radius: 100%;
+    text-align: center;
+    line-height: 21px;
+    font-size: 70%;
+    top: 40px;
+    right: 80px;
+}
+
+.pd-header-nav-miniCart-count {
+    background: #5cb85c;
 }
 
 @keyframes treme {
@@ -549,7 +566,7 @@ hr {
 	font-size: initial;
 }
 
-.container {
+.container, .container-destaques {
 	margin: 0 auto;
 	width: 60%;
 	margin-bottom: 15px;
@@ -684,7 +701,7 @@ hr {
 	padding: .6rem 2rem;
 }
 
-.col {
+.col-confira {
 	float: left;
 	box-sizing: border-box;
 	padding: 0 .75rem;
@@ -695,7 +712,7 @@ hr {
 	right: auto;
 }
 
-.btn {
+.btn-confira a {
 	background-color: #d32b28;
 	color: white;
 	padding: 8px 22px;
@@ -711,8 +728,9 @@ hr {
 	font-size: 16px;
 }
 
-.btn:hover {
+.btn-confira a:hover {
 	background-color: #b12321;
+	color: white;
 }
 
 .main-ofertas {
@@ -850,7 +868,7 @@ hr {
 	margin-top: 50px;
 }
 
-.ofertas-2 .overlay {
+.ofertas-2 .overlay-destaques {
 	background: #fca625d0;
 	width: 92.1%;
 	transition: .5s ease;
@@ -862,7 +880,7 @@ hr {
 	padding: 10px;
 }
 
-.ofertas-2 .overlay:hover {
+.ofertas-2 .overlay-destaques:hover {
 	opacity: 0.9;
 }
 
@@ -873,7 +891,7 @@ hr {
 	margin-top: 10px;
 }
 
-.ofertas-3 .overlay {
+.ofertas-3 .overlay-destaques {
 	background: #fca625d0;
 	width: 90.9%;
 	transition: .5s ease;
@@ -885,15 +903,15 @@ hr {
 	text-align: center;
 }
 
-.ofertas-3 .overlay:hover {
+.ofertas-3 .overlay-destaques:hover {
 	opacity: 0.9;
 }
 
-.ofertas-2 .container, .ofertas-3 .container {
+.ofertas-2 .container-destaques, .ofertas-3 .container-destaques {
 	width: 100%;
 }
 
-.ofertas-2 .container a, .ofertas-3 .container a {
+.ofertas-2 .container-destaques a, .ofertas-3 .container-destaques a {
 	text-decoration: none;
 }
 
@@ -1216,11 +1234,9 @@ span .pd-formQtd-icon .pd-formQtd-icon--plus {
     text-align: center;
     border-radius: 100%;
     color: #C62828;
-    line-height: 20px;
     cursor: pointer;
     display: inline-block;
-    margin-left: 10px;
-    margin-right: -5px;
+    margin-left: -10px;
 }
 
 .pd-c-cart-list td .form-spinner {
@@ -1274,6 +1290,113 @@ span .pd-formQtd-icon .pd-formQtd-icon--plus {
     justify-content: center;
     padding: 0;
     font-size: 14.2px;
+}
+
+.swal-icon:first-child {
+    margin-top: 32px;
+}
+
+.swal-icon {
+    width: 80px;
+    height: 80px;
+    border-width: 4px;
+    border-style: solid;
+    border-radius: 50%;
+    padding: 0;
+    position: relative;
+    box-sizing: content-box;
+    margin: 20px auto;
+}
+
+.swal-icon--warning {
+    border-color: #f8bb86;
+}
+
+.swal-icon--warning__body, .swal-icon--warning__dot {
+    position: absolute;
+    left: 50%;
+    background-color: #f8bb86;
+}
+
+.swal-icon--warning__body {
+    width: 5px;
+    height: 47px;
+    top: 10px;
+    border-radius: 2px;
+    margin-left: -2px;
+}
+
+.swal-icon--warning__dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    margin-left: -4px;
+    bottom: -11px;
+}
+
+.swal-icon--warning__body, .swal-icon--warning__dot {
+    position: absolute;
+    left: 50%;
+    background-color: #f8bb86;
+}
+
+.swal-text {
+    font-size: 16px;
+    position: relative;
+    float: none;
+    line-height: normal;
+    vertical-align: top;
+    text-align: center;
+    display: inline-block;
+    margin: 0;
+    padding: 0 10px;
+    font-weight: 400;
+    color: rgba(0,0,0,.64);
+    max-width: calc(100% - 20px);
+    overflow-wrap: break-word;
+    box-sizing: border-box;
+}
+
+.swal-footer {
+    text-align: right;
+    padding-top: 13px;
+    margin-top: 13px;
+    padding: 13px 16px;
+    border-radius: inherit;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.swal-button-container {
+    margin: 5px;
+    display: inline-block;
+    position: relative;
+}
+
+.swal-button--cancel {
+    color: #555;
+    background-color: #efefef;
+}
+
+.swal-button {
+    border: none;
+    box-shadow: none;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 10px 24px;
+    margin: 0;
+    cursor: pointer;
+}
+
+.swal-button--danger {
+    background-color: #e64942;
+    color: #fff;
+}
+
+.swal-button:focus {
+	box-shadow: none !important;
+	outline: none;	
 }
 
 /* Rodapé */

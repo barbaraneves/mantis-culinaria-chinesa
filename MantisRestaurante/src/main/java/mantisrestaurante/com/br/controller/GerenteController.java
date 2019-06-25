@@ -49,13 +49,90 @@ public class GerenteController {
 	}
 	
 	@RequestMapping("/cardapio")
-	public ModelAndView paginaCardapioGerente() {
-		
-		List<Prato> cardapio = gerenteService.mostrarCardapio();
-		
+	public ModelAndView paginaCardapio() {
+
+		List<Prato> cardapio = gerenteService.tipo("Entradas");
+
 		ModelAndView mv = new ModelAndView("cardapio-gerente");
 		mv.addObject("cardapio", cardapio);
+
+		return mv;
+	}
+
+	@RequestMapping("/cardapio/entradas")
+	public ModelAndView paginaCardapioTipoEntradas() {
 		
+		List<Prato> cardapio = gerenteService.tipo("Entradas");
+
+		ModelAndView mv = new ModelAndView("cardapio-gerente");
+		mv.addObject("cardapio", cardapio);
+
+		return mv;
+	}
+
+	@RequestMapping("/cardapio/frango")
+	public ModelAndView paginaCardapioTipoFrango() {
+		
+		List<Prato> cardapio = gerenteService.tipo("Frango");
+
+		ModelAndView mv = new ModelAndView("cardapio-gerente");
+		mv.addObject("cardapio", cardapio);
+
+		return mv;
+	}
+
+	@RequestMapping("/cardapio/carne")
+	public ModelAndView paginaCardapioTipoCarne() {
+
+		List<Prato> cardapio = gerenteService.tipo("Carne");
+
+		ModelAndView mv = new ModelAndView("cardapio-gerente");
+		mv.addObject("cardapio", cardapio);
+
+		return mv;
+	}
+
+	@RequestMapping("/cardapio/peixes-e-camaroes")
+	public ModelAndView paginaCardapioTipoPeixesECamaroes() {
+
+		List<Prato> cardapio = gerenteService.tipo("Peixes");
+
+		ModelAndView mv = new ModelAndView("cardapio-gerente");
+		mv.addObject("cardapio", cardapio);
+
+		return mv;
+	}
+
+	@RequestMapping("/cardapio/macarroes-e-arroz")
+	public ModelAndView paginaCardapioTipoMacarroesEArroz() {
+
+		List<Prato> cardapio = gerenteService.tipo("Macarroes");
+
+		ModelAndView mv = new ModelAndView("cardapio-gerente");
+		mv.addObject("cardapio", cardapio);
+
+		return mv;
+	}
+
+	@RequestMapping("/cardapio/sopas")
+	public ModelAndView paginaCardapioTipoSopas() {
+
+		List<Prato> cardapio = gerenteService.tipo("Sopas");
+
+		ModelAndView mv = new ModelAndView("cardapio-gerente");
+		mv.addObject("cardapio", cardapio);
+
+		return mv;
+	}
+
+	@RequestMapping("/cardapio/sobremesas")
+	public ModelAndView paginaCardapioTipoSobremesas() {
+
+		List<Prato> cardapio = gerenteService.tipo("Sobremesas");
+
+		ModelAndView mv = new ModelAndView("cardapio-gerente");
+		mv.addObject("cardapio", cardapio);
+
 		return mv;
 	}
 	

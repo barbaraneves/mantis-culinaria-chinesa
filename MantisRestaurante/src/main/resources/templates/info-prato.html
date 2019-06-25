@@ -10,8 +10,7 @@
 <link rel="icon" href="/imagens/icon.png" type="image/x-icon" />
 <link rel="shortcut icon" href="/imagens/icon.png" type="image/x-icon" />
 
-<link rel="stylesheet"
-	href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" media="screen"
 	href="/css/style.css">
 
@@ -42,28 +41,32 @@
 				Cardápio</a> <a href="/area-gerente/cadastrar-pratos"><i
 				class="fas fa-clipboard-list"></i></i> Cadastrar Pratos</a> <a><img
 				src="/imagens/logo.png" alt class="logo-mobile"></a> <a href="#"><i
-				class="fa fa-fw fa-user"></i> Olá, gerente!</a> <a href="#"><i class="fas fa-sign-out-alt"></i></i> Sair</a>
+				class="fa fa-fw fa-user"></i> Olá, gerente!</a> <a href="#"><i
+				class="fas fa-sign-out-alt"></i></i> Sair</a>
 		</nav>
 	</div>
 
 	<div class="login">
 		<form action="/area-gerente/cadastrar-pratos/confirmacao"
-			method="POST" class="login-form needs-validation" novalidate th:object="${prato}" enctype="multipart/form-data">
+			method="POST" class="login-form needs-validation" novalidate
+			th:object="${prato}" enctype="multipart/form-data">
 			<input type="hidden" th:field="*{id}">
 
 			<h4 class="login-titulo">INFORMAÇÕES SOBRE O PRATO</h4>
 			<br>
 			<div class="form-box">
 				<div class="form-box-label">Nome</div>
-				<input type="text" th:field="*{nome}" id="nome" class="form-input form-control" required>
+				<input type="text" th:field="*{nome}" id="nome"
+					class="form-input form-control" required>
 				<div class="valid-feedback"></div>
 				<div class="invalid-feedback">Nome do prato é obrigatório</div>
 			</div>
 
 			<div class="form-box-login-3">
 				<div class="form-box-label">Preço (R$)</div>
-				<input type="text" th:field="*{preco}" id="preco" pattern="(?=.*\d).{5,}"
-					class="form-input-login-3 form-control" required>
+				<input type="text" th:field="*{preco}" id="preco"
+					pattern="(?=.*\d).{5,}" class="form-input-login-3 form-control"
+					required>
 				<div class="valid-feedback">Preço válido!</div>
 				<div class="invalid-feedback">Preço do prato é obrigatório</div>
 			</div>
@@ -74,8 +77,8 @@
 					<option value="Entradas">Entrada</option>
 					<option value="Frango">Frango</option>
 					<option value="Carne">Carne</option>
-					<option value="Peixes e Camarões">Peixes e Camarões</option>
-					<option value="Macarrões e Arroz">Macarrões e Arroz</option>
+					<option value="Peixes">Peixes e Camarões</option>
+					<option value="Macarroes">Macarrões e Arroz</option>
 					<option value="Sopas">Sopa</option>
 					<option value="Sobremesas">Sobremesa</option>
 				</select>
@@ -84,19 +87,25 @@
 			<div class="form-box">
 				<span class="form-group">
 					<div for="msg" class="form-box-label">Descrição</div> <textarea
-						id="descricao" th:field="*{descricao}" class="form-text valid form-control" required></textarea>
-						<div class="valid-feedback"></div>
-						<div class="invalid-feedback">Descrição do prato é obrigatório</div>
+						id="descricao" th:field="*{descricao}"
+						class="form-text valid form-control" required></textarea>
+					<div class="valid-feedback"></div>
+					<div class="invalid-feedback">Descrição do prato é
+						obrigatório</div>
 				</span>
 			</div>
-			
+
 			<div class="form-box">
 				<div class="form-box-label">Imagem do prato</div>
 				<div class="custom-file form-control" style="">
-					<input type="file" name="imagem" class="form-input custom-file-input" required>
-					<div class="custom-file-label form-box-label">Escolher arquivo</div>
+					<input type="file" name="imagem"
+						class="form-input custom-file-input" required>
+					<div class="custom-file-label form-box-label">Escolher
+						arquivo</div>
 					<div class="valid-feedback"></div>
-					<div class="invalid-feedback"style="margin-left: -10px; margin-top: -5px;">Imagem do prato é obrigatória</div>
+					<div class="invalid-feedback"
+						style="margin-left: -10px; margin-top: -5px;">Imagem do
+						prato é obrigatória</div>
 				</div>
 			</div>
 
@@ -150,12 +159,15 @@
 					}, false);
 		})();
 	</script>
-	
+
 	<script>
-		$(".custom-file-input").on("change", function() {
-		  var fileName = $(this).val().split("\\").pop();
-		  $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
-		});
+		$(".custom-file-input").on(
+				"change",
+				function() {
+					var fileName = $(this).val().split("\\").pop();
+					$(this).siblings(".custom-file-label").addClass("selected")
+							.html(fileName);
+				});
 	</script>
 
 </body>

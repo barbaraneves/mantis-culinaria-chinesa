@@ -31,28 +31,16 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<script type="text/javascript">
-	var valorUnit = document.getElementById("valorUnit").value;
-	
-	window.onload = function(){
-		valorUnit = valorUnit.toFixed(2);
-		
-        novoValorUnit = valorUnit.toString(); 
-        novoValorUnit = novoValorUnit.replace("." , ","); 
-        
-        document.getElementById("valorUnit").innerHTML = novoValorUnit;
-	}
-</script>
 </head>
 
 <body>
 
 	<div class="navebar">
 		<div class="navebar-header">
-			<a href="/cardapio"><i class="fas fa-utensils"></i> Cardápio</a> <a
-				href="/sobre"><i class="fas fa-store"></i> Sobre</a> <a
-				href="/contato"><i class="fa fa-envelope"></i> Contato</a> <a
-				href="/home"><img src="/imagens/logo.png" alt
+			<a th:href="@{/cardapio}"><i class="fas fa-utensils"></i>
+				Cardápio</a> <a th:href="@{/sobre}"><i class="fas fa-store"></i>
+				Sobre</a> <a th:href="@{/contato}"><i class="fa fa-envelope"></i>
+				Contato</a> <a th:href="@{/home}"><img src="/imagens/logo.png" alt
 				class="logo-mobile"></a> <a href="#"><i class="far fa-clock"></i>
 				<span>Aberto até às 23h</span></a> <a class="nav-link dropdown"
 				data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
@@ -60,19 +48,21 @@
 			<div class="dropdown-menu" style="width: 15%; position: relative;">
 				<a class="dropdown-item"
 					style="text-transform: none; font-size: 14px; margin: 0; color: #333; cursor: pointer;"
-					href="/meus-pedidos"><i class="fas fa-receipt"></i> Meus
+					th:href="@{/meus-pedidos}"><i class="fas fa-receipt"></i> Meus
 					pedidos</a>
 				<div class="dropdown-divider"></div>
 				<a class="dropdown-item"
 					style="text-transform: none; font-size: 14px; margin: 0; color: #333; cursor: pointer;"
-					href="/meus-dados"><i class="fas fa-cog"></i> Editar meus dados</a>
+					th:href="@{/meus-dados/editar/{id}}"><i class="fas fa-cog"></i>
+					Editar meus dados</a>
 				<div class="dropdown-divider"></div>
 				<a class="dropdown-item"
 					style="text-transform: none; font-size: 14px; margin: 0; color: #333; cursor: pointer;"
-					href="#"><i class="fas fa-sign-out-alt"></i> Sair</a>
+					th:href="@{/#}"><i class="fas fa-sign-out-alt"></i> Sair</a>
 			</div>
-			<a href="/carrinho" class="carrinho"> <i
-				class="fas fa-shopping-cart"></i>
+			<a th:href="@{/carrinho}" class="carrinho"> <i
+				class="fas fa-shopping-cart"></i> <span
+				class="pd-header-nav-miniCart-count" th:text="${qtdItens}"></span>
 			</a>
 		</div>
 	</div>
@@ -85,8 +75,6 @@
 					Pedido</h1>
 			</div>
 		</div>
-
-		<!-- Para caso o carrinho esteja vazio -->
 
 		<div class="section-pagina-content">
 			<div class="section-container">
@@ -107,9 +95,10 @@
 									<tbody>
 										<tr class="pd-c-cart-list-item"
 											th:each="i : ${#numbers.sequence(0, carrinho.size()-1)}">
-											<td class="pd-c-cart-list-item-desc"><img
-												src="https://s3-us-west-2.amazonaws.com/cdn.saigonrestaurante/upload/thumb/macarrao_frito_com_chop_suey_05062019112912.jpg">
-												<span class="pd-c-cart-list-item-desc-text"> <span
+											<td class="pd-c-cart-list-item-desc"><a target="_blank">
+													<img
+													th:src="@{'/imagens/'+${carrinho.get(i).getNomePrato()}+.png}">
+											</a> <span class="pd-c-cart-list-item-desc-text"> <span
 													class="pd-c-cart-list-item-title"
 													th:text="${carrinho.get(i).getNomePrato()}"></span> <span></span>
 													<div class="pd-c-cart-list-item-desc-text-obs">
@@ -119,7 +108,7 @@
 																data-target="#modalComentario">
 																<i class="far fa-comment"></i>
 															</button>
-															<!-- Modal -->
+															<!-- Modal 1 -->
 															<div class="modal fade" id="modalComentario"
 																tabindex="-1" role="dialog"
 																aria-labelledby="modalComentarioTitulo"
@@ -150,23 +139,62 @@
 													</div>
 											</span></td>
 											<td class="text-right pd-c-cart-item-valorUnit"><span
-												th:text="${'R$ ' + carrinho.get(i).getPrecoUnit()}" id="valorUnit"></span></td>
+												th:text="${'R$ ' + carrinho.get(i).getPrecoUnit()}"
+												id="valorUnit"></span></td>
 											<td class="text-right"><span> <span
-													class="form-spinner"> <a th:href="@{/carrinho/prato/diminuir-quantidade/{id}(id = ${carrinho.get(i).getId()})}"><span
-														title="Diminuir quantidade" class="fs-btn fs-btn-minus"
-														onclick="diminuirQtd()">-</span></a> 
-														<span class="fs-btn fs-input" th:text="${qtd}"></span>
-														<a th:href="@{/carrinho/prato/aumentar-quantidade/{id}(id = ${carrinho.get(i).getId()})}"><span
-														title="Aumentar quantidade" class="fs-btn fs-btn-plus"
-														onclick="aumentarQtd()">+</span></a>
+													class="form-spinner"> <span
+														th:if="${carrinho.get(i).getQtd()} > 1"><a
+															th:href="@{/carrinho/prato/diminuir-quantidade/{id}(id = ${carrinho.get(i).getId()})}"><span
+																title="Diminuir quantidade" class="fs-btn fs-btn-minus">-</span></a></span>
+														<span th:if="${carrinho.get(i).getQtd()} <= 1"><span
+															title="Diminuir quantidade" class="fs-btn fs-btn-minus"
+															data-toggle="modal" data-target="#modalExcluirPrato">-</span></span>
+														<span class="fs-btn fs-input"
+														th:text="${carrinho.get(i).getQtd()}"></span> <a
+														th:href="@{/carrinho/prato/aumentar-quantidade/{id}(id = ${carrinho.get(i).getId()})}"><span
+															title="Aumentar quantidade" class="fs-btn fs-btn-plus">+</span></a>
 												</span>
 											</span></td>
 											<td class="text-right"><span
-												th:text="${'R$ ' + carrinho.get(i).getPrecoTotal()}" id="precoTotal"></span></td>
-											<td class="pd-c-cart-list-item-delete"><a
-												th:href="@{/carrinho/excluir-prato/{id}(id = ${carrinho.get(i).getId()})}"><span
-													title="Excluir" class="pd-c-cart-list-item-delete-btn"><i
-														class="fas fa-times-circle" style="font-size: 20px;"></i></span></a></td>
+												th:text="${'R$ ' + carrinho.get(i).getPrecoTotal()}"
+												id="precoTotal"></span></td>
+											<td class="pd-c-cart-list-item-delete">
+												<button type="submit" data-toggle="modal"
+													data-target="#modalExcluirPrato"
+													style="background-color: transparent; border-color: transparent; width: 0%; margin-right: -25px; margin-left: 5px; margin-top: 3px;">
+													<span title="Excluir prato"
+														class="pd-c-cart-list-item-delete-btn"><i
+														class="fas fa-times-circle" style="font-size: 20px;"></i></span>
+												</button> <!-- Modal 2 -->
+												<div class="modal fade" id="modalExcluirPrato" tabindex="-1"
+													role="dialog" aria-labelledby="modalExcluirPratoTitulo"
+													aria-hidden="true">
+													<div class="modal-dialog modal-dialog-centered"
+														role="document">
+														<div class="modal-content">
+															<div class="modal-header swal-icon swal-icon--warning">
+																<span class="swal-icon--warning__body"> <span
+																	class="swal-icon--warning__dot"></span>
+																</span>
+															</div>
+															<div class="swal-text" id="modalExcluirPratoTitulo">Você
+																deseja remover este item?</div>
+															<div class="swal-footer">
+																<div class="swal-button-container">
+																	<a th:href="@{/carrinho/index}"><button
+																			class="swal-button swal-button--cancel" tabindex="0">Cancelar</button></a>
+																</div>
+																<div class="swal-button-container">
+																	<a
+																		th:href="@{/carrinho/remover-prato/{id}(id = ${carrinho.get(i).getId()})}"><button
+																			class="swal-button swal-button--danger">Remover</button></a>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+
+											</td>
 										</tr>
 										<tr>
 											<td colspan="2"
@@ -186,7 +214,7 @@
 								style="font-size: 16px; margin-top: 15px; margin-left: 450px;"
 								data-toggle="modal" data-target="#modalConfirmaPedido">Confirmar
 								pedido</button>
-							<!-- Modal -->
+							<!-- Modal 3 -->
 							<div class="modal fade" id="modalConfirmaPedido" tabindex="-1"
 								role="dialog" aria-labelledby="modalConfirmaPedidoTitulo"
 								aria-hidden="true">
@@ -225,31 +253,6 @@
 				Todos os direitos reservados.</li>
 		</ul>
 	</footer>
-
-	<script>
-		function aumentarQtd() {
-			
-			var qtd = document.getElementById("qtd").value;
-			var precoTotal = document.getElementById("precoTotal").value;
-			
-			var novaQtd = qtd - (-1);
-			var novoPreco = novaQtd * precoTotal;
-			
-			document.getElementById("qtd").value = novaQtd;
-			document.getElementById("precoTotal").value = novoPreco;
-		}
-	</script>
-
-	<script>
-		function diminuirQtd() {
-			
-			var qtd = document.getElementById("qtd").value;
-			if (qtd > 0) {
-				var novaQtd = qtd - 1;
-				document.getElementById("qtd").value = novaQtd;
-			}
-		}
-	</script>
 
 </body>
 </html>

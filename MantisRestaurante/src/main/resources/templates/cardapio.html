@@ -36,13 +36,12 @@
 
 <body>
 
-	<!-- Barra de navegação -->
 	<div class="navebar">
 		<div class="navebar-header">
-			<a href="/cardapio"><i class="fas fa-utensils"></i> Cardápio</a> <a
-				href="/sobre"><i class="fas fa-store"></i> Sobre</a> <a
-				href="/contato"><i class="fa fa-envelope"></i> Contato</a> <a
-				href="/home"><img src="/imagens/logo.png" alt
+			<a th:href="@{/cardapio}"><i class="fas fa-utensils"></i> Cardápio</a> <a
+				th:href="@{/sobre}"><i class="fas fa-store"></i> Sobre</a> <a
+				th:href="@{/contato}"><i class="fa fa-envelope"></i> Contato</a> <a
+				th:href="@{/home}"><img src="/imagens/logo.png" alt
 				class="logo-mobile"></a> <a href="#"><i class="far fa-clock"></i>
 				<span>Aberto até às 23h</span></a> <a class="nav-link dropdown"
 				data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
@@ -50,19 +49,20 @@
 			<div class="dropdown-menu" style="width: 15%; position: relative;">
 				<a class="dropdown-item"
 					style="text-transform: none; font-size: 14px; margin: 0; color: #333; cursor: pointer;"
-					href="/meus-pedidos"><i class="fas fa-receipt"></i> Meus
+					th:href="@{/meus-pedidos}"><i class="fas fa-receipt"></i> Meus
 					pedidos</a>
 				<div class="dropdown-divider"></div>
 				<a class="dropdown-item"
 					style="text-transform: none; font-size: 14px; margin: 0; color: #333; cursor: pointer;"
-					href="/meus-dados"><i class="fas fa-cog"></i> Editar meus dados</a>
+					th:href="@{/meus-dados/editar{id}}"><i class="fas fa-cog"></i> Editar meus dados</a>
 				<div class="dropdown-divider"></div>
 				<a class="dropdown-item"
 					style="text-transform: none; font-size: 14px; margin: 0; color: #333; cursor: pointer;"
-					href="#"><i class="fas fa-sign-out-alt"></i> Sair</a>
+					th:href="@{/#}"><i class="fas fa-sign-out-alt"></i> Sair</a>
 			</div>
-			<a href="/carrinho" class="carrinho"> <i
+			<a th:href="@{/carrinho}" class="carrinho"> <i
 				class="fas fa-shopping-cart"></i>
+				<span class="pd-header-nav-miniCart-count" th:text="${qtdItens}"></span>
 			</a>
 		</div>
 	</div>
@@ -81,17 +81,17 @@
 		<div class="menu">
 			<div class="menu-nav">
 				<ul id="menu-nav">
-					<li><a href="#entradas" id="link1" class="menu-links active">Entradas</a>
+					<li><a th:href="@{/cardapio/entradas}" id="link1" class="menu-links active">Entradas</a>
 					</li>
-					<li><a href="#frango" id="link2" class="menu-links">Frango</a>
+					<li><a th:href="@{/cardapio/frango}" id="link2" class="menu-links">Frango</a>
 					</li>
-					<li><a href="#carne" id="link3" class="menu-links">Carne</a></li>
-					<li><a href="#peixes" id="link4" class="menu-links">Peixes
+					<li><a th:href="@{/cardapio/carne}" id="link3" class="menu-links">Carne</a></li>
+					<li><a th:href="@{/cardapio/peixes-e-camaroes}" id="link4" class="menu-links">Peixes
 							e Camarões</a></li>
-					<li><a href="#macarroes" id="link5" class="menu-links">Macarrões
+					<li><a th:href="@{/cardapio/macarroes-e-arroz}" id="link5" class="menu-links">Macarrões
 							e Arroz</a></li>
-					<li><a href="#sopa" id="link6" class="menu-links">Sopas</a></li>
-					<li><a href="#sobremesas" id="link7" class="menu-links">Sobremesas</a>
+					<li><a th:href="@{/cardapio/sopas}" id="link6" class="menu-links">Sopas</a></li>
+					<li><a th:href="@{/cardapio/sobremesas}" id="link7" class="menu-links">Sobremesas</a>
 					</li>
 					<li class="menu-search"><input type="text"
 						placeholder="Pesquisar... " id="pesquisaProdutos"> <!--<i class="fas fa-search"></i>-->
@@ -114,27 +114,18 @@
 				<span class="pd-formQtd"> <span title="Aumentar quantidade"
 					class="pd-formQtd-icon" onclick="aumentarQtd()"> <i
 						class="fas fa-plus pd-formQtd-icon--plus"></i>
-				</span> <input type="number" class="pd-formQtd-input" id="qtd" name ="quantidade" value="1">
+				</span> <input type="number" class="pd-formQtd-input" id="qtd" value="1">
 					<span title="Diminuir quantidade" class="pd-formQtd-icon"
 					onclick="diminuirQtd()"> <i class="fas fa-minus pd-formQtd-icon--minus"></i>
 				</span>
 				</span>
-				<button type="submit" style="margin-left: 65px; margin-top: -55px;">
+				<button type="submit" style="margin-left: 72px; margin-top: -55px;">
 					<a th:href="@{/carrinho/adicionar-prato/{id}(id = ${prato.id})}" style="color: white; text-decoration: none;"><span th:text="${'R$ ' + prato.preco}" id="preco"></span> <i
 						style="font-size: 20px;" class="fas fa-shopping-cart"></i></a>
 				</button>
 			</div>
 		</div>
 	</div>
-
-	<div class="rows">
-		<br>
-		<div style="text-align: center">
-			<input type="submit" id="botaoMais1" value="Mais">
-		</div>
-	</div>
-
-	<!-- Rodapé -->
 
 	<footer class="rodape">
 		<ul>
@@ -150,11 +141,9 @@
 		</ul>
 	</footer>
 
-	<!-- Script para a ativação dos links do menu do cardápio -->
 	<script>
 		var menu = document.getElementById("menu-nav");
 		var links = menu.getElementsByClassName("menu-links");
-
 		for (var i = 0; i < links.length; i++) {
 			links[i].addEventListener("click", function() {
 				var current = document.getElementsByClassName("active");
@@ -163,158 +152,6 @@
 				this.className += " active";
 			});
 		}
-	</script>
-
-	<!-- Script para os botões da página -->
-	<script>
-		//Iniciando
-		$(document).ready(function() {
-			$('#row2').hide();
-			$('#row3').hide();
-			$('#row4').hide();
-			$('#row5').hide();
-			$('#row6').hide();
-			$('#row7').hide();
-			$('#row8').hide();
-			$('#row9').hide();
-			$('#row10').hide();
-			$('#botaoMais2').hide();
-			$('#botaoMais3').hide();
-		});
-
-		//Botões mais pratos tipo Entradas
-		$('#botaoMais1').click(function() {
-			$('#row2').show("slow");
-			$('#botaoMais1').hide();
-			$('#botaoMais2').show();
-		});
-
-		$('#botaoMais2').click(function() {
-			$('#row3').show("slow");
-			$('#botaoMais2').hide();
-		});
-
-		//Botões mais pratos com Camarão e Peixe
-		$('#botaoMais3').click(function() {
-			$('#row7').show("slow");
-			$('#botaoMais3').hide();
-		});
-
-		//Pratos tipo Entradas
-		$('#link1').click(function() {
-			$('#row1').show("slow");
-			$('#botaoMais1').show("slow");
-			$('#row2').hide();
-			$('#row3').hide();
-			$('#row4').hide();
-			$('#row5').hide();
-			$('#row6').hide();
-			$('#row7').hide();
-			$('#row8').hide();
-			$('#row9').hide();
-			$('#row10').hide();
-			$('#botaoMais2').hide();
-			$('#botaoMais3').hide();
-		});
-
-		//Pratos com Frago
-		$('#link2').click(function() {
-			$('#row1').hide();
-			$('#botaoMais1').hide();
-			$('#row2').hide();
-			$('#row3').hide();
-			$('#row4').show("slow");
-			$('#row5').hide();
-			$('#row6').hide();
-			$('#row7').hide();
-			$('#row8').hide();
-			$('#row9').hide();
-			$('#row10').hide();
-			$('#botaoMais2').hide();
-			$('#botaoMais3').hide();
-		});
-
-		//Pratos com Carne
-		$('#link3').click(function() {
-			$('#row1').hide();
-			$('#botaoMais1').hide();
-			$('#row2').hide();
-			$('#row3').hide();
-			$('#row4').hide();
-			$('#row5').show("slow");
-			$('#row6').hide();
-			$('#row7').hide();
-			$('#row8').hide();
-			$('#row9').hide();
-			$('#row10').hide();
-			$('#botaoMais2').hide();
-			$('#botaoMais3').hide();
-		});
-
-		//Pratos com Peixes e Camarões
-		$('#link4').click(function() {
-			$('#row1').hide();
-			$('#botaoMais1').hide();
-			$('#row2').hide();
-			$('#row3').hide();
-			$('#row4').hide();
-			$('#row5').hide();
-			$('#row6').show("slow");
-			$('#botaoMais3').show("slow");
-			$('#row7').hide();
-			$('#row8').hide();
-			$('#row9').hide();
-			$('#row10').hide();
-			$('#botaoMais2').hide();
-		});
-
-		//Pratos com Macarrões e Arroz
-		$('#link5').click(function() {
-			$('#row1').hide();
-			$('#botaoMais1').hide();
-			$('#row2').hide();
-			$('#row3').hide();
-			$('#row4').hide();
-			$('#row6').hide();
-			$('#row7').hide();
-			$('#row8').show("slow");
-			$('#row9').hide();
-			$('#row10').hide();
-			$('#botaoMais2').hide();
-			$('#botaoMais3').hide();
-		});
-
-		//Sopas
-		$('#link6').click(function() {
-			$('#row1').hide();
-			$('#botaoMais1').hide();
-			$('#row2').hide();
-			$('#row3').hide();
-			$('#row4').hide();
-			$('#row6').hide();
-			$('#row7').hide();
-			$('#row8').hide();
-			$('#row9').show("slow");
-			$('#row10').hide();
-			$('#botaoMais2').hide();
-			$('#botaoMais3').hide();
-		});
-
-		//Sobremesas
-		$('#link7').click(function() {
-			$('#row1').hide();
-			$('#botaoMais1').hide();
-			$('#row2').hide();
-			$('#row3').hide();
-			$('#row4').hide();
-			$('#row6').hide();
-			$('#row7').hide();
-			$('#row8').hide();
-			$('#row9').hide();
-			$('#row10').show("slow");
-			$('#botaoMais2').hide();
-			$('#botaoMais3').hide();
-		});
 	</script>
 
 	<script>
