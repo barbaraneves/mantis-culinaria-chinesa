@@ -32,6 +32,7 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	
 </head>
 
 <body>
@@ -79,19 +80,19 @@
 
 	<div class="container">
 		<div class="menu">
-			<div class="menu-nav">
-				<ul id="menu-nav">
-					<li><a th:href="@{/cardapio/entradas}" id="link1" class="menu-links active">Entradas</a>
+			<div class="menu-nav" style="margin-right: 30px;">
+				<ul th:each="prato : ${cardapio}" th:if="${prato.preco} == 10.00">
+					<li><a th:href="@{/cardapio/entradas}" class="menu-links" th:classappend="${prato.tipo} == 'Entradas' ? active">Entradas</a>
 					</li>
-					<li><a th:href="@{/cardapio/frango}" id="link2" class="menu-links">Frango</a>
+					<li><a th:href="@{/cardapio/frango}" class="menu-links" th:classappend="${prato.tipo} == 'Frango' ? active">Frango</a>
 					</li>
-					<li><a th:href="@{/cardapio/carne}" id="link3" class="menu-links">Carne</a></li>
-					<li><a th:href="@{/cardapio/peixes-e-camaroes}" id="link4" class="menu-links">Peixes
+					<li><a th:href="@{/cardapio/carne}" class="menu-links" th:classappend="${prato.tipo} == 'Carne' ? active">Carne</a></li>
+					<li><a th:href="@{/cardapio/peixes-e-camaroes}" class="menu-links" th:classappend="${prato.tipo} == 'Peixes' ? active">Peixes
 							e Camarões</a></li>
-					<li><a th:href="@{/cardapio/macarroes-e-arroz}" id="link5" class="menu-links">Macarrões
+					<li><a th:href="@{/cardapio/macarroes-e-arroz}" class="menu-links" th:classappend="${prato.tipo} == 'Macarroes' ? active">Macarrões
 							e Arroz</a></li>
-					<li><a th:href="@{/cardapio/sopas}" id="link6" class="menu-links">Sopas</a></li>
-					<li><a th:href="@{/cardapio/sobremesas}" id="link7" class="menu-links">Sobremesas</a>
+					<li><a th:href="@{/cardapio/sopas}" class="menu-links" th:classappend="${prato.tipo} == 'Sopas' ? active">Sopas</a></li>
+					<li><a th:href="@{/cardapio/sobremesas}" class="menu-links" th:classappend="${prato.tipo} == 'Sobremesas' ? active">Sobremesas</a>
 					</li>
 					<li class="menu-search"><input type="text"
 						placeholder="Pesquisar... " id="pesquisaProdutos"> <!--<i class="fas fa-search"></i>-->
@@ -111,16 +112,9 @@
 			<div class="titulo" th:text="${prato.nome}"></div>
 			<div class="desc" th:text="${prato.descricao}"></div>
 			<div class="editar">
-				<span class="pd-formQtd"> <span title="Aumentar quantidade"
-					class="pd-formQtd-icon" onclick="aumentarQtd()"> <i
-						class="fas fa-plus pd-formQtd-icon--plus"></i>
-				</span> <input type="number" class="pd-formQtd-input" id="qtd" value="1">
-					<span title="Diminuir quantidade" class="pd-formQtd-icon"
-					onclick="diminuirQtd()"> <i class="fas fa-minus pd-formQtd-icon--minus"></i>
-				</span>
-				</span>
-				<button type="submit" style="margin-left: 72px; margin-top: -55px;">
-					<a th:href="@{/carrinho/adicionar-prato/{id}(id = ${prato.id})}" style="color: white; text-decoration: none;"><span th:text="${'R$ ' + prato.preco}" id="preco"></span> <i
+				<div class="desc-preco" style="margin-bottom: -5px;"><span th:text="${'R$ ' + prato.preco}" id="preco"></span></div>
+				<button type="submit" style="margin-left: 120px;" title="Adicionar no carrinho">
+					<a th:href="@{/carrinho/adicionar-prato/{id}(id = ${prato.id})}" style="color: white; text-decoration: none;"><i
 						style="font-size: 20px;" class="fas fa-shopping-cart"></i></a>
 				</button>
 			</div>
@@ -141,36 +135,6 @@
 		</ul>
 	</footer>
 
-	<script>
-		var menu = document.getElementById("menu-nav");
-		var links = menu.getElementsByClassName("menu-links");
-		for (var i = 0; i < links.length; i++) {
-			links[i].addEventListener("click", function() {
-				var current = document.getElementsByClassName("active");
-				current[0].className = current[0].className.replace(" active",
-						"");
-				this.className += " active";
-			});
-		}
-	</script>
-
-	<script>
-		function aumentarQtd() {
-			var numero = document.getElementById("qtd").value;
-			var novoNum = numero - (-1);
-			document.getElementById("qtd").value = novoNum;
-		}
-	</script>
-	
-	<script>
-		function diminuirQtd() {
-			var numero = document.getElementById("qtd").value;
-			if (numero > 1) {
-				var novoNum = numero - 1;
-				document.getElementById("qtd").value = novoNum;
-			}
-		}
-	</script>
 </body>
 
 </html>

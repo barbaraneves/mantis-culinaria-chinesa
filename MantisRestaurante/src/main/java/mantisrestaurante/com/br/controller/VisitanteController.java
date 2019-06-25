@@ -46,9 +46,9 @@ public class VisitanteController {
 		return mv;
 	}
 
-	@RequestMapping("/cardapio/entradas")
+	@RequestMapping("/cardapio/{tipo}")
 	public ModelAndView paginaCardapioTipoEntradas() {
-
+		
 		List<Prato> cardapio = visitanteService.tipo("Entradas");
 
 		int qtdItens = 0;
@@ -314,7 +314,7 @@ public class VisitanteController {
 	@RequestMapping("/carrinho/remover-prato/{id}")
 	public ModelAndView exluirPratoCarrinho(@PathVariable Long id) {
 
-		ModelAndView mv = new ModelAndView("redirect:/carrinho/index");
+		ModelAndView mv = new ModelAndView("redirect:/carrinho");
 
 		int index = this.exists(id);
 

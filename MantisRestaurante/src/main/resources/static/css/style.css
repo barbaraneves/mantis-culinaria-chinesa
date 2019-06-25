@@ -177,7 +177,8 @@ div.desc {
 	color: #403b36;
 	line-height: 1.4;
 	margin-left: -18px;
-	margin-bottom: 30px;
+	margin-bottom: 40px;
+	margin-top: 10px;
 	height: 80px;
 }
 
@@ -204,7 +205,7 @@ div.desc-preco {
 	margin-left: 5px;
 	width: 40%;
 	text-align: center;
-	margin-top: 70px;
+	margin-top: 60px;
 	margin-bottom: 5px;
 }
 
@@ -213,8 +214,8 @@ div.editar {
 	color: black;
 	font-size: 13px;
 	margin-left: -25px;
-	margin-bottom: -20px;
-	height: 80px;
+	margin-bottom: -30px;
+	height: 30px;
 	width: 138%;
 }
 
@@ -374,7 +375,7 @@ select:focus {
 }
 
 .cardapio-titulo {
-	margin-left: 15px;
+	margin-left: 5px;
 	font-size: 24px;
 	border-bottom: 2px solid #ce3a3e;
 	padding-bottom: 3px;
@@ -876,7 +877,7 @@ hr {
 	color: white;
 	font-size: 16px;
 	text-align: center;
-	margin-top: -67.5px;
+	margin-top: mohoa-67.5px;
 	padding: 10px;
 }
 

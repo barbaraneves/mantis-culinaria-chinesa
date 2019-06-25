@@ -60,19 +60,19 @@
 
 	<div class="container">
 		<div class="menu">
-			<div class="menu-nav">
-				<ul id="menu-nav">
-					<li><a th:href="@{/area-gerente/cardapio/entradas}" id="link1" class="menu-links active">Entradas</a>
+			<div class="menu-nav" style="margin-right: 30px;">
+				<ul th:each="prato : ${cardapio}" th:if="${prato.preco} == 10.00">
+					<li><a th:href="@{/cardapio/entradas}" class="menu-links" th:classappend="${prato.tipo} == 'Entradas' ? active">Entradas</a>
 					</li>
-					<li><a th:href="@{/area-gerente/cardapio/frango}" id="link2" class="menu-links">Frango</a>
+					<li><a th:href="@{/cardapio/frango}" class="menu-links" th:classappend="${prato.tipo} == 'Frango' ? active">Frango</a>
 					</li>
-					<li><a th:href="@{/area-gerente/cardapio/carne}" id="link3" class="menu-links">Carne</a></li>
-					<li><a th:href="@{/area-gerente/cardapio/peixes-e-camaroes}" id="link4" class="menu-links">Peixes
+					<li><a th:href="@{/cardapio/carne}" class="menu-links" th:classappend="${prato.tipo} == 'Carne' ? active">Carne</a></li>
+					<li><a th:href="@{/cardapio/peixes-e-camaroes}" class="menu-links" th:classappend="${prato.tipo} == 'Peixes' ? active">Peixes
 							e Camarões</a></li>
-					<li><a th:href="@{/area-gerente/cardapio/macarroes-e-arroz}" id="link5" class="menu-links">Macarrões
+					<li><a th:href="@{/cardapio/macarroes-e-arroz}" class="menu-links" th:classappend="${prato.tipo} == 'Macarroes' ? active">Macarrões
 							e Arroz</a></li>
-					<li><a th:href="@{/area-gerente/cardapio/sopas}" id="link6" class="menu-links">Sopas</a></li>
-					<li><a th:href="@{/area-gerente/cardapio/sobremesas}" id="link7" class="menu-links">Sobremesas</a>
+					<li><a th:href="@{/cardapio/sopas}" class="menu-links" th:classappend="${prato.tipo} == 'Sopas' ? active">Sopas</a></li>
+					<li><a th:href="@{/cardapio/sobremesas}" class="menu-links" th:classappend="${prato.tipo} == 'Sobremesas' ? active">Sobremesas</a>
 					</li>
 					<li class="menu-search"><input type="text"
 						placeholder="Pesquisar... " id="pesquisaProdutos"> <!--<i class="fas fa-search"></i>-->
@@ -90,7 +90,7 @@
 			</a>
 			<div class="avatar">
 				<a th:href="@{/area-gerente/excluir-prato/{id}(id = ${prato.id})}">
-					<button type="submit">
+					<button type="submit" title="Excluir prato">
 						<i class="fas fa-trash-alt"></i>
 					</button>
 				</a>
@@ -101,7 +101,7 @@
 				<div class="desc-preco"><span th:text="${'R$ ' + prato.preco}"></span></div>
 				 <a
 					th:href="@{/area-gerente/editar-prato/{id}(id = ${prato.id})}" style="text-decoration: none;">
-					<button type="submit">
+					<button type="submit" title="Editar prato">
 						<i class="fas fa-edit"></i> Editar
 					</button>
 				</a>
@@ -123,19 +123,6 @@
 		</ul>
 	</footer>
 
-	<script>
-		var menu = document.getElementById("menu-nav");
-		var links = menu.getElementsByClassName("menu-links");
-
-		for (var i = 0; i < links.length; i++) {
-			links[i].addEventListener("click", function() {
-				var current = document.getElementsByClassName("active");
-				current[0].className = current[0].className.replace(" active",
-						"");
-				this.className += " active";
-			});
-		}
-	</script>
 </body>
 
 </html>

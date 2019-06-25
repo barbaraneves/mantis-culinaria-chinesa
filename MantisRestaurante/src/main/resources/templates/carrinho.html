@@ -181,7 +181,7 @@
 																deseja remover este item?</div>
 															<div class="swal-footer">
 																<div class="swal-button-container">
-																	<a th:href="@{/carrinho/index}"><button
+																	<a th:href="@{/carrinho}"><button
 																			class="swal-button swal-button--cancel" tabindex="0">Cancelar</button></a>
 																</div>
 																<div class="swal-button-container">
@@ -189,7 +189,7 @@
 																		th:href="@{/carrinho/remover-prato/{id}(id = ${carrinho.get(i).getId()})}"><button
 																			class="swal-button swal-button--danger">Remover</button></a>
 																</div>
-															</div>
+															</div> 
 														</div>
 													</div>
 												</div>
