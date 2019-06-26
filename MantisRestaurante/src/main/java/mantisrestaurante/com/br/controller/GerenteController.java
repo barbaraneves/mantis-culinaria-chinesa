@@ -17,12 +17,6 @@ import mantisrestaurante.com.br.service.GerenteService;
 @RequestMapping("/area-gerente")
 public class GerenteController {
 	
-	/*
-	 * O Controller do gerente mostra as páginas que serão visitadas 
-	 * apenas pelo gerente, já que a função dele na aplicação é de 
-	 * cadastrar, editar e remover pratos do cardápio. 
-	 */
-	
 	@Autowired
 	private GerenteService gerenteService;
 	

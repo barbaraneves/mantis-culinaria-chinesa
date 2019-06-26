@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import mantisrestaurante.com.br.model.Prato;
 
 @Repository
-public interface VisitanteRepository extends JpaRepository<Prato, Long> {
+public interface GeralRepository extends JpaRepository<Prato, Long> {
 
 	List<Prato> findByTipo(String tipo);
 }

@@ -189,7 +189,7 @@
 																		th:href="@{/carrinho/remover-prato/{id}(id = ${carrinho.get(i).getId()})}"><button
 																			class="swal-button swal-button--danger">Remover</button></a>
 																</div>
-															</div> 
+															</div>
 														</div>
 													</div>
 												</div>
@@ -221,20 +221,160 @@
 								<div class="modal-dialog modal-dialog-centered" role="document">
 									<div class="modal-content">
 										<div class="modal-header">
-											<h5 class="modal-title" id="modalConfirmaPedidoTitulo">
-												Você precisa está logado para fazer o pedido!</h5>
+											<h5 class="modal-title" id="modalConfirmaPedidoTitulo"
+												style="font-size: 20px;">
+												<i class="fas fa-paper-plane" style="font-size: 25px; color: #ed3237;"></i> Endereço de entrega
+											</h5>
 											<button type="button" class="close" data-dismiss="modal"
 												aria-label="Close">
 												<span aria-hidden="true">&times;</span>
 											</button>
 										</div>
-										<div class="modal-body"></div>
-										<div class="modal-footer"></div>
+										<form action="/pedido/salvar-endereco" method="POST"  style="width: 100%;"
+											class="login-form needs-validation" novalidate>
+											<div class="form-box">
+												<div class="form-box-label">Estado</div>
+												<select name="estado" id="estado" required>
+													<option value="AC">AC - Acre</option>
+													<option value="AL">AL - Alagoas</option>
+													<option value="AP">AP - Amapá</option>
+													<option value="AM">AM - Amazonas</option>
+													<option value="BA">BA - Bahia</option>
+													<option value="CE">CE - Ceará</option>
+													<option value="DF">DF - Distrito Federal</option>
+													<option value="ES">ES - Espírito Santo</option>
+													<option value="GO">GO - Goiás</option>
+													<option value="MA">MA - Maranhão</option>
+													<option value="MT">MT - Mato Grosso</option>
+													<option value="MS">MS - Mato Grosso do Sul</option>
+													<option value="MG">MG - Minas Gerais</option>
+													<option value="PA">PA - Pará</option>
+													<option value="PB">PB - Paraíba</option>
+													<option value="PR">PR - Paraná</option>
+													<option value="PE">PE - Pernambuco</option>
+													<option value="PI">PI - Piauí</option>
+													<option value="RJ">RJ - Rio de Janeiro</option>
+													<option value="RN">RN - Rio Grande do Norte</option>
+													<option value="RS">RS - Rio Grande do Sul</option>
+													<option value="RO">RO - Rondônia</option>
+													<option value="RR">RR - Roraima</option>
+													<option value="SC">SC - Santa Catarina</option>
+													<option value="SP">SP - São Paulo</option>
+													<option value="SE">SE - Sergipe</option>
+													<option value="TO">TO - Tocantis</option>
+												</select>
+											</div>
+
+											<div class="form-box-login-2">
+												<div class="form-box-label-login">Cidade</div>
+												<input type="text" id="cidade" name="cidade"
+													class="form-input-login-2 form-control" required>
+												<div class="valid-feedback"></div>
+												<div class="invalid-feedback">Cidade é obrigatório</div>
+											</div>
+
+											<div class="form-box-login">
+												<div class="form-box-label-login">CEP</div>
+												<input type="text" id="cep" name="cep"
+													class="form-input-login form-control"
+													pattern="(?=.*\d).{9,}" required>
+												<div class="valid-feedback">CEP válido!</div>
+												<div class="invalid-feedback">CEP é obrigatório</div>
+											</div>
+
+											<div class="form-box">
+												<div class="form-box-label">Endereço</div>
+												<input type="text" id="endereco" name=endereco
+													class="form-input form-control" required>
+												<div class="valid-feedback"></div>
+												<div class="invalid-feedback">Endereço é obrigatório</div>
+											</div>
+
+											<div class="form-box-login-3">
+												<div class="form-box-label-login">Número</div>
+												<input type="number" id="numero" name="numero"
+													class="form-input-login-3 form-control" required>
+												<div class="valid-feedback"></div>
+												<div class="invalid-feedback">Número da sua casa é
+													obrigatório</div>
+											</div>
+
+											<div class="form-box-login-4">
+												<div class="form-box-label-login">Bairro</div>
+												<input type="text" id="bairro" name="bairro"
+													class="form-input-login-4 form-control" required>
+												<div class="valid-feedback"></div>
+												<div class="invalid-feedback">Bairro é obrigatório</div>
+											</div>
+
+											<div class="form-box">
+												<div class="form-box-label">Apto, bloco, etc.</div>
+												<input type="text" id="complemento" name="complemento"
+													class="form-input form-control" required>
+												<div class="valid-feedback"></div>
+												<div class="invalid-feedback">Complemento é
+													obrigatório</div>
+											</div>
+
+											<div class="form-box">
+												<div class="form-box-label">Ponto de referência</div>
+												<input type="text" id="referencia" name="referencia"
+													class="form-input">
+											</div>
+											
+											<input type="hidden" name="status" value="Em espera">
+											
+											<div class="form-box">
+												<div class="swal-footer" style="text-align: center;">
+												<div class="swal-button-container">
+													<a th:href="@{/carrinho}"><button
+															class="swal-button swal-button--cancel" tabindex="0">Voltar</button></a>
+												</div>
+												<div class="swal-button-container">
+													<input type="submit" class="swal-button swal-button--danger" style="background-color: #e64942;" value="Salvar">
+												</div>
+											</div>
+											</div>
+										</form>
 									</div>
 								</div>
 							</div>
 						</section>
 					</div>
+				</section>
+			</div>
+		</div>
+
+		<div class="section-container">
+			<div class="pd-carrinho-login">
+				<section class="login-form pd-box">
+					<form method="POST" class="needs-validation" novalidate>
+						<h4 class="login-titulo">IDENTIFICAÇÃO</h4>
+						<br> <span class="pd-login-msg">Informe seu e-mail e
+							senha para continuar</span> <br>
+
+						<div class="form-box">
+							<div class="form-box-label">E-mail</div>
+							<input type="email" name="email" id="email"
+								pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+								class="form-input form-control" required>
+							<div class="valid-feedback">E-mail válido!</div>
+							<div class="invalid-feedback">E-mail incorreto</div>
+						</div>
+
+						<div class="form-box">
+							<div class="form-box-label">Senha</div>
+							<input type="password" name="senha" id="senha"
+								pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+								class="form-input form-control" required>
+							<div class="valid-feedback">Senha válida!</div>
+							<div class="invalid-feedback">Senha incorreta</div>
+						</div>
+
+						<div class="form-box">
+							<input type="submit" value="Continuar">
+						</div>
+					</form>
 				</section>
 			</div>
 		</div>
@@ -254,5 +394,35 @@
 		</ul>
 	</footer>
 
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("#cep").mask('00000-000', {
+				reverse : false
+			});
+		});
+	</script>
+
+	<script>
+		(function() {
+			'use strict';
+			window.addEventListener('load',
+					function() {
+						var forms = document
+								.getElementsByClassName('needs-validation');
+
+						var validation = Array.prototype.filter.call(forms,
+								function(form) {
+									form.addEventListener('submit', function(
+											event) {
+										if (form.checkValidity() === false) {
+											event.preventDefault();
+											event.stopPropagation();
+										}
+										form.classList.add('was-validated');
+									}, false);
+								});
+					}, false);
+		})();
+	</script>
 </body>
 </html>

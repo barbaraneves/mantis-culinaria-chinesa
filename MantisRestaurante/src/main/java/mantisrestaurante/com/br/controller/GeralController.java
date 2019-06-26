@@ -1,6 +1,7 @@
 package mantisrestaurante.com.br.controller;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,19 +11,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import mantisrestaurante.com.br.model.Item;
+import mantisrestaurante.com.br.model.Pedido;
 import mantisrestaurante.com.br.model.Prato;
-import mantisrestaurante.com.br.service.VisitanteService;
+import mantisrestaurante.com.br.service.GeralService;
+import mantisrestaurante.com.br.service.PedidoService;
 
 @Controller
-public class VisitanteController {
-
-	/*
-	 * O Controller do visitante mostra as páginas que serão visitadas tanto pelo
-	 * usuário visitante como pelo usuário cliente.
-	 */
+public class GeralController {
 
 	@Autowired
-	private VisitanteService visitanteService;
+	private GeralService visitanteService;
+	
+	@Autowired
+	private PedidoService pedidoService;
 
 	private List<Item> carrinho = new ArrayList<Item>();
 
@@ -48,7 +49,7 @@ public class VisitanteController {
 
 	@RequestMapping("/cardapio/{tipo}")
 	public ModelAndView paginaCardapioTipoEntradas() {
-		
+
 		List<Prato> cardapio = visitanteService.tipo("Entradas");
 
 		int qtdItens = 0;
@@ -399,4 +400,108 @@ public class VisitanteController {
 		return -1;
 	}
 
+	/** ÁREA DO PEDIDO **/
+	
+	@RequestMapping("/pedido")
+	public ModelAndView informacaoDoPedido() {
+		
+		List<Pedido> pedidos = pedidoService.listarPedidos();
+
+		ModelAndView mv = new ModelAndView("pedido");
+
+		double subTotal = 0;
+		int qtdItens = 0;
+
+		for (Item item : carrinho) {
+			subTotal += item.getPrecoTotal();
+			qtdItens += item.getQtd();
+		}
+
+		if (!carrinho.isEmpty()) {
+			mv.addObject("carrinho", this.carrinho);
+			mv.addObject("subTotal", subTotal);
+			mv.addObject("qtdItens", qtdItens);
+			mv.addObject("pedidos", pedidos);
+		}
+
+		return mv;
+	}
+	
+	@RequestMapping("/pedido/salvar-endereco")
+	public ModelAndView salvarEnderecoPedido(Pedido pedido) {
+		
+		Date data = new Date();
+		
+		ModelAndView mv = new ModelAndView("redirect:/pedido");
+
+		double subTotal = 0;
+		int qtdItens = 0;
+
+		for (Item item : carrinho) {
+			subTotal += item.getPrecoTotal();
+			qtdItens += item.getQtd();
+			
+			Pedido p = new Pedido();
+			
+			p.setId(pedido.getId());
+			p.setIdCliente(pedido.getIdCliente());
+			
+			p.setNomePrato(item.getNomePrato());
+			p.setQtdPrato(item.getQtd());
+			p.setPrecoPrato(item.getPrecoTotal());
+			
+			p.setPrecoTotalPedido(subTotal);
+			
+			p.setEstado(pedido.getEstado());
+			
+			p.setDataPedido(data);
+			p.setCidade(pedido.getCidade());
+			p.setEndereco(pedido.getEndereco());
+			p.setCep(pedido.getCep());
+			p.setNumero(pedido.getNumero());
+			p.setBairro(pedido.getBairro());
+			p.setComplemento(pedido.getComplemento());
+			p.setReferencia(pedido.getReferencia());
+			
+			p.setStatus(pedido.getStatus());
+
+			pedidoService.cadastrarPedido(p);
+		}
+
+		if (!carrinho.isEmpty()) {
+			mv.addObject("carrinho", this.carrinho);
+			mv.addObject("subTotal", subTotal);
+			mv.addObject("qtdItens", qtdItens);
+		}
+
+		return mv;
+	}
+	
+	@RequestMapping("/pedido/realizar-pedido/{id}")
+	public ModelAndView realizarPedido(@PathVariable Long id) {
+		
+		List<Pedido> pedidos = pedidoService.listarPedidos();
+		
+		String concluido = "Concluído";
+	
+		for (Pedido pedido : pedidos) {
+			if (pedido.getStatus() == "Em espera") {
+				System.out.println("funciona");
+				pedidoService.updatePedido(pedido.getId(), id, concluido);
+			}
+		}
+		
+		ModelAndView mv = new ModelAndView("redirect:/meus-pedidos");
+		mv.addObject("pedidos", pedidos);
+		
+		return mv;
+	}
+	
+	@RequestMapping("/meus-pedidos")
+	public ModelAndView paginaPedidos() {
+
+		ModelAndView mv = new ModelAndView("meus-pedidos");
+
+		return mv;
+	}
 }

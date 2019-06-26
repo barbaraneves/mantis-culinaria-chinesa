@@ -6,13 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import mantisrestaurante.com.br.model.Prato;
-import mantisrestaurante.com.br.repository.VisitanteRepository;
+import mantisrestaurante.com.br.repository.GeralRepository;
 
 @Service
-public class VisitanteService {
+public class GeralService {
 	
 	@Autowired
-	private VisitanteRepository visitanteRepository;
+	private GeralRepository visitanteRepository;
 
 	public List<Prato> mostrarCardapio() {
 		return visitanteRepository.findAll();
