@@ -7,14 +7,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import mantisrestaurante.com.br.model.Prato;
-import mantisrestaurante.com.br.repository.GerenteRepository;
+import mantisrestaurante.com.br.repository.PratoRepository;
 import mantisrestaurante.com.br.util.MantisFileUtils;
 
 @Service
-public class GerenteService {
+public class PratoService {
 	
 	@Autowired
-	private GerenteRepository gerenteRepository;
+	private PratoRepository pratoRepository;
 	
 	//Salvando um prato no BD
 	public void cadastrarPrato(Prato prato, MultipartFile imagem) {
@@ -22,26 +22,26 @@ public class GerenteService {
 		String caminho = "imagens/" + prato.getNome() + ".png";
 		MantisFileUtils.salvarImagem(caminho, imagem);
 		
-		gerenteRepository.save(prato);
+		pratoRepository.save(prato);
 	}
 
 	//Retorna todos os pratos presentes no BD
 	public List<Prato> mostrarCardapio() {
-		return gerenteRepository.findAll();
+		return pratoRepository.findAll();
 	}
 	
 	//Mostrar os pratos a partir dos tipos
 	public List<Prato> tipo(String tipo) {
-		return gerenteRepository.findByTipo(tipo);
+		return pratoRepository.findByTipo(tipo);
 	}
 	
 	//Exclui um prato do BD
 	public void excluirPrato(Long id) {
-		gerenteRepository.deleteById(id);
+		pratoRepository.deleteById(id);
 	}
 
 	public Prato buscarPratoPorId(Long id) {
-		return gerenteRepository.getOne(id);
+		return pratoRepository.getOne(id);
 	}
 
 }

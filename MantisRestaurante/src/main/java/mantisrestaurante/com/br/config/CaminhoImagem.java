@@ -12,7 +12,4 @@ public class CaminhoImagem implements WebMvcConfigurer {
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		registry.addResourceHandler("/imagens/**").addResourceLocations("file:imagens/");
 	}
-	
-	
-	
 }

@@ -39,39 +39,49 @@
 
 	<div class="navebar">
 		<div class="navebar-header">
-			<a href="/cardapio"><i class="fas fa-utensils"></i> Cardápio</a> <a
-				href="/sobre"><i class="fas fa-store"></i> Sobre</a> <a
-				href="/contato"><i class="fa fa-envelope"></i> Contato</a> <a
-				href="/home"><img src="/imagens/logo.png" alt
-				class="logo-mobile"></a> <a href="#"><i class="far fa-clock"></i>
-				<span>Aberto até às 23h</span></a> <a class="nav-link dropdown"
-				data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-				aria-expanded="false"><i class="fa fa-fw fa-user"></i> Perfil</a>
-			<div class="dropdown-menu" style="width: 15%; position: relative;">
-				<a class="dropdown-item"
-					style="text-transform: none; font-size: 14px; margin: 0; color: #333; cursor: pointer;"
-					href="/meus-pedidos"><i class="fas fa-receipt"></i> Meus
-					pedidos</a>
-				<div class="dropdown-divider"></div>
-				<a class="dropdown-item"
-					style="text-transform: none; font-size: 14px; margin: 0; color: #333; cursor: pointer;"
-					th:href="@{/meus-dados/editar/{id}}"><i class="fas fa-cog"></i> Editar meus dados</a>
-				<div class="dropdown-divider"></div>
-				<a class="dropdown-item"
-					style="text-transform: none; font-size: 14px; margin: 0; color: #333; cursor: pointer;"
-					href="#"><i class="fas fa-sign-out-alt"></i> Sair</a>
-			</div>
+			<a th:href="@{/cardapio}"><i class="fas fa-utensils"></i>
+				Cardápio</a> <a th:href="@{/sobre}"><i class="fas fa-store"></i>
+				Sobre</a> <a th:href="@{/contato}"><i class="fa fa-envelope"></i>
+				Contato</a> <a th:href="@{/home}" title="Início"><img src="/imagens/logo.png" alt
+				class="logo-mobile"></a> <a href="#"><i class="far fa-clock" title="Todos os dias das 11 às 15h e 18 às 23h"></i>
+				<span>Aberto até às 23h</span></a> <a th:href="@{/entrar}"><i
+				class="fas fa-sign-out-alt"></i> Entrar</a>
 		</div>
 	</div>
 
 	<section class="section-pagina">
 		<div class="section-pagina-header">
+			<div class="section-container"></div>
+		</div>
+
+		<div class="section-pagina-content">
 			<div class="section-container">
-				<h1 class="pd-title pd-title--center pd-title--h3 pd-title-background">Meus Pedidos</h1>
+				<section class="pd-c-cart">
+					<div class="pd-c-cart-empty pd-c-cart-empty--show">
+						<h1 class="pd-title pd-title--center pd-title--h3">
+							Seu e-mail ou senha<br>estão incorretos!<br>
+							<i class="fas fa-skull-crossbones"></i>
+						</h1>
+						<br>
+						<a th:href="@{/entrar}" class="pd-c-cart-empty-btn"><i
+				class="fas fa-sign-out-alt"></i> Entrar</a>
+						<form>
+							<div class="form-box">
+								<div class="signin">
+									<p>
+										Não possui uma conta? <br> <a th:href="@{/meus-dados/cadastro}">Faça
+											seu cadastro</a>.
+									</p>
+								</div>
+							</div>
+						</form>
+
+					</div>
+				</section>
 			</div>
 		</div>
 	</section>
-		
+
 	<footer class="rodape">
 		<ul>
 			<li><i class="rodape-item-1 fab fa-whatsapp"></i> (88)

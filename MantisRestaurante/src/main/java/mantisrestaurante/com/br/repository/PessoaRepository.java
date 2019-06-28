@@ -3,9 +3,10 @@ package mantisrestaurante.com.br.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import mantisrestaurante.com.br.model.Cliente;
+import mantisrestaurante.com.br.model.Pessoa;
 
 @Repository
-public interface ClienteRepository extends JpaRepository<Cliente, Long> {
-
+public interface PessoaRepository extends JpaRepository<Pessoa, Long> {
+	
+	Pessoa findByEmail(String Email);
 }

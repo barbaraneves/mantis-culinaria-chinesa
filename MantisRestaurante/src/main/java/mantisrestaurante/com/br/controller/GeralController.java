@@ -47,7 +47,7 @@ public class GeralController {
 		return mv;
 	}
 
-	@RequestMapping("/cardapio/{tipo}")
+	@RequestMapping("/cardapio/entradas")
 	public ModelAndView paginaCardapioTipoEntradas() {
 
 		List<Prato> cardapio = visitanteService.tipo("Entradas");
@@ -237,7 +237,7 @@ public class GeralController {
 	@RequestMapping("/entrar")
 	public ModelAndView paginaLogin() {
 
-		ModelAndView mv = new ModelAndView("entrar");
+		ModelAndView mv = new ModelAndView("login");
 
 		int qtdItens = 0;
 
@@ -246,6 +246,14 @@ public class GeralController {
 		}
 
 		mv.addObject("qtdItens", qtdItens);
+
+		return mv;
+	}
+	
+	@RequestMapping("/erro-login")
+	public ModelAndView redirecionarCliente() {
+
+		ModelAndView mv = new ModelAndView("erro-login");
 
 		return mv;
 	}
@@ -402,7 +410,7 @@ public class GeralController {
 
 	/** ÁREA DO PEDIDO **/
 	
-	@RequestMapping("/pedido")
+	@RequestMapping("/meus-dados/pedido")
 	public ModelAndView informacaoDoPedido() {
 		
 		List<Pedido> pedidos = pedidoService.listarPedidos();
@@ -427,12 +435,12 @@ public class GeralController {
 		return mv;
 	}
 	
-	@RequestMapping("/pedido/salvar-endereco")
+	@RequestMapping("/meus-dados/pedido/salvar-endereco")
 	public ModelAndView salvarEnderecoPedido(Pedido pedido) {
 		
 		Date data = new Date();
 		
-		ModelAndView mv = new ModelAndView("redirect:/pedido");
+		ModelAndView mv = new ModelAndView("redirect:/meus-dados/pedido");
 
 		double subTotal = 0;
 		int qtdItens = 0;
@@ -477,27 +485,7 @@ public class GeralController {
 		return mv;
 	}
 	
-	@RequestMapping("/pedido/realizar-pedido/{id}")
-	public ModelAndView realizarPedido(@PathVariable Long id) {
-		
-		List<Pedido> pedidos = pedidoService.listarPedidos();
-		
-		String concluido = "Concluído";
-	
-		for (Pedido pedido : pedidos) {
-			if (pedido.getStatus() == "Em espera") {
-				System.out.println("funciona");
-				pedidoService.updatePedido(pedido.getId(), id, concluido);
-			}
-		}
-		
-		ModelAndView mv = new ModelAndView("redirect:/meus-pedidos");
-		mv.addObject("pedidos", pedidos);
-		
-		return mv;
-	}
-	
-	@RequestMapping("/meus-pedidos")
+	@RequestMapping("/meus-dados/meus-pedidos")
 	public ModelAndView paginaPedidos() {
 
 		ModelAndView mv = new ModelAndView("meus-pedidos");

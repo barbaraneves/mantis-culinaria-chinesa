@@ -81,7 +81,39 @@
 				<section class="pd-c-cart">
 					<div>
 						<section class="pd-c-cart-container">
-							<div class="pd-c-cart-list">
+							<div class="pd-c-cart-list" th:each="pedido : ${pedidos}">
+								<table>
+									<thead>
+										<tr class="pd-c-cart-list-header">
+											<td>Número do pedido</td>
+											<td>Data do pedido</td>
+										</tr>
+									</thead>
+									<tbody>
+										<tr class="pd-c-cart-list-item">
+											<td th:text="${pedido.id}"></td>
+											<td th:text="${pedido.dataPedido}"></td>
+										</tr>
+									</tbody>
+								</table>
+								<table>
+									<thead>
+										<tr class="pd-c-cart-list-header">
+											<td>Entrega em</td>
+										</tr>
+									</thead>
+									<tbody>
+										<tr class="pd-c-cart-list-item">
+											<td>
+												<span th:text="${pedido.endereco}"></span>,
+												<span th:text="${pedido.numero}"></span> 
+												<span th:text="${pedido.complemento}"></span> - 
+												<span th:text="${pedido.bairro}"></span> - 
+												<span th:text="${pedido.cidade}"></span>/<span th:text="${pedido.estado}"></span>,
+											</td>
+										</tr>
+									</tbody>
+								</table>
 								<table>
 									<thead>
 										<tr class="pd-c-cart-list-header">

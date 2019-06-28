@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<html lang="pt-br"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+	xmlns:th="http://www.thymeleaf.org">
 
 <head>
 <meta charset="UTF-8">
@@ -41,9 +43,10 @@
 				Sobre</a> <a th:href="@{/contato}"><i class="fa fa-envelope"></i>
 				Contato</a> <a th:href="@{/home}"><img src="/imagens/logo.png" alt
 				class="logo-mobile"></a> <a href="#"><i class="far fa-clock"></i>
-				<span>Aberto até às 23h</span></a> <a class="nav-link dropdown"
-				data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-				aria-expanded="false"><i class="fa fa-fw fa-user"></i> Perfil</a>
+				<span>Aberto até às 23h</span></a> <a th:href="@{/entrar}" sec:authorize="!isAuthenticated()"><i class="fas fa-sign-out-alt"></i> Entrar</a> <a class="nav-link dropdown"
+				sec:authorize="hasRole('ROLE_USER')" data-toggle="dropdown" href="#"
+				role="button" aria-haspopup="true" aria-expanded="false"><i
+				class="fa fa-fw fa-user"></i> Perfil</a>
 			<div class="dropdown-menu" style="width: 15%; position: relative;">
 				<a class="dropdown-item"
 					style="text-transform: none; font-size: 14px; margin: 0; color: #333; cursor: pointer;"
@@ -57,7 +60,7 @@
 				<div class="dropdown-divider"></div>
 				<a class="dropdown-item"
 					style="text-transform: none; font-size: 14px; margin: 0; color: #333; cursor: pointer;"
-					th:href="@{/#}"><i class="fas fa-sign-out-alt"></i> Sair</a>
+					href="/logout"><i class="fas fa-sign-out-alt"></i> Sair</a>
 			</div>
 			<a th:href="@{/carrinho}" class="carrinho"> <i
 				class="fas fa-shopping-cart"></i> <span
@@ -66,8 +69,8 @@
 		</div>
 	</div>
 
-	<div class="main ">
-		<div class="home ">
+	<div class="main">
+		<div class="home">
 			<div class="col-confira">
 				<h1>A melhor comida chinesa do Sertão Central</h1>
 				<br>
@@ -79,20 +82,20 @@
 
 			<div class="float-image">
 				<figure>
-					<img src="/imagens/macarrao_chop_suey.png " alt="Chop Suey ">
+					<img src="/imagens/macarrao_chop_suey.png" alt="Chop Suey">
 				</figure>
 			</div>
 		</div>
 	</div>
 
-	<div class="main-ofertas ">
+	<div class="main-ofertas">
 		<h2>Destaques</h2>
 
 		<div class="rows" style="margin-left: 290px">
-			<div class="ofertas-2 ">
+			<div class="ofertas-2">
 				<div class="container-destaques">
-					<img width="350 " height="218 "
-						src="/imagens/rolinho_primavera.jpg " alt="Rolinho Primavera ">
+					<img width="350" height="218"
+						src="/imagens/rolinho_primavera.jpg" alt="Rolinho Primavera">
 					<a href="/cardapio"><div class="overlay-destaques">
 							Rolinho Primavera<br> <span style="color: #d32b28">R$
 								13,50</span>
@@ -100,10 +103,10 @@
 				</div>
 			</div>
 
-			<div class="ofertas-2 ">
-				<div class="container-destaques ">
-					<img width="350 " height="218 " src="/imagens/salada_mista.jpg "
-						alt="Salada Mista "> <a href="/cardapio"><div
+			<div class="ofertas-2">
+				<div class="container-destaques">
+					<img width="350" height="218" src="/imagens/salada_mista.jpg"
+						alt="Salada Mista"> <a href="/cardapio"><div
 							class="overlay-destaques">
 							Salada Mista<br> <span style="color: #d32b28">R$
 								13,50</span>
@@ -111,36 +114,36 @@
 				</div>
 			</div>
 		</div>
+		
 
 
 		<div class="rows" style="width: 100%; margin-left: 80px;">
-			<div class="ofertas-3 ">
-				<div class="container-destaques ">
-					<img width="350 " height="218 " src="/imagens/camarao.jpg "
-						alt="Camarão "> <a href="/cardapio"><div
-							class="overlay-destaques ">
+			<div class="ofertas-3">
+				<div class="container-destaques">
+					<img width="350" height="218" src="/imagens/camarao.jpg"
+						alt="Camarão"> <a href="/cardapio"><div
+							class="overlay-destaques">
 							Camarão<br> <span style="color: #d32b28">R$ 20,00</span>
 						</div></a>
 				</div>
 			</div>
 
-			<div class="ofertas-3 ">
-				<div class="container-destaques ">
-					<img width="350 " height="218 "
-						src="/imagens/frango_ao_molho_curry.jpg " alt="Frango Xadrez ">
-					<a href="/cardapio"><div class="overlay-destaques ">
+			<div class="ofertas-3">
+				<div class="container-destaques">
+					<img width="350" height="218"
+						src="/imagens/frango_ao_molho_curry.jpg" alt="Frango Xadrez">
+					<a href="/cardapio"><div class="overlay-destaques">
 							Frango Xadrez<br> <span style="color: #d32b28">R$
 								20,00</span>
 						</div></a>
 				</div>
-
 			</div>
 
-			<div class="ofertas-3 ">
-				<div class="container-destaques ">
-					<img width="350 " height="218 " src="/imagens/macarrao_bifum.jpg "
-						alt="Macarrão Bifum "> <a href="/cardapio"><div
-							class="overlay-destaques ">
+			<div class="ofertas-3">
+				<div class="container-destaques">
+					<img width="350" height="218" src="/imagens/macarrao_bifum.jpg"
+						alt="Macarrão Bifum"> <a href="/cardapio"><div
+							class="overlay-destaques">
 							Bifum<br> <span style="color: #d32b28">R$ 20,00</span>
 						</div></a>
 				</div>
@@ -149,41 +152,41 @@
 		</div>
 	</div>
 
-	<div class="slide ">
-		<div class="mySlides ">
-			<!--<div class="numbertext ">1 / 3</div>-->
-			<img src="/imagens/large_bifum.jpg " style="width: 100%">
+	<div class="slide">
+		<div class="mySlides">
+			<!--<div class="numbertext">1 / 3</div>-->
+			<img src="/imagens/large_bifum.jpg" style="width: 100%">
 		</div>
 
-		<div class="mySlides ">
-			<!--<div class="numbertext ">2 / 3</div>-->
-			<img src="/imagens/large_camarao.jpg " style="width: 100%">
+		<div class="mySlides">
+			<!--<div class="numbertext">2 / 3</div>-->
+			<img src="/imagens/large_camarao.jpg" style="width: 100%">
 		</div>
 
-		<div class="mySlides ">
-			<!--<div class="numbertext ">3 / 3</div>-->
-			<img src="/imagens/large_frango_frito.jpg " style="width: 100%">
+		<div class="mySlides">
+			<!--<div class="numbertext">3 / 3</div>-->
+			<img src="/imagens/large_frango_frito.jpg" style="width: 100%">
 		</div>
 
 		<!-- Rodapé -->
 
-		<footer class="rodape ">
+		<footer class="rodape">
 			<ul>
-				<li><i class="rodape-item-1 fab fa-whatsapp "></i> (88)
-					9.9287-1532 <i class="rodape-item-2 fas fa-calendar-day "></i>
+				<li><i class="rodape-item-1 fab fa-whatsapp"></i> (88)
+					9.9287-1532 <i class="rodape-item-2 fas fa-calendar-day"></i>
 					Fundado em: Abril de 2008. <i
-					class="rodape-item-3 fas fa-map-marker-alt "></i> Universidade
+					class="rodape-item-3 fas fa-map-marker-alt"></i> Universidade
 					Federal do Ceará.</li>
-				<li><i class="rodape-item-1 fas fa-file-code "></i> Powered by:
+				<li><i class="rodape-item-1 fas fa-file-code"></i> Powered by:
 					Bárbara Stéph. Neves.</li>
-				<li class="rodape-content "><i class="rodape-content "></i>2019
+				<li class="rodape-content"><i class="rodape-content"></i>2019
 					© Todos os direitos reservados.</li>
 			</ul>
 		</footer>
 
 		<!-- Script para o slideshow -->
 		<script>
-			w3.slideshow(".mySlides ", 2000);
+			w3.slideshow(".mySlides", 2000);
 		</script>
 </body>
 

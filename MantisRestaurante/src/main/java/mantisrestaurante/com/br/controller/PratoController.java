@@ -11,17 +11,15 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import mantisrestaurante.com.br.model.Prato;
-import mantisrestaurante.com.br.service.GerenteService;
+import mantisrestaurante.com.br.service.PratoService;
 
 @Controller
 @RequestMapping("/area-gerente")
-public class GerenteController {
+public class PratoController {
 	
 	@Autowired
-	private GerenteService gerenteService;
+	private PratoService pratoService;
 	
-	//Para não precisar ir para uma página de sucesso 
-		//sempre que um novo prato for cadastrado
 	@RequestMapping("/cadastrar-pratos")
 	public ModelAndView paginaCadastrarPratos() {
 		
@@ -35,7 +33,7 @@ public class GerenteController {
 	@RequestMapping("/cadastrar-pratos/confirmacao")
 	public ModelAndView cadastrarPratos(Prato prato, @RequestParam(value="imagem") MultipartFile imagem) {
 		
-		gerenteService.cadastrarPrato(prato, imagem);
+		pratoService.cadastrarPrato(prato, imagem);
 		
 		ModelAndView mv = new ModelAndView("redirect:/area-gerente/cardapio");
 		
@@ -45,7 +43,7 @@ public class GerenteController {
 	@RequestMapping("/cardapio")
 	public ModelAndView paginaCardapio() {
 
-		List<Prato> cardapio = gerenteService.tipo("Entradas");
+		List<Prato> cardapio = pratoService.tipo("Entradas");
 
 		ModelAndView mv = new ModelAndView("cardapio-gerente");
 		mv.addObject("cardapio", cardapio);
@@ -56,7 +54,7 @@ public class GerenteController {
 	@RequestMapping("/cardapio/entradas")
 	public ModelAndView paginaCardapioTipoEntradas() {
 		
-		List<Prato> cardapio = gerenteService.tipo("Entradas");
+		List<Prato> cardapio = pratoService.tipo("Entradas");
 
 		ModelAndView mv = new ModelAndView("cardapio-gerente");
 		mv.addObject("cardapio", cardapio);
@@ -67,7 +65,7 @@ public class GerenteController {
 	@RequestMapping("/cardapio/frango")
 	public ModelAndView paginaCardapioTipoFrango() {
 		
-		List<Prato> cardapio = gerenteService.tipo("Frango");
+		List<Prato> cardapio = pratoService.tipo("Frango");
 
 		ModelAndView mv = new ModelAndView("cardapio-gerente");
 		mv.addObject("cardapio", cardapio);
@@ -78,7 +76,7 @@ public class GerenteController {
 	@RequestMapping("/cardapio/carne")
 	public ModelAndView paginaCardapioTipoCarne() {
 
-		List<Prato> cardapio = gerenteService.tipo("Carne");
+		List<Prato> cardapio = pratoService.tipo("Carne");
 
 		ModelAndView mv = new ModelAndView("cardapio-gerente");
 		mv.addObject("cardapio", cardapio);
@@ -89,7 +87,7 @@ public class GerenteController {
 	@RequestMapping("/cardapio/peixes-e-camaroes")
 	public ModelAndView paginaCardapioTipoPeixesECamaroes() {
 
-		List<Prato> cardapio = gerenteService.tipo("Peixes");
+		List<Prato> cardapio = pratoService.tipo("Peixes");
 
 		ModelAndView mv = new ModelAndView("cardapio-gerente");
 		mv.addObject("cardapio", cardapio);
@@ -100,7 +98,7 @@ public class GerenteController {
 	@RequestMapping("/cardapio/macarroes-e-arroz")
 	public ModelAndView paginaCardapioTipoMacarroesEArroz() {
 
-		List<Prato> cardapio = gerenteService.tipo("Macarroes");
+		List<Prato> cardapio = pratoService.tipo("Macarroes");
 
 		ModelAndView mv = new ModelAndView("cardapio-gerente");
 		mv.addObject("cardapio", cardapio);
@@ -111,7 +109,7 @@ public class GerenteController {
 	@RequestMapping("/cardapio/sopas")
 	public ModelAndView paginaCardapioTipoSopas() {
 
-		List<Prato> cardapio = gerenteService.tipo("Sopas");
+		List<Prato> cardapio = pratoService.tipo("Sopas");
 
 		ModelAndView mv = new ModelAndView("cardapio-gerente");
 		mv.addObject("cardapio", cardapio);
@@ -122,7 +120,7 @@ public class GerenteController {
 	@RequestMapping("/cardapio/sobremesas")
 	public ModelAndView paginaCardapioTipoSobremesas() {
 
-		List<Prato> cardapio = gerenteService.tipo("Sobremesas");
+		List<Prato> cardapio = pratoService.tipo("Sobremesas");
 
 		ModelAndView mv = new ModelAndView("cardapio-gerente");
 		mv.addObject("cardapio", cardapio);
@@ -133,7 +131,7 @@ public class GerenteController {
 	@RequestMapping("/excluir-prato/{id}")
 	public ModelAndView excluirPrato(@PathVariable Long id) {
 		
-		gerenteService.excluirPrato(id);
+		pratoService.excluirPrato(id);
 		
 		ModelAndView mv = new ModelAndView("redirect:/area-gerente/cardapio");
 		
@@ -143,7 +141,7 @@ public class GerenteController {
 	@RequestMapping("/editar-prato/{id}")
 	public ModelAndView editarPrato(@PathVariable Long id) {
 		
-		Prato prato = gerenteService.buscarPratoPorId(id);
+		Prato prato = pratoService.buscarPratoPorId(id);
 		
 		ModelAndView mv = new ModelAndView("info-prato");
 		mv.addObject("prato", prato);

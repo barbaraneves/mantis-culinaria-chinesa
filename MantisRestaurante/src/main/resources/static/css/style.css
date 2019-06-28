@@ -877,7 +877,7 @@ hr {
 	color: white;
 	font-size: 16px;
 	text-align: center;
-	margin-top: mohoa-67.5px;
+	margin-top: -67.5px;
 	padding: 10px;
 }
 
@@ -1111,6 +1111,13 @@ tr {
     border-color: inherit;
 }
 
+td {
+    display: table-cell;
+    vertical-align: inherit;
+    overflow: hidden;
+}
+
+
 tbody {
     display: table-row-group;
     vertical-align: middle;
@@ -1135,7 +1142,6 @@ tr.pd-c-cart-list-header td {
     padding-top: 0;
     padding-bottom: 8px;
     background: white;
-    position: relative;
     color: #a3a3a3;
 }
 
