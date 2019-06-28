@@ -220,7 +220,7 @@
 							</div>
 							<button type="submit"
 								style="font-size: 16px; margin-top: 15px; margin-left: 450px;"
-								data-toggle="modal" data-target="#modalConfirmaPedido">Confirmar
+								data-toggle="modal" data-target="#modalConfirmaPedido" sec:authorize="hasRole('ROLE_USER')">Confirmar
 								pedido</button>
 							<!-- Modal 3 -->
 							<div class="modal fade" id="modalConfirmaPedido" tabindex="-1"
@@ -371,7 +371,7 @@
 								</div>
 								<div class="signin">
 									<p>
-										Mas já possui uma conta? <br> <a th:href="@{/entre}">Login aqui!</a>
+										Já possui uma conta? <br> <a th:href="@{/entre}">Login aqui!</a>
 									</p>
 								</div>
 							</div>

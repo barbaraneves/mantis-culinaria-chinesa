@@ -74,8 +74,7 @@
 				<span>Aberto até às 23h</span></a> 
 				
 				<a th:href="@{/entrar}"
-				sec:authorize="!isAuthenticated()"><i
-				class="fas fa-sign-out-alt"></i> Entrar</a> <a class="nav-link dropdown"
+				sec:authorize="!isAuthenticated()"><i class="fas fa-sign-in-alt"></i> Entrar</a> <a class="nav-link dropdown"
 				sec:authorize="hasRole('ROLE_USER')" data-toggle="dropdown" href="#"
 				role="button" aria-haspopup="true" aria-expanded="false"><i
 				class="fa fa-fw fa-user"></i> Perfil</a>
