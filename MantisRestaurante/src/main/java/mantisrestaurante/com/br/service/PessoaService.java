@@ -1,6 +1,10 @@
 package mantisrestaurante.com.br.service;
 
+import java.util.Collection;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -28,5 +32,9 @@ public class PessoaService {
 	
 	public Pessoa buscarPessoaPorEmail(String email) {
 		return pessoaRepository.findByEmail(email);
+	}
+	
+	public List<Pessoa> mostrarPessoas() {
+		return pessoaRepository.findAll();
 	}
 }

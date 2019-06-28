@@ -37,16 +37,43 @@
 	
 </head>
 
-<body>
+<body th:object="${pessoa}">
 
 	<div class="navebar">
 		<div class="navebar-header">
 			<a th:href="@{/cardapio}"><i class="fas fa-utensils"></i>
-				Cardápio</a> <a th:href="@{/sobre}"><i class="fas fa-store"></i>
-				Sobre</a> <a th:href="@{/contato}"><i class="fa fa-envelope"></i>
-				Contato</a> <a th:href="@{/home}" title="Início"><img src="/imagens/logo.png" alt
-				class="logo-mobile"></a> <a href="#" style="cursor: default;" title="Todos os dias das 11 às 15h e 18 às 23h"><i class="far fa-clock"></i>
-				<span>Aberto até às 23h</span></a> <a th:href="@{/entrar}"
+				Cardápio</a> 
+				
+				<a href="/area-gerente/cadastrar-pratos" sec:authorize="hasRole('ROLE_GERENTE')"><i
+				class="fas fa-clipboard-list"></i></i> Cadastrar Pratos</a>
+				
+				<a th:href="@{/sobre}" sec:authorize="!isAuthenticated()"><i class="fas fa-store"></i>
+				Sobre</a> 
+				
+				<a th:href="@{/sobre}" sec:authorize="hasRole('ROLE_USER')"><i class="fas fa-store"></i>
+				Sobre</a> 
+				
+				<a th:href="@{/contato}" sec:authorize="!isAuthenticated()"><i class="fa fa-envelope"></i>
+				Contato</a>
+				
+				<a th:href="@{/contato}" sec:authorize="hasRole('ROLE_USER')"><i class="fa fa-envelope"></i>
+				Contato</a>
+				
+								
+				<a th:href="@{/home}" title="Início"><img src="/imagens/logo.png" alt
+				class="logo-mobile"></a> 
+				
+				<a href="#" sec:authorize="hasRole('ROLE_GERENTE')"><i
+				class="fa fa-fw fa-user"></i> Olá, gerente!</a> <a href="/logout"
+				class="drop-down" sec:authorize="hasRole('ROLE_GERENTE')"><i class="fas fa-sign-out-alt"></i></i> Sair</a>
+				
+				<a href="#" style="cursor: default;" title="Todos os dias das 11 às 15h e 18 às 23h" sec:authorize="hasRole('ROLE_USER')"><i class="far fa-clock"></i>
+				<span>Aberto até às 23h</span></a>
+				
+				<a href="#" style="cursor: default;" title="Todos os dias das 11 às 15h e 18 às 23h" sec:authorize="!isAuthenticated()"><i class="far fa-clock"></i>
+				<span>Aberto até às 23h</span></a> 
+				
+				<a th:href="@{/entrar}"
 				sec:authorize="!isAuthenticated()"><i
 				class="fas fa-sign-out-alt"></i> Entrar</a> <a class="nav-link dropdown"
 				sec:authorize="hasRole('ROLE_USER')" data-toggle="dropdown" href="#"
@@ -55,7 +82,7 @@
 			<div class="dropdown-menu" style="width: 15%; position: relative;">
 				<a class="dropdown-item"
 					style="text-transform: none; font-size: 14px; margin: 0; color: #333; cursor: pointer;"
-					th:href="@{/meus-pedidos}"><i class="fas fa-receipt"></i> Meus
+					th:href="@{/meus-dados/pedidos}"><i class="fas fa-receipt"></i> Meus
 					pedidos</a>
 				<div class="dropdown-divider"></div>
 				<a class="dropdown-item"
@@ -67,19 +94,45 @@
 					style="text-transform: none; font-size: 14px; margin: 0; color: #333; cursor: pointer;"
 					href="/logout"><i class="fas fa-sign-out-alt"></i> Sair</a>
 			</div>
-			<a th:href="@{/carrinho}" class="carrinho" title="Carrinho"> <i
+			<a th:href="@{/carrinho}" class="carrinho" title="Carrinho" sec:authorize="!isAuthenticated()"><i
+				class="fas fa-shopping-cart"></i> <span
+				class="pd-header-nav-miniCart-count" th:text="${qtdItens}" style="margin-right: 11px;"></span>
+			</a>
+			
+			<a th:href="@{/carrinho}" class="carrinho" title="Carrinho" sec:authorize="hasRole('ROLE_USER')"><i
 				class="fas fa-shopping-cart"></i> <span
 				class="pd-header-nav-miniCart-count" th:text="${qtdItens}"></span>
 			</a>
 		</div>
 	</div>
 
-	<div class="horario">
+	<div class="horario" sec:authorize="!isAuthenticated()">
 		<span class="horario-funcionamento"> <span class="relogio-icon">
 				<i class="far fa-clock"></i>
 		</span> <span class="horarios">
 				<h3>Horário de funcionamento</h3>
 				<p>Todos os dias das 11 às 15h e 18 às 23h</p>
+		</span>
+		</span>
+	</div>
+	
+	<div class="horario" sec:authorize="hasRole('ROLE_USER')">
+		<span class="horario-funcionamento"> <span class="relogio-icon">
+				<i class="far fa-clock"></i>
+		</span> <span class="horarios">
+				<h3>Horário de funcionamento</h3>
+				<p>Todos os dias das 11 às 15h e 18 às 23h</p>
+		</span>
+		</span>
+	</div>
+	
+	<div class="horario" sec:authorize="hasRole('ROLE_GERENTE')">
+		<span class="horario-funcionamento"> <span class="relogio-icon">
+				<i class="fas fa-user-cog"></i>
+		</span> <span class="horarios">
+				<h3 style="font-family: 'Varela Round', sans-serif !important;">Gerente
+					do restaurante</h3>
+				<p>Responsável por cadastrar e remover pratos</p>
 		</span>
 		</span>
 	</div>
@@ -101,7 +154,7 @@
 					<li><a th:href="@{/cardapio/sobremesas}" class="menu-links" th:classappend="${prato.tipo} == 'Sobremesas' ? active">Sobremesas</a>
 					</li>
 					<li class="menu-search"><input type="text"
-						placeholder="Pesquisar... " id="pesquisaProdutos"> <!--<i class="fas fa-search"></i>-->
+						placeholder="Pesquisar... " id="pesquisaProdutos"> 
 					</li>
 				</ul>
 			</div>
@@ -115,15 +168,42 @@
 			<a target="_blank"> <img
 				th:src="@{'/imagens/'+${prato.nome}+.png}">
 			</a>
+			<div class="avatar" sec:authorize="hasRole('ROLE_GERENTE')">
+				<a th:href="@{/area-gerente/excluir-prato/{id}(id = ${prato.id})}">
+					<button type="submit" title="Excluir prato">
+						<i class="fas fa-trash-alt"></i>
+					</button>
+				</a>
+			</div>
 			<div class="titulo" th:text="${prato.nome}"></div>
 			<div class="desc" th:text="${prato.descricao}"></div>
+			<div class="preco" sec:authorize="hasRole('ROLE_GERENTE')">
+				<div class="desc-preco"><span th:text="${'R$ ' + prato.preco}"></span></div>
+				 <a
+					th:href="@{/area-gerente/editar-prato/{id}(id = ${prato.id})}" style="text-decoration: none;">
+					<button type="submit" title="Editar prato">
+						<i class="fas fa-edit"></i> Editar
+					</button>
+				</a>
+			</div>
+			
+			<span th:if="${#authorization.expression('hasRole(''ROLE_USER'')')}">
 			<div class="editar">
 				<div class="desc-preco" style="margin-bottom: -5px;"><span th:text="${'R$ ' + prato.preco}" id="preco"></span></div>
 				<button type="submit" style="margin-left: 120px;" title="Adicionar no carrinho">
 					<a th:href="@{/carrinho/adicionar-prato/{id}(id = ${prato.id})}" style="color: white; text-decoration: none;"><i
 						style="font-size: 20px;" class="fas fa-shopping-cart"></i></a>
 				</button>
-			</div>
+			</div></span>
+			
+			<span sec:authorize="!isAuthenticated()">
+			<div class="editar">
+				<div class="desc-preco" style="margin-bottom: -5px;"><span th:text="${'R$ ' + prato.preco}" id="preco"></span></div>
+				<button type="submit" style="margin-left: 120px;" title="Adicionar no carrinho">
+					<a th:href="@{/carrinho/adicionar-prato/{id}(id = ${prato.id})}" style="color: white; text-decoration: none;"><i
+						style="font-size: 20px;" class="fas fa-shopping-cart"></i></a>
+				</button>
+			</div></span>
 		</div>
 	</div>
 

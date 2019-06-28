@@ -29,10 +29,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		.antMatchers("/contato").permitAll()
 		
 		.antMatchers("/entrar").permitAll()
+		.antMatchers("/entrar-gerente").permitAll()
 		.antMatchers("/erro-login").permitAll()
 		
-		.antMatchers("/meus-dados/cadastro").permitAll()
-		.antMatchers("/meus-dados/usuario-cadastrado").permitAll()
+		.antMatchers("/cadastrar").permitAll()
+		.antMatchers("/cadastrar/usuario-cadastrado").permitAll()
 		
 		.antMatchers("/cardapio").permitAll()
 		.antMatchers("/cardapio/entradas").permitAll()
@@ -50,35 +51,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		.antMatchers("/carrinho/prato/diminuir-quantidade/{id}").permitAll()
 		.antMatchers("/carrinho/vazio").permitAll()
 		
-		.antMatchers("/meus-dados/editar/{id}").hasRole("USER")
-		.antMatchers("/meus-dados/pedido").permitAll()
-		.antMatchers("/meus-dados/pedido/salvar-endereco").permitAll()
-		.antMatchers("/meus-dados/pedido/realizar-pedido/{id}").permitAll()
-		.antMatchers("/meus-dados/pedido/meus-pedidos").permitAll()
-				/*
-				 * .antMatchers("/area-gerente/cardapio").hasRole("GERENTE")
-				 * .antMatchers("/area-gerente/cardapio/entradas").permitAll()
-				 * .antMatchers("/area-gerente/cardapio/frango").permitAll()
-				 * .antMatchers("/area-gerente/cardapio/carne").permitAll()
-				 * .antMatchers("/area-gerente/cardapio/peixes-e-camaroes").permitAll()
-				 * .antMatchers("/area-gerente/cardapio/macarroes-e-arroz").permitAll()
-				 * .antMatchers("/area-gerente/cardapio/sopas").permitAll()
-				 * .antMatchers("/area-gerente/cardapio/sobremesas").permitAll()
-				 * .antMatchers("/area-gerente/cadastrar-pratos").permitAll()
-				 * .antMatchers("/area-gerente/cadastrar-pratos/confirmacao").permitAll()
-				 */
-		
 		.anyRequest().authenticated()
 		
-		.and() 
-		
+		.and()
 		.formLogin()
-		.loginPage("/entrar").defaultSuccessUrl("/cardapio").permitAll()
-		.loginPage("/entrar").failureUrl("/erro-login").permitAll()
-
+		.loginPage("/entrar").defaultSuccessUrl("/cardapio").failureUrl("/erro-login").permitAll()
+		
 		.and()
 		.logout()
-		.logoutSuccessUrl("/entrar?sair").logoutSuccessUrl("/home").permitAll()
+		.logoutSuccessUrl("/home")
 		.permitAll();
 	}
 	
@@ -97,12 +78,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	           
 	        	.and()
 	        	.formLogin()
-	        	.loginPage("/entrar").defaultSuccessUrl("/area-gerente/cardapio")
-	        	.loginPage("/entrar").failureUrl("/erro-login")
+	        	.loginPage("/entrar")
+	        	.defaultSuccessUrl("/cardapio")
+	        	.failureUrl("/erro-login")
 	           
 	        	.and()
 	        	.logout()
-	        	.logoutUrl("/entrar?sair")
 	        	.logoutSuccessUrl("/home")
 	        	.deleteCookies("JSESSIONID")
 	           
@@ -131,12 +112,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	           
 	          .and()
 	          .formLogin()
-	          .loginPage("/entrar").defaultSuccessUrl("/area-gerente/cardapio")
-	          .loginPage("/entrar").failureUrl("/erro-login")
+	          .loginPage("/entrar")
+	          .defaultSuccessUrl("/cardapio")
+	          .loginPage("/entrar")
+	          .failureUrl("/erro-login")
 	           
 	          .and()
 	          .logout()
-	          .logoutUrl("/entrar?sair")
 	          .logoutSuccessUrl("/home")
 	          .deleteCookies("JSESSIONID")
 	           

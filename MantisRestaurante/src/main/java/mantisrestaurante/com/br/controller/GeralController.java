@@ -5,6 +5,8 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,9 +14,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 import mantisrestaurante.com.br.model.Item;
 import mantisrestaurante.com.br.model.Pedido;
+import mantisrestaurante.com.br.model.Pessoa;
 import mantisrestaurante.com.br.model.Prato;
 import mantisrestaurante.com.br.service.GeralService;
 import mantisrestaurante.com.br.service.PedidoService;
+import mantisrestaurante.com.br.service.PessoaService;
 
 @Controller
 public class GeralController {
@@ -24,6 +28,9 @@ public class GeralController {
 	
 	@Autowired
 	private PedidoService pedidoService;
+	
+	@Autowired
+	private PessoaService pessoaService;
 
 	private List<Item> carrinho = new ArrayList<Item>();
 
@@ -31,6 +38,14 @@ public class GeralController {
 
 	@RequestMapping("/cardapio")
 	public ModelAndView paginaCardapio() {
+		
+		/*
+		 * Object auth =
+		 * SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		 * UserDetails user = (UserDetails) auth;
+		 * 
+		 * Pessoa pessoa = pessoaService.buscarPessoaPorEmail(user.getUsername());
+		 */
 
 		List<Prato> cardapio = visitanteService.tipo("Entradas");
 
@@ -43,12 +58,21 @@ public class GeralController {
 		ModelAndView mv = new ModelAndView("cardapio");
 		mv.addObject("cardapio", cardapio);
 		mv.addObject("qtdItens", qtdItens);
+		//mv.addObject("pessoa", pessoa);
 
 		return mv;
 	}
 
 	@RequestMapping("/cardapio/entradas")
 	public ModelAndView paginaCardapioTipoEntradas() {
+		
+		/*
+		 * Object auth =
+		 * SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		 * UserDetails user = (UserDetails) auth;
+		 * 
+		 * Pessoa pessoa = pessoaService.buscarPessoaPorEmail(user.getUsername());
+		 */
 
 		List<Prato> cardapio = visitanteService.tipo("Entradas");
 
@@ -61,12 +85,21 @@ public class GeralController {
 		ModelAndView mv = new ModelAndView("cardapio");
 		mv.addObject("cardapio", cardapio);
 		mv.addObject("qtdItens", qtdItens);
+		//mv.addObject("pessoa", pessoa);
 
 		return mv;
 	}
 
 	@RequestMapping("/cardapio/frango")
 	public ModelAndView paginaCardapioTipoFrango() {
+		
+		/*
+		 * Object auth =
+		 * SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		 * UserDetails user = (UserDetails) auth;
+		 * 
+		 * Pessoa pessoa = pessoaService.buscarPessoaPorEmail(user.getUsername());
+		 */
 
 		List<Prato> cardapio = visitanteService.tipo("Frango");
 
@@ -79,12 +112,21 @@ public class GeralController {
 		ModelAndView mv = new ModelAndView("cardapio");
 		mv.addObject("cardapio", cardapio);
 		mv.addObject("qtdItens", qtdItens);
+		//mv.addObject("pessoa", pessoa);
 
 		return mv;
 	}
 
 	@RequestMapping("/cardapio/carne")
 	public ModelAndView paginaCardapioTipoCarne() {
+		
+		/*
+		 * Object auth =
+		 * SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		 * UserDetails user = (UserDetails) auth;
+		 * 
+		 * Pessoa pessoa = pessoaService.buscarPessoaPorEmail(user.getUsername());
+		 */
 
 		List<Prato> cardapio = visitanteService.tipo("Carne");
 
@@ -97,13 +139,21 @@ public class GeralController {
 		ModelAndView mv = new ModelAndView("cardapio");
 		mv.addObject("cardapio", cardapio);
 		mv.addObject("qtdItens", qtdItens);
+		//mv.addObject("pessoa", pessoa);
 
 		return mv;
 	}
 
 	@RequestMapping("/cardapio/peixes-e-camaroes")
 	public ModelAndView paginaCardapioTipoPeixesECamaroes() {
-
+		
+		/*
+		 * Object auth =
+		 * SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		 * UserDetails user = (UserDetails) auth;
+		 * 
+		 * Pessoa pessoa = pessoaService.buscarPessoaPorEmail(user.getUsername());
+		 */
 		List<Prato> cardapio = visitanteService.tipo("Peixes");
 
 		int qtdItens = 0;
@@ -115,12 +165,21 @@ public class GeralController {
 		ModelAndView mv = new ModelAndView("cardapio");
 		mv.addObject("cardapio", cardapio);
 		mv.addObject("qtdItens", qtdItens);
+		//mv.addObject("pessoa", pessoa);
 
 		return mv;
 	}
 
 	@RequestMapping("/cardapio/macarroes-e-arroz")
 	public ModelAndView paginaCardapioTipoMacarroesEArroz() {
+		
+		/*
+		 * Object auth =
+		 * SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		 * UserDetails user = (UserDetails) auth;
+		 * 
+		 * Pessoa pessoa = pessoaService.buscarPessoaPorEmail(user.getUsername());
+		 */
 
 		List<Prato> cardapio = visitanteService.tipo("Macarroes");
 
@@ -133,6 +192,7 @@ public class GeralController {
 		ModelAndView mv = new ModelAndView("cardapio");
 		mv.addObject("cardapio", cardapio);
 		mv.addObject("qtdItens", qtdItens);
+		//mv.addObject("pessoa", pessoa);
 
 		return mv;
 	}
@@ -140,6 +200,14 @@ public class GeralController {
 	@RequestMapping("/cardapio/sopas")
 	public ModelAndView paginaCardapioTipoSopas() {
 
+		/*
+		 * Object auth =
+		 * SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		 * UserDetails user = (UserDetails) auth;
+		 * 
+		 * Pessoa pessoa = pessoaService.buscarPessoaPorEmail(user.getUsername());
+		 */
+		
 		List<Prato> cardapio = visitanteService.tipo("Sopas");
 
 		int qtdItens = 0;
@@ -151,12 +219,21 @@ public class GeralController {
 		ModelAndView mv = new ModelAndView("cardapio");
 		mv.addObject("cardapio", cardapio);
 		mv.addObject("qtdItens", qtdItens);
+		//mv.addObject("pessoa", pessoa);
 
 		return mv;
 	}
 
 	@RequestMapping("/cardapio/sobremesas")
 	public ModelAndView paginaCardapioTipoSobremesas() {
+		
+		/*
+		 * Object auth =
+		 * SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		 * UserDetails user = (UserDetails) auth;
+		 * 
+		 * Pessoa pessoa = pessoaService.buscarPessoaPorEmail(user.getUsername());
+		 */
 
 		List<Prato> cardapio = visitanteService.tipo("Sobremesas");
 
@@ -169,6 +246,7 @@ public class GeralController {
 		ModelAndView mv = new ModelAndView("cardapio");
 		mv.addObject("cardapio", cardapio);
 		mv.addObject("qtdItens", qtdItens);
+		//mv.addObject("pessoa", pessoa);
 
 		return mv;
 	}
@@ -188,6 +266,14 @@ public class GeralController {
 
 	@RequestMapping("/sobre")
 	public ModelAndView paginaSobre() {
+		
+		/*
+		 * Object auth =
+		 * SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		 * UserDetails user = (UserDetails) auth;
+		 * 
+		 * Pessoa pessoa = pessoaService.buscarPessoaPorEmail(user.getUsername());
+		 */
 
 		ModelAndView mv = new ModelAndView("sobre");
 
@@ -198,13 +284,21 @@ public class GeralController {
 		}
 
 		mv.addObject("qtdItens", qtdItens);
+		//mv.addObject("pessoa", pessoa);
 
 		return mv;
 	}
 
 	@RequestMapping("/contato")
 	public ModelAndView paginaContato() {
-
+		
+		/*
+		 * Object auth =
+		 * SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		 * UserDetails user = (UserDetails) auth;
+		 * 
+		 * Pessoa pessoa = pessoaService.buscarPessoaPorEmail(user.getUsername());
+		 */
 		ModelAndView mv = new ModelAndView("contato");
 
 		int qtdItens = 0;
@@ -214,12 +308,21 @@ public class GeralController {
 		}
 
 		mv.addObject("qtdItens", qtdItens);
+		//mv.addObject("pessoa", pessoa);
 
 		return mv;
 	}
 
 	@RequestMapping("/home")
 	public ModelAndView paginaHome() {
+		
+		/*
+		 * Object auth =
+		 * SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		 * UserDetails user = (UserDetails) auth;
+		 * 
+		 * Pessoa pessoa = pessoaService.buscarPessoaPorEmail(user.getUsername());
+		 */
 
 		ModelAndView mv = new ModelAndView("home");
 
@@ -230,6 +333,7 @@ public class GeralController {
 		}
 
 		mv.addObject("qtdItens", qtdItens);
+		//mv.addObject("pessoa", pessoa);
 
 		return mv;
 	}
@@ -262,6 +366,14 @@ public class GeralController {
 
 	@RequestMapping("/carrinho")
 	public ModelAndView paginaCarrinho() {
+		
+		/*
+		 * Object auth =
+		 * SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		 * UserDetails user = (UserDetails) auth;
+		 * 
+		 * Pessoa pessoa = pessoaService.buscarPessoaPorEmail(user.getUsername());
+		 */
 
 		ModelAndView mv = new ModelAndView("carrinho");
 
@@ -281,11 +393,21 @@ public class GeralController {
 			return mv = new ModelAndView("redirect:/carrinho/vazio");
 		}
 
+		//mv.addObject("pessoa", pessoa);
+		
 		return mv;
 	}
 
 	@RequestMapping("/carrinho/vazio")
 	public ModelAndView paginaCarrinhoVazio() {
+		
+		/*
+		 * Object auth =
+		 * SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		 * UserDetails user = (UserDetails) auth;
+		 * 
+		 * Pessoa pessoa = pessoaService.buscarPessoaPorEmail(user.getUsername());
+		 */
 
 		int qtdItens = 0;
 
@@ -295,6 +417,7 @@ public class GeralController {
 
 		ModelAndView mv = new ModelAndView("carrinho-vazio");
 		mv.addObject("qtdItens", qtdItens);
+		//mv.addObject("pessoa", pessoa);
 
 		return mv;
 	}
@@ -410,37 +533,17 @@ public class GeralController {
 
 	/** ÁREA DO PEDIDO **/
 	
-	@RequestMapping("/meus-dados/pedido")
-	public ModelAndView informacaoDoPedido() {
-		
-		List<Pedido> pedidos = pedidoService.listarPedidos();
-
-		ModelAndView mv = new ModelAndView("pedido");
-
-		double subTotal = 0;
-		int qtdItens = 0;
-
-		for (Item item : carrinho) {
-			subTotal += item.getPrecoTotal();
-			qtdItens += item.getQtd();
-		}
-
-		if (!carrinho.isEmpty()) {
-			mv.addObject("carrinho", this.carrinho);
-			mv.addObject("subTotal", subTotal);
-			mv.addObject("qtdItens", qtdItens);
-			mv.addObject("pedidos", pedidos);
-		}
-
-		return mv;
-	}
-	
 	@RequestMapping("/meus-dados/pedido/salvar-endereco")
 	public ModelAndView salvarEnderecoPedido(Pedido pedido) {
 		
+		Object auth = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		UserDetails user = (UserDetails) auth;
+
+		Pessoa pessoa = pessoaService.buscarPessoaPorEmail(user.getUsername());
+		
 		Date data = new Date();
 		
-		ModelAndView mv = new ModelAndView("redirect:/meus-dados/pedido");
+		ModelAndView mv = new ModelAndView("redirect:/meus-dados/pedido-feito");
 
 		double subTotal = 0;
 		int qtdItens = 0;
@@ -452,7 +555,7 @@ public class GeralController {
 			Pedido p = new Pedido();
 			
 			p.setId(pedido.getId());
-			p.setIdCliente(pedido.getIdCliente());
+			p.setIdCliente(pessoa.getId());
 			
 			p.setNomePrato(item.getNomePrato());
 			p.setQtdPrato(item.getQtd());
@@ -485,10 +588,60 @@ public class GeralController {
 		return mv;
 	}
 	
-	@RequestMapping("/meus-dados/meus-pedidos")
+	@RequestMapping("/meus-dados/pedidos")
 	public ModelAndView paginaPedidos() {
+		
+		Object auth = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		UserDetails user = (UserDetails) auth;
+
+		Pessoa pessoa = pessoaService.buscarPessoaPorEmail(user.getUsername());
+		
+		List<Pedido> pedidos = pedidoService.listarPedidos();
 
 		ModelAndView mv = new ModelAndView("meus-pedidos");
+
+		int qtdItens = 0;
+
+		for (Item item : carrinho) {
+			qtdItens += item.getQtd();
+		}
+		
+		mv.addObject("qtdItens", qtdItens);
+		mv.addObject("pessoa", pessoa);
+		mv.addObject("pedidos", pedidos);
+
+		return mv;
+	}
+	
+	@RequestMapping("/meus-dados/pedido-feito")
+	public ModelAndView paginaSucessoPedido() {
+		
+		Object auth = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		UserDetails user = (UserDetails) auth;
+
+		Pessoa pessoa = pessoaService.buscarPessoaPorEmail(user.getUsername());
+		
+		List<Pedido> pedidos = pedidoService.listarPedidos();
+
+		ModelAndView mv = new ModelAndView("sucesso-pedido");
+
+		double subTotal = 0;
+		int qtdItens = 0;
+
+		for (Item item : carrinho) {
+			subTotal += item.getPrecoTotal();
+			qtdItens += item.getQtd();
+			
+			if (!carrinho.isEmpty()) {
+				carrinho.remove(item);
+			}
+		}
+		
+		mv.addObject("carrinho", this.carrinho);
+		mv.addObject("qtdItens", qtdItens);
+		mv.addObject("subTotal", subTotal);
+		mv.addObject("pessoa", pessoa);
+		mv.addObject("pedidos", pedidos);
 
 		return mv;
 	}

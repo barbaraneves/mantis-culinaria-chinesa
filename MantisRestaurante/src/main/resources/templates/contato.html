@@ -35,7 +35,7 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 
-<body>
+<body th:object="${pessoa}">
 	<div class="navebar">
 		<div class="navebar-header">
 			<a th:href="@{/cardapio}"><i class="fas fa-utensils"></i>
@@ -43,14 +43,15 @@
 				Sobre</a> <a th:href="@{/contato}"><i class="fa fa-envelope"></i>
 				Contato</a> <a th:href="@{/home}"><img src="/imagens/logo.png" alt
 				class="logo-mobile"></a> <a href="#"><i class="far fa-clock"></i>
-				<span>Aberto até às 23h</span></a> <a th:href="@{/entrar}" sec:authorize="!isAuthenticated()"><i class="fas fa-sign-out-alt"></i> Entrar</a> <a class="nav-link dropdown"
+				<span>Aberto até às 23h</span></a> <a th:href="@{/entrar}"
+				sec:authorize="!isAuthenticated()"><i class="fas fa-sign-in-alt"></i> Entrar</a> <a class="nav-link dropdown"
 				sec:authorize="hasRole('ROLE_USER')" data-toggle="dropdown" href="#"
 				role="button" aria-haspopup="true" aria-expanded="false"><i
 				class="fa fa-fw fa-user"></i> Perfil</a>
 			<div class="dropdown-menu" style="width: 15%; position: relative;">
 				<a class="dropdown-item"
 					style="text-transform: none; font-size: 14px; margin: 0; color: #333; cursor: pointer;"
-					th:href="@{/meus-pedidos}"><i class="fas fa-receipt"></i> Meus
+					th:href="@{/meus-dados/pedidos}"><i class="fas fa-receipt"></i> Meus
 					pedidos</a>
 				<div class="dropdown-divider"></div>
 				<a class="dropdown-item"
@@ -62,7 +63,11 @@
 					style="text-transform: none; font-size: 14px; margin: 0; color: #333; cursor: pointer;"
 					href="/logout"><i class="fas fa-sign-out-alt"></i> Sair</a>
 			</div>
-			<a th:href="@{/carrinho}" class="carrinho"> <i
+			<a th:href="@{/carrinho}" class="carrinho" sec:authorize="!isAuthenticated()"> <i
+				class="fas fa-shopping-cart"></i> <span
+				class="pd-header-nav-miniCart-count" th:text="${qtdItens}" style="margin-right: 11px;"></span>
+			</a>
+			<a th:href="@{/carrinho}" class="carrinho" sec:authorize="hasRole('ROLE_USER')"> <i
 				class="fas fa-shopping-cart"></i> <span
 				class="pd-header-nav-miniCart-count" th:text="${qtdItens}"></span>
 			</a>

@@ -71,57 +71,23 @@
 		<div class="section-pagina-header">
 			<div class="section-container">
 				<h1
-					class="pd-title pd-title--center pd-title--h3 pd-title-background">Meus
-					Pedidos</h1>
+					class="pd-title pd-title--center pd-title--h3 pd-title-background">Meu
+					Pedido</h1>
 			</div>
 		</div>
 
 		<div class="section-pagina-content">
 			<div class="section-container">
 				<section class="pd-c-cart">
-					<div>
-						<section class="pd-c-cart-container">
-							<div class="card-deck">
-								<div class="card border-danger" style="max-width: 18rem;"
-									th:each="pedido : ${pedidos}"
-									th:if="${pessoa.id == pedido.idCliente}">
-									<div class="card-header">
-										Pedido nº <span th:text="${pedido.id}"></span>
-									</div>
-									<div class="card-body text-danger">
-										<h5 class="card-title"><span th:text="${pedido.qtdPrato}"></span>x <span th:text="${pedido.nomePrato}"></span></h5>
-										<p class="card-text">Data do pedido:<br><span th:text="${pedido.dataPedido}"></span></p>
-										<p class="card-text">Total:<br><span th:text="${'R$ ' + pedido.precoTotalPedido}"></span></p>
-										
-									</div>
-									<div class="card-footer">
-											<small class="text-muted">Status: <span th:text="${pedido.status}"></span></small>
-										</div>
-								</div>
-							</div>
-							<br>
-							<div class="pd-c-cart-list">
-								<table>
-									<thead>
-										<tr class="pd-c-cart-list-header">
-											<td>Endereços:</td>
-										</tr>
-									</thead>
-									<tbody>
-										<tr class="pd-c-cart-list-item" th:each="pedido : ${pedidos}"
-									th:if="${pessoa.id == pedido.idCliente}">
-											<td>
-												<span th:text="${pedido.endereco}"></span>,
-												<span th:text="${pedido.numero}"></span> 
-												<span th:text="${pedido.complemento}"></span> - 
-												<span th:text="${pedido.bairro}"></span> - 
-												<span th:text="${pedido.cidade}"></span>/<span th:text="${pedido.estado}"></span>
-											</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-						</section>
+					<div class="pd-c-cart-empty pd-c-cart-empty--show">
+						<h1 class="pd-title pd-title--center pd-title--h3">
+							Pedido feito<br>com sucesso!<br>
+							<i class="far fa-grin-hearts"></i>
+						</h1>
+						<br> <a href="/cardapio" class="pd-c-cart-empty-btn"><i
+							class="fas fa-angle-double-left"></i> Comprar mais</a> <br><br> <a
+							href="/meus-dados/pedidos" class="pd-c-cart-empty-btn">Meus pedidos <i
+							class="fas fa-angle-double-right"></i></a>
 					</div>
 				</section>
 			</div>
@@ -141,29 +107,5 @@
 				Todos os direitos reservados.</li>
 		</ul>
 	</footer>
-
-	<script>
-		(function() {
-			'use strict';
-			window.addEventListener('load',
-					function() {
-						var forms = document
-								.getElementsByClassName('needs-validation');
-
-						var validation = Array.prototype.filter.call(forms,
-								function(form) {
-									form.addEventListener('submit', function(
-											event) {
-										if (form.checkValidity() === false) {
-											event.preventDefault();
-											event.stopPropagation();
-										}
-										form.classList.add('was-validated');
-									}, false);
-								});
-					}, false);
-		})();
-	</script>
-
 </body>
 </html>

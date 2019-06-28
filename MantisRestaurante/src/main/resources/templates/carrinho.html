@@ -42,18 +42,17 @@
 			<a th:href="@{/cardapio}"><i class="fas fa-utensils"></i>
 				Cardápio</a> <a th:href="@{/sobre}"><i class="fas fa-store"></i>
 				Sobre</a> <a th:href="@{/contato}"><i class="fa fa-envelope"></i>
-				Contato</a> <a th:href="@{/home}" title="Início"><img src="/imagens/logo.png" alt
-				class="logo-mobile"></a> <a href="#" style="cursor: default;" title="Todos os dias das 11 às 15h e 18 às 23h"><i class="far fa-clock"></i>
+				Contato</a> <a th:href="@{/home}"><img src="/imagens/logo.png" alt
+				class="logo-mobile"></a> <a href="#"><i class="far fa-clock"></i>
 				<span>Aberto até às 23h</span></a> <a th:href="@{/entrar}"
-				sec:authorize="!isAuthenticated()"><i
-				class="fas fa-sign-out-alt"></i> Entrar</a> <a class="nav-link dropdown"
+				sec:authorize="!isAuthenticated()"><i class="fas fa-sign-in-alt"></i> Entrar</a> <a class="nav-link dropdown"
 				sec:authorize="hasRole('ROLE_USER')" data-toggle="dropdown" href="#"
 				role="button" aria-haspopup="true" aria-expanded="false"><i
 				class="fa fa-fw fa-user"></i> Perfil</a>
 			<div class="dropdown-menu" style="width: 15%; position: relative;">
 				<a class="dropdown-item"
 					style="text-transform: none; font-size: 14px; margin: 0; color: #333; cursor: pointer;"
-					th:href="@{/meus-dados/meus-pedidos}"><i class="fas fa-receipt"></i> Meus
+					th:href="@{/meus-dados/pedidos}"><i class="fas fa-receipt"></i> Meus
 					pedidos</a>
 				<div class="dropdown-divider"></div>
 				<a class="dropdown-item"
@@ -65,7 +64,11 @@
 					style="text-transform: none; font-size: 14px; margin: 0; color: #333; cursor: pointer;"
 					href="/logout"><i class="fas fa-sign-out-alt"></i> Sair</a>
 			</div>
-			<a th:href="@{/carrinho}" class="carrinho" title="Carrinho"> <i
+			<a th:href="@{/carrinho}" class="carrinho" sec:authorize="!isAuthenticated()"> <i
+				class="fas fa-shopping-cart"></i> <span
+				class="pd-header-nav-miniCart-count" th:text="${qtdItens}" style="margin-right: 11px;"></span>
+			</a>
+			<a th:href="@{/carrinho}" class="carrinho" sec:authorize="hasRole('ROLE_USER')"> <i
 				class="fas fa-shopping-cart"></i> <span
 				class="pd-header-nav-miniCart-count" th:text="${qtdItens}"></span>
 			</a>
@@ -237,7 +240,7 @@
 												<span aria-hidden="true">&times;</span>
 											</button>
 										</div>
-										<form action="/pedido/salvar-endereco" method="POST"
+										<form action="/meus-dados/pedido/salvar-endereco" method="POST"
 											style="width: 100%;" class="login-form needs-validation"
 											novalidate>
 											<div class="form-box">
@@ -330,7 +333,7 @@
 													class="form-input">
 											</div>
 
-											<input type="hidden" name="status" value="Em espera">
+											<input type="hidden" name="status" value="Concluído">
 
 											<div class="form-box">
 												<div class="swal-footer" style="text-align: center;">
@@ -362,7 +365,7 @@
 							<div class="form-box">
 								<div class="signin">
 									<p>
-										Não possui uma conta? <br> <a th:href="@{/meus-dados/cadastro}">Faça
+										Não possui uma conta? <br> <a th:href="@{/cadastrar}">Faça
 											seu cadastro.</a>
 									</p>
 								</div>
